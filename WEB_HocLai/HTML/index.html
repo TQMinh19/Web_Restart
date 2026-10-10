@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3BK SHOP QUẦN ÁO</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../CSS/main.css" />
+  </head>
+
+  <body>
+    <header class="main-header">
+      <div class="header-container">
+        <div class="header-left">
+          <img src="../Image/logo.jpg" alt="Logo" class="logo" />
+        </div>
+        <nav class="header-nav">
+          <div class="nav-top">
+            <ul>
+              <li><a href="shop.html">SHOP</a></li>
+              <li><a href="shop.html">THE ROLLING STONES</a></li>
+              <li><a href="Contacts.html">CONTACT</a></li>
+              <li><a href="aboutus.html">ABOUT US</a></li>
+            </ul>
+          </div>
+          <div class="nav-bottom">
+            <ul>
+              <li class="best-seller"><a href="shop.html">BEST SELLER</a></li>
+            </ul>
+          </div>
+        </nav>
+        <div class="header-right">
+          <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Tìm kiếm..." />
+            <button id="searchBtn"><span class="search-icon">🔍</span></button>
+          </div>
+          <a href="dangnhap.html" class="user-link">
+            <span class="icon user-icon">👤</span>
+          </a>
+          <a href="cart.html" class="cart-link">
+            <span class="icon cart-icon"
+              >🛒<span class="cart-count">0</span></span
+            >
+          </a>
+          <span class="lang-select">Vi</span>
+          <span class="lang-select">En</span>
+        </div>
+      </div>
+
+      <div class="slideshow">
+        <img
+          src="../Image/stussy_logo.jpg"
+          class="slide active"
+          alt="Banner 1"
+        />
+        <img src="../Image/stussy.jpg" class="slide" alt="Banner 2" />
+        <!-- <img src="../Image/logo.jpg" class="slide" alt="Banner 3"> -->
+      </div>
+    </header>
+
+    <section class="hot-deal">
+      <h2>HOT DEAL & SALE</h2>
+      <div class="divider">
+        <span>///</span>
+      </div>
+      <p><strong>Kết Thúc Trong:</strong></p>
+      <div class="countdown">
+        <div id="hours">00</div>
+        <div id="minutes">00</div>
+        <div id="seconds">00</div>
+      </div>
+    </section>
+
+    <!-- Login Checkbox Toggle -->
+    <input type="checkbox" id="loginToggle" class="login-toggle" />
+
+    <!-- Login Modal -->
+    <div class="login-modal">
+      <div class="card">
+        <label for="loginToggle" class="close-btn">&times;</label>
+        <h1 class="title">Đăng nhập</h1>
+        <form id="loginForm" action="#" method="post">
+          <div class="field">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+            />
+          </div>
+          <div class="field">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Mật Khẩu"
+            />
+          </div>
+          <button class="btn login-btn" type="submit">Đăng nhập</button>
+        </form>
+        <div class="social-row">
+          <a class="social google" href="https://www.google.com" target="_blank" rel="noopener">
+            <img src="../Image/goo.png" alt="Google" />
+            Google
+          </a>
+          <a class="social facebook" href="https://www.facebook.com" target="_blank" rel="noopener">
+            <img src="../Image/face.jpg" alt="Facebook" />
+            Facebook
+          </a>
+        </div>
+        <div class="links">
+          <div><a href="quenmatkhau.html">Quên mật khẩu</a></div>
+          <div>hoặc <a href="dangky.html">Đăng ký</a></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../JS/main.js"></script>
+  </body>
+</html>

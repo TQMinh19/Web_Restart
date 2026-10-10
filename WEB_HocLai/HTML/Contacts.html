@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>3BK SHOP - Contacts</title>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../CSS/main.css">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: "Inter", "Segoe UI", sans-serif;
+			color: #1f2937;
+			background: radial-gradient(circle at 12% 8%, #eef2ff 0%, rgba(238, 242, 255, 0) 42%),
+				radial-gradient(circle at 88% 6%, #f3f4f6 0%, rgba(243, 244, 246, 0) 34%),
+				linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+			min-height: 100vh;
+		}
+
+		.page-wrap {
+			max-width: 1320px;
+			margin: 0 auto;
+			padding: 34px 20px 56px;
+		}
+
+		.hero {
+			position: relative;
+			overflow: hidden;
+			background: linear-gradient(145deg, #020202 0%, #090909 62%, #141414 100%);
+			color: #f9fafb;
+			border-radius: 22px;
+			padding: 38px 34px;
+			box-shadow: 0 24px 40px rgba(15, 23, 42, 0.28);
+			margin-bottom: 28px;
+		}
+
+		.hero::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background-image: url("../Image/Swm2fW.png");
+			background-size: cover;
+			background-position: center;
+			filter: grayscale(100%) contrast(98%) brightness(78%) blur(1.2px);
+			transform: scale(1.04);
+			opacity: 0.3;
+			z-index: 0;
+		}
+
+		.hero::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background: linear-gradient(120deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.7) 55%, rgba(0, 0, 0, 0.6) 100%);
+			z-index: 1;
+		}
+
+		.hero h1 {
+			position: relative;
+			z-index: 2;
+			font-size: 44px;
+			letter-spacing: 1px;
+			line-height: 1.06;
+			margin-bottom: 12px;
+		}
+
+		.hero p {
+			position: relative;
+			z-index: 2;
+			max-width: 780px;
+			line-height: 1.65;
+			color: #f3f4f6;
+			font-size: 17px;
+		}
+
+		.hero-eyebrow {
+			position: relative;
+			z-index: 2;
+			display: inline-flex;
+			align-items: center;
+			margin-bottom: 10px;
+			padding: 6px 12px;
+			border: 1px solid rgba(255, 255, 255, 0.26);
+			border-radius: 999px;
+			font-size: 12px;
+			font-weight: 700;
+			letter-spacing: 1.1px;
+			text-transform: uppercase;
+			color: #d1d5db;
+			backdrop-filter: blur(4px);
+		}
+
+		.hero-badges {
+			position: relative;
+			z-index: 2;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px;
+			margin-top: 18px;
+		}
+
+		.hero-badge {
+			padding: 8px 12px;
+			border: 1px solid rgba(255, 255, 255, 0.2);
+			border-radius: 999px;
+			background: rgba(255, 255, 255, 0.07);
+			font-size: 13px;
+			font-weight: 600;
+			color: #e5e7eb;
+		}
+
+		.content-grid {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 20px;
+		}
+
+		.contact-card {
+			background: #fff;
+			border: 1px solid #e5e7eb;
+			border-radius: 18px;
+			padding: 22px 24px;
+			box-shadow: 0 12px 26px rgba(15, 23, 42, 0.08);
+			text-align: left;
+			max-width: none;
+			width: 100%;
+			transition: transform 0.25s ease, box-shadow 0.25s ease;
+		}
+
+		.contact-card:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 18px 30px rgba(15, 23, 42, 0.13);
+		}
+
+		.store-card {
+			grid-column: 1 / -1;
+		}
+
+		.contact-card h2 {
+			font-size: 20px;
+			margin-bottom: 14px;
+			color: #111827;
+		}
+
+		.branch-group {
+			margin-bottom: 14px;
+		}
+
+		.branch-group h3 {
+			font-size: 24px;
+			margin-bottom: 8px;
+			color: #1f2937;
+		}
+
+		.branch-list {
+			list-style: none;
+			display: grid;
+			gap: 8px;
+		}
+
+		.branch-list li {
+			line-height: 1.7;
+			font-size: 18px;
+			color: #374151;
+			margin-bottom: 2px;
+		}
+
+		.contact-inline {
+			margin-top: 12px;
+			line-height: 1.7;
+			font-size: 20px;
+			color: #1f2937;
+		}
+
+		.info-list {
+			list-style: none;
+			display: grid;
+			gap: 12px;
+		}
+
+		.info-list li {
+			padding: 10px 12px;
+			border-radius: 10px;
+			background: #f9fafb;
+			border: 1px solid #edf0f5;
+			line-height: 1.5;
+		}
+
+		.contact-form {
+			display: grid;
+			gap: 10px;
+		}
+
+		.contact-form input,
+		.contact-form textarea {
+			width: 100%;
+			border: 1px solid #d1d5db;
+			border-radius: 10px;
+			padding: 11px 12px;
+			font-size: 14px;
+			font-family: inherit;
+		}
+
+		.contact-form input:focus,
+		.contact-form textarea:focus {
+			outline: none;
+			border-color: #111827;
+			box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.12);
+		}
+
+		.contact-form textarea {
+			min-height: 120px;
+			resize: vertical;
+		}
+
+		.contact-form button {
+			border: none;
+			border-radius: 10px;
+			padding: 12px 16px;
+			font-size: 14px;
+			font-weight: 700;
+			background: #111827;
+			color: #fff;
+			cursor: pointer;
+			transition: transform 0.2s ease, background-color 0.2s ease;
+		}
+
+		.contact-form button:hover {
+			background: #1f2937;
+			transform: translateY(-1px);
+		}
+
+		.helper-list {
+			list-style: none;
+			display: grid;
+			gap: 10px;
+		}
+
+		.helper-list li {
+			border: 1px solid #e5e7eb;
+			background: #f8fafc;
+			border-radius: 10px;
+			padding: 10px 12px;
+			line-height: 1.5;
+			color: #374151;
+		}
+
+		@media (max-width: 860px) {
+			.hero h1 {
+				font-size: 32px;
+			}
+
+			.content-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.branch-group h3 {
+				font-size: 20px;
+			}
+
+			.branch-list li {
+				font-size: 16px;
+			}
+
+			.contact-inline {
+				font-size: 17px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<header class="main-header">
+		<div class="header-container">
+			<div class="header-left">
+				<a href="index.html"><img src="../Image/logo.jpg" alt="Logo" class="logo"></a>
+			</div>
+			<nav class="header-nav">
+				<div class="nav-top">
+					<ul>
+						<li><a href="shop.html">SHOP</a></li>
+						<li><a href="shop.html">THE ROLLING STONES</a></li>
+						<li><a href="Contacts.html">CONTACT</a></li>
+						<li><a href="aboutus.html">ABOUT US</a></li>
+					</ul>
+				</div>
+				<div class="nav-bottom">
+					<ul>
+						<li class="best-seller"><a href="shop.html">BEST SELLER</a></li>
+					</ul>
+				</div>
+			</nav>
+			<div class="header-right">
+				<div class="search-box">
+					<input type="text" id="searchInput" placeholder="Tìm kiếm...">
+					<button id="searchBtn"><span class="search-icon">🔍</span></button>
+				</div>
+				<a href="dangnhap.html" class="user-link">
+					<span class="icon user-icon">👤</span>
+				</a>
+				<a href="cart.html" class="cart-link">
+					<span class="icon cart-icon">🛒<span class="cart-count">0</span></span>
+				</a>
+				<span class="lang-select">Vi</span>
+				<span class="lang-select">En</span>
+			</div>
+		</div>
+	</header>
+
+	<div class="page-wrap">
+		<section class="hero">
+			<span class="hero-eyebrow">Support & Store Network</span>
+			<h1>CONTACT US</h1>
+			<p>
+				Nếu bạn cần hỗ trợ đơn hàng, cần tư vấn size, hoặc muốn hợp tác cùng 3BK SHOP,
+				hãy để lại thông tin. Đội ngũ của chúng tôi sẽ phản hồi sớm nhất có thể.
+			</p>
+			<div class="hero-badges">
+				<span class="hero-badge">Phản hồi nhanh trong ngày</span>
+				<span class="hero-badge">Hỗ trợ online 09:00 - 21:00</span>
+				<span class="hero-badge">Tư vấn sản phẩm theo nhu cầu</span>
+			</div>
+		</section>
+
+		<section class="content-grid">
+			<article class="contact-card store-card">
+				<h2>Hệ thống Cửa Hàng</h2>
+
+				<div class="branch-group">
+					<h3>📍 Chi Nhánh Hồ Chí Minh</h3>
+					<ul class="branch-list">
+						<li><strong>Phường Sài Gòn</strong> - The New Playground, Tầng B1 Vincom Center Đông Khương, 72 Lê Thánh Tôn.</li>
+						<li><strong>Phường An Lạc</strong> - Tầng 1 TTTM Aeon Mall Bình Tân, số 1 đường số 17A.</li>
+						<li><strong>Phường Long Bình</strong> - Tầng 2 TTTM Vincom Mega Mall Grand Park.</li>
+										<li><strong>Phường Hòa Hưng</strong> - 561 Số Văn Hương.</li>
+										<li><strong>Phường Cầu Ông Lãnh</strong> - 160 Nguyễn Cư Trinh.</li>
+										<li><strong>Phường Sài Gòn</strong> - The New Playground, 26 Lý Tự Trọng.</li>
+										<li><strong>Phường Thủ Đức Một</strong> - 28 Yersin.</li>
+					</ul>
+				</div>
+
+				<div class="branch-group">
+					<h3>📍 Chi Nhánh Hà Nội</h3>
+					<ul class="branch-list">
+						<li><strong>Phường Dương Nội</strong> - Tầng 2 TTTM Aeon Mall Hà Đông, Khu đô thị Hoàng Văn Thụ.</li>
+						<li><strong>Phường Mạ Trụ</strong> - Tầng B1 The Garden Shopping Center, Mễ Trì.</li>
+						<li><strong>Phường Cầu Giấy</strong> - 165 Xuân Thuỷ, Cầu Giấy.</li>
+						<li><strong>Phường Hai Bà Trưng</strong> - 191 Bà Triệu, Hai Bà Trưng.</li>
+					</ul>
+				</div>
+
+				<div class="branch-group">
+					<h3>📍 Chi Nhánh Hải Phòng</h3>
+					<ul class="branch-list">
+						<li><strong>Phường An Biên</strong> - Tầng 2 TTTM Aeon Mall Hải Phòng Lê Chân, số 10 Văn Nguyễn Giáp.</li>
+					</ul>
+				</div>
+
+				<div class="contact-inline">
+					<div><strong>📞 Hotline:</strong> 0933 800 190 - 1900252557</div>
+					<div><strong>📧 Email:</strong> csteamdcs@gmail.com</div>
+				</div>
+			</article>
+
+			<article class="contact-card">
+				<h2>Gửi tin nhắn</h2>
+				<form class="contact-form" action="#" method="post">
+					<input type="text" name="name" placeholder="Họ và tên" required>
+					<input type="email" name="email" placeholder="Email" required>
+					<input type="text" name="phone" placeholder="Số điện thoại">
+					<textarea name="message" placeholder="Nội dung cần hỗ trợ..." required></textarea>
+					<button type="submit">Gửi liên hệ!</button>
+				</form>
+			</article>
+
+			<article class="contact-card">
+				<h2>Chính sách hỗ trợ</h2>
+				<ul class="helper-list">
+					<li>Đổi trả linh hoạt theo điều kiện sản phẩm và hóa đơn mua hàng.</li>
+					<li>Hỗ trợ kiểm tra tình trạng đơn qua hotline hoặc email.</li>
+					<li>Tư vấn chọn size phù hợp theo từng dòng sản phẩm.</li>
+					<li>Ưu tiên phản hồi các yêu cầu khách trong khung giờ làm việc.</li>
+				</ul>
+			</article>
+		</section>
+	</div>
+
+	<script src="../JS/main.js"></script>
+</body>
+
+</html>
+

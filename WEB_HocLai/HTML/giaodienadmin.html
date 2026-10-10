@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý sản phẩm</title>
+  <link rel="stylesheet" href="../CSS/giaodienadmin.css">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Quản Lý</h2>
+      <nav><ul>
+        <li><a href="#users">Người dùng</a></li>
+        <li><a href="#categories">Loại sản phẩm</a></li>
+        <li><a href="#products">Sản phẩm</a></li>
+        <li><a href="#orders">Đơn hàng</a></li>
+      </ul></nav>
+    </aside>
+    <main class="main">
+      <section class="admin-meta-card">
+        <div class="admin-meta-header"><h2>Giao diện cho người quản trị</h2><div><span class="admin-demo-note">Demo: admin@3bkshop.vn / admin123</span><button type="button" id="adminLogout" class="btn-back-home">Đăng xuất</button><a href="index.html" class="btn-back-home">Quay về trang chủ</a></div></div>
+        <div class="admin-meta-grid">
+          <div><h3>Thông tin đăng nhập quản trị</h3><p>Tài khoản: Quang Minh</p><p>Vai trò: Super Admin</p><p>Trang đăng nhập: dangnhapadmin.html</p></div>
+          <div><h3>Chức năng theo đề bài</h3><ul><li>Quản lý người dùng</li><li>Quản lý loại và sản phẩm</li><li>Quản lý đơn hàng</li><li>Thống kê mua hàng</li></ul></div>
+        </div>
+      </section>
+
+
+      <section id="users" class="module"><div class="users-admin-card">
+        <h2>Quản lý người dùng</h2>
+        <form id="userForm" class="users-create-form" action="#users" method="get"><input id="userName" type="text" placeholder="Họ tên tài khoản mới" required><input id="userEmail" type="email" placeholder="Email" required><input id="userPhone" type="text" placeholder="Số điện thoại" required><input id="userAddress" type="text" placeholder="Địa chỉ"><button type="submit">Thêm tài khoản</button></form>
+        <form id="userSearchForm" class="users-toolbar" action="#users" method="get"><label for="userSearch" class="users-toolbar-label">Tìm:</label><input id="userSearch" class="users-search-input" type="text" placeholder="Email / tên / số điện thoại"><button class="users-toolbar-action" type="submit">Tìm</button></form>
+        <table class="users-table"><thead><tr><th>ID</th><th>Họ tên</th><th>Email</th><th>Số điện thoại</th><th>Trạng thái</th><th>Thao tác</th></tr></thead><tbody id="usersBody"></tbody></table>
+      </div></section>
+
+      <section id="categories" class="module module-card categories-module"><h2>Quản lý loại sản phẩm</h2><div class="categories-layout">
+        <form class="category-form" action="#categories" method="get"><label for="catName">Tên loại</label><input id="catName" type="text" placeholder="Ví dụ: Áo thun" required><label for="catDesc">Mô tả</label><textarea id="catDesc" placeholder="Mô tả loại sản phẩm"></textarea><div class="category-form-actions"><button class="cat-btn cat-btn-add" type="submit">Thêm</button><button class="cat-btn cat-btn-edit" type="button">Sửa</button><button class="cat-btn cat-btn-delete" type="button">Xóa</button></div></form>
+        <div class="categories-table-wrap"><table class="categories-table"><thead><tr><th>ID</th><th>Tên loại</th><th>Mô tả</th><th>Thao tác</th></tr></thead><tbody id="categoriesBody"></tbody></table></div>
+      </div></section>
+
+      <section id="products" class="module module-card products-module"><h2>Quản lý sản phẩm</h2>
+        <form id="productForm" class="products-form-grid" action="#products" method="get"><input id="productId" type="text" placeholder="Mã sản phẩm" required><input id="productName" type="text" placeholder="Tên sản phẩm" required><select id="productCategory" required><option value="tops">Áo thun</option><option value="bottoms">Quần</option><option value="accessories">Phụ kiện</option><option value="jacket">Áo khoác</option><option value="cap">Mũ</option></select><input id="productUnit" type="text" placeholder="Đơn vị tính" value="cái" required><input id="productStock" type="number" placeholder="Số lượng" min="0" required><input id="productPrice" type="number" placeholder="Giá bán" min="0" required><input id="productImage" type="file" accept="image/*"><select id="productStatus" required><option value="active">Đang bán</option><option value="hidden">Ẩn sản phẩm</option></select><textarea id="productDescription" placeholder="Mô tả sản phẩm"></textarea><div id="productPreview" class="product-preview"></div><div class="products-form-actions"><button type="submit">Thêm sản phẩm</button><button id="productReset" type="button">Làm mới</button></div></form>
+        <table class="products-table"><thead><tr><th>Mã</th><th>Tên</th><th>Loại</th><th>Giá</th><th>Trạng thái</th><th>Hành động</th></tr></thead><tbody id="productsBody"></tbody></table>
+      </section>
+
+      <section id="orders" class="module module-card orders-module"><h2>Quản lý đơn hàng</h2>
+        <form id="orderFilterForm" class="orders-filters" action="#orders" method="get"><div class="orders-filter-item"><label>Từ ngày</label><input id="orderFrom" type="date"></div><div class="orders-filter-item"><label>Đến ngày</label><input id="orderTo" type="date"></div><div class="orders-filter-item"><label>Trạng thái</label><select id="orderStatus"><option value="">Tất cả</option><option value="pending">Chưa xác nhận</option><option value="confirmed">Đã xác nhận</option><option value="delivered">Đã giao thành công</option><option value="completed">Hoàn tất</option><option value="cancelled">Hủy đơn</option></select></div><input id="orderLocation" type="text" placeholder="Quận / huyện / thành phố"><button class="orders-search-btn" type="submit">Tra cứu</button></form>
+        <table class="orders-table"><thead><tr><th>Mã đơn</th><th>Khách hàng</th><th>Ngày đặt</th><th>Tổng tiền</th><th>Trạng thái</th><th>Thao tác</th></tr></thead><tbody id="ordersBody"></tbody></table>
+        <div class="admin-meta-card"><h3>Thống kê khách hàng</h3><form id="statsForm"><input id="statsFrom" type="date"><input id="statsTo" type="date"><button type="submit">Thống kê</button></form><div id="statsBody"></div></div>
+        <section id="order-detail-panel" class="admin-order-detail" hidden aria-live="polite"><div class="admin-order-detail-header"><h3>Chi tiết đơn hàng</h3><button type="button" data-order-detail-close>Đóng</button></div><div id="orderDetailContent"></div></section>
+      </section>
+    </main>
+  </div>
+  <script src="../JS/static-data.js"></script>
+  <script src="../JS/admin.js"></script>
+</body>
+</html>

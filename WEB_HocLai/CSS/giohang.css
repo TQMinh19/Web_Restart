@@ -1,0 +1,414 @@
+/* ========================================================
+   1. RESET & BIẾN GLOBAL (CÀI ĐẶT CHUNG)
+   ======================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+}
+
+.giohang {
+  max-width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  min-height: 90px;
+  padding: 8px 20px;
+  gap: 20px;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
+.giohang3bk {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ========================================================
+   2. HEADER / THANH ĐIỀU HƯ�NG
+   ======================================================== */
+.thanhtoan {
+  max-width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  min-height: 90px;
+  padding: 8px 20px;
+  gap: 20px;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
+.logothanhtoan {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  height: 70px;
+  width: auto;
+  display: block;
+}
+
+.header-nav {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.nav-top ul,
+.nav-bottom ul {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding-left: 0;
+}
+
+.nav-bottom ul {
+  margin-top: 8px;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 10px 8px;
+  transition: color 0.3s;
+}
+
+.header-nav a:hover {
+  color: #a89e9e;
+}
+
+.header-nav .best-seller a {
+  color: #e74c3c;
+  font-weight: 700;
+}
+
+.header-nav .best-seller a:hover {
+  color: #d15749;
+}
+
+.timkiem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 5px 10px;
+  background-color: white;
+  transition: all 0.3s ease;
+  width: 222px;
+}
+
+.search-box:hover {
+  border-color: #999;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-box:focus-within {
+  border-color: #999;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  background-color: white;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  padding: 5px;
+  width: 100%;
+  font-size: 13px;
+  background-color: white;
+  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+}
+
+.search-box input::placeholder {
+  color: #999;
+  font-weight: 400;
+}
+
+.search-box button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #999;
+  transition: color 0.3s;
+  padding: 0 5px;
+  flex-shrink: 0;
+}
+
+.search-box button:hover {
+  color: #333;
+}
+
+.user-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.icon {
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+}
+
+.cart-icon {
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.cart-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.lang-select {
+  cursor: pointer;
+  font-size: 17px;
+  color: #333;
+  font-weight: 600;
+}
+
+.lang-select:hover {
+  color: #a89e9e;
+}
+
+/* ========================================================
+   3. BỐ CỤC CHÍNH (CONTAINER & LAYOUT)
+   ======================================================== */
+.container {
+  background: #fff;
+  width: 900px;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+  margin: 40px auto;
+}
+
+/* Bố cục 2 cột */
+.layout {
+  display: flex;
+  gap: 25px;
+}
+
+/* Cột tr�i */
+.left {
+  width: 55%;
+}
+
+/* Cột phải */
+.right {
+  width: 45%;
+}
+
+/* ========================================================
+   4. FORM NHẬP LIỆU (BÊN TRÁI)
+   ======================================================== */
+.left label {
+  font-weight: 600;
+  margin: 8px 0 4px;
+  display: block;
+}
+
+.left input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* ----- ĐỊA CHỈ CÓ SẴN ----- */
+#saved-address {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  font-size: 15px;
+  color: #333;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+#saved-address:hover {
+  border-color: #888;
+}
+
+#saved-address:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+  outline: none;
+}
+
+/* ========================================================
+   5. Đ� N HÀNG & THANH TOÁN (BÊN PHẢI)
+   ======================================================== */
+.cart-box table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.cart-box table th,
+.cart-box table td {
+  padding: 8px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+/* Thanh to�n */
+.payment-box label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* ========================================================
+   6. NÚT BẤM (BUTTONS)
+   ======================================================== */
+/* Nút đặt hàng (Khai b�o lần 1) */
+.btn-order {
+  width: 100%;
+  padding: 12px;
+  background: #ff4b2b;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  margin-top: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-order:hover {
+  background: #e63e1e;
+}
+
+/* Nút đặt hàng (Khai b�o lần 2 - Ghi đè lần 1) */
+.btn-order {
+  display: inline-block;
+  text-align: center;
+  padding: 12px 20px;
+  background: #ec0c0c;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-order:hover {
+  background: #ec0c0c;
+}
+
+.btn-back {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.btn-back:hover {
+  background: #444;
+}
+
+/* ========================================================
+   7. TRANG THÔNG BÁO THÀNH CÔNG
+   ======================================================== */
+.success-box {
+  width: 500px;
+  margin: 100px auto;
+  text-align: center;
+  padding: 30px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.success-box h1 {
+  color: #28a745;
+  margin-bottom: 15px;
+}
+
+.order-summary-box {
+  width: min(980px, calc(100% - 32px));
+}
+
+.order-note {
+  text-align: center;
+  margin-bottom: 16px;
+  color: #555;
+}
+
+.order-meta {
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background: #fafafa;
+  padding: 14px;
+  margin-bottom: 18px;
+  display: grid;
+  gap: 8px;
+}

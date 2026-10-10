@@ -1,0 +1,207 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #0b0b0b;
+  position: relative;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('../Image/wallpaper2.jpg') center center / cover no-repeat;
+  filter: blur(2px) brightness(0.5);
+  transform: scale(1.03);
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: -1;
+}
+
+.card {
+  background: transparent;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-container {
+  width: 360px;
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+  padding: 32px 24px;
+}
+
+.title {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 18px;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.error-msg {
+  background-color: rgba(255, 107, 107, 0.2);
+  border: 1px solid rgba(255, 107, 107, 0.5);
+  color: #c41e3a;
+  padding: 12px 14px;
+  border-radius: 6px;
+  margin: 0 0 16px;
+  font-size: 14px;
+}
+
+.error-msg.success-msg {
+  background-color: rgba(76, 175, 80, 0.2);
+  border-color: rgba(76, 175, 80, 0.5);
+  color: #2e7d32;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="tel"],
+.form-group input[type="text"] {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 10px 12px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 13px;
+  color: #ffffff;
+  font-weight: 500;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.form-group input[type="email"]::placeholder,
+.form-group input[type="password"]::placeholder,
+.form-group input[type="tel"]::placeholder,
+.form-group input[type="text"]::placeholder {
+  color: #999999;
+  font-weight: 400;
+}
+
+.form-group input:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: rgba(34, 60, 92, 0.45);
+  box-shadow: 0 0 0 3px rgba(67, 96, 138, 0.12);
+}
+
+.form-group small {
+  font-size: 11px;
+  color: #ffffff;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.register-btn {
+  width: 100%;
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.register-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.register-btn:focus-visible {
+  outline: 2px solid rgba(67, 96, 138, 0.45);
+  outline-offset: 2px;
+}
+
+.links {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 13px;
+  color: #cccccc;
+}
+
+.links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.links a:hover {
+  color: #cccccc;
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 16px;
+  }
+
+  .login-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 28px 18px;
+    border-radius: 12px;
+  }
+
+  .title {
+    font-size: 28px;
+    margin-bottom: 18px;
+  }
+
+  .form-group input[type="email"],
+  .form-group input[type="password"],
+  .form-group input[type="tel"],
+  .form-group input[type="text"] {
+    min-height: 48px;
+    padding: 0 12px;
+  }
+
+  .register-btn {
+    padding: 11px;
+    font-size: 15px;
+  }
+}

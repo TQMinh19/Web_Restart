@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3BK SHOP QUẦN ÁO</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../CSS/shop.css" />
+  </head>
+
+  <body>
+    <header class="main-header">
+      <div class="header-container">
+        <div class="header-left">
+          <a href="index.html"
+            ><img src="../Image/logo.jpg" alt="Logo" class="logo"
+          /></a>
+        </div>
+        <nav class="header-nav">
+          <div class="nav-top">
+            <ul>
+              <li><a href="shop.html">SHOP</a></li>
+              <li><a href="shop.html">THE ROLLING STONES</a></li>
+              <li><a href="Contacts.html">CONTACT</a></li>
+              <li><a href="aboutus.html">ABOUT US</a></li>
+            </ul>
+          </div>
+          <div class="nav-bottom">
+            <ul>
+              <li class="best-seller"><a href="shop.html">BEST SELLER</a></li>
+            </ul>
+          </div>
+        </nav>
+        <div class="header-right">
+          <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Tìm kiếm..." />
+            <button id="searchBtn"><span class="search-icon">🔍</span></button>
+          </div>
+          <a href="dangnhap.html" class="user-link">
+            <span class="icon user-icon">👤</span>
+          </a>
+          <a href="giohang.html" class="cart-link">
+            <span class="icon cart-icon"
+              >🛒<span class="cart-count">0</span></span
+            >
+          </a>
+          <span class="lang-select">Vi</span>
+          <span class="lang-select">En</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="banner-section">
+      <img src="../Image/back.jpg" alt="Banner" class="banner-image" />
+    </div>
+
+    <section class="advanced-search-section">
+      <div class="advanced-search-row">
+        <input
+          type="text"
+          id="advancedKeyword"
+          class="adv-input keyword"
+          placeholder="Tên sản phẩm..."
+        />
+
+        <select id="advancedCategory" class="adv-input select">
+          <option value="">Loại</option>
+          <option value="tops">Top (TEE)</option>
+          <option value="bottoms">Bottom (Quần)</option>
+          <option value="accessories">Accessories</option>
+          <option value="jacket">Jacket / Hoodie / Sweater</option>
+          <option value="cap">Cap (Mũ)</option>
+        </select>
+
+        <select id="advancedBrand" class="adv-input select">
+          <option value="">Hãng</option>
+          <option value="stussy">Stussy</option>
+          <option value="other">Khác</option>
+        </select>
+
+        <div class="price-range-group">
+          <div class="price-inputs">
+            <input
+              type="number"
+              id="advancedMinPrice"
+              class="adv-input price"
+              min="0"
+              step="1000"
+              value="0"
+            />
+            <span class="price-separator">-</span>
+            <input
+              type="number"
+              id="advancedMaxPrice"
+              class="adv-input price"
+              min="0"
+              step="1000"
+              value="5000000"
+            />
+          </div>
+
+          <div class="range-sliders">
+            <input
+              type="range"
+              id="advancedMinRange"
+              min="0"
+              max="5000000"
+              step="1000"
+              value="0"
+            />
+            <input
+              type="range"
+              id="advancedMaxRange"
+              min="0"
+              max="5000000"
+              step="1000"
+              value="5000000"
+            />
+          </div>
+        </div>
+
+        <button id="advancedSearchBtn" class="advanced-search-btn">
+          Tìm Kiếm
+        </button>
+      </div>
+    </section>
+
+    <div class="collab-section">
+      <span class="collab-tag">Collab</span>
+      <span class="collab-tag">Collab</span>
+      <span class="collab-tag">Collab</span>
+      <span class="collab-tag">Collab</span>
+    </div>
+
+    <div class="products-section">
+      <div id="searchMeta" class="search-meta"></div>
+      <div class="products-container">
+        <a
+          href="chitietsanpham.html?id=1"
+          class="product-item"
+          data-product-id="1"
+        >
+          <div class="product-image">
+            <img src="../Image/VICTORIA TEE.jpg" alt="VICTORIA TEE" />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">VICTORIA TEE</h3>
+            <p class="product-price">1.260.000đ</p>
+          </div>
+        </a>
+        <a
+          href="chitietsanpham.html?id=2"
+          class="product-item"
+          data-product-id="2"
+        >
+          <div class="product-image">
+            <img
+              src="../Image/TEXTURED ZIP HOODED SWEATER.jpg"
+              alt="TEXTURED ZIP HOODED SWEATER"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">TEXTURED ZIP HOODED SWEATER</h3>
+            <p class="product-price">3.750.000đ</p>
+          </div>
+        </a>
+        <a
+          href="chitietsanpham.html?id=3"
+          class="product-item"
+          data-product-id="3"
+        >
+          <div class="product-image">
+            <img
+              src="../Image/BIG_MEATY_TEE_PIGMENT_DYED.jpg"
+              alt="BIG &amp; MEATY TEE PIGMENT DYED"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">BIG &amp; MEATY TEE PIGMENT DYED</h3>
+            <p class="product-price">1.260.000đ</p>
+          </div>
+        </a>
+        <a
+          href="chitietsanpham.html?id=4"
+          class="product-item"
+          data-product-id="4"
+        >
+          <div class="product-image">
+            <img
+              src="../Image/TRUCKER JACKET DENIM.jpg"
+              alt="TRUCKER JACKET DENIM"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">TRUCKER JACKET DENIM</h3>
+            <p class="product-price">3.540.000đ</p>
+          </div>
+        </a>
+        <a
+          href="chitietsanpham.html?id=5"
+          class="product-item"
+          data-product-id="5"
+        >
+          <div class="product-image">
+            <img
+              src="../Image/worldteecamo.png"
+              alt="Stussy World Tour Tee Camo"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Stussy World Tour Tee Camo</h3>
+            <p class="product-price">2.970.000đ</p>
+          </div>
+        </a>
+        <a
+          href="chitietsanpham.html?id=6"
+          class="product-item"
+          data-product-id="6"
+        >
+          <div class="product-image">
+            <img src="../Image/7blacktee.png" alt="Stussy S Mark 7 Black Tee" />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Stussy S Mark 7 Black Tee</h3>
+            <p class="product-price">3.270.000đ</p>
+          </div>
+        </a>
+        <a
+          href="chitietsanpham.html?id=7"
+          class="product-item"
+          data-product-id="7"
+        >
+          <div class="product-image">
+            <img src="../Image/SunsetTeeFOG.png" alt="Stussy Sunset Tee FOG" />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Stussy Sunset Tee FOG</h3>
+            <p class="product-price">3.870.000đ</p>
+          </div>
+        </a>
+        <a
+          href="chitietsanpham.html?id=8"
+          class="product-item"
+          data-product-id="8"
+        >
+          <div class="product-image">
+            <img
+              src="../Image/StussyAmsterdamSweatshirt.png"
+              alt="Stussy Amsterdam Sweatshirt"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Stussy Amsterdam Sweatshirt</h3>
+            <p class="product-price">4.170.000đ</p>
+          </div>
+        </a>
+        <a href="chitietsanpham.html?id=9" class="product-item" data-product-id="9">
+          <div class="product-image"><img src="../Image/Stussy Stock Cuff Beanie Black.png" alt="Stussy Stock Cuff Beanie"></div>
+          <div class="product-info"><h3 class="product-name">Stussy Stock Cuff Beanie</h3><p class="product-price">990.000đ</p></div>
+        </a>
+        <a href="chitietsanpham.html?id=10" class="product-item" data-product-id="10">
+          <div class="product-image"><img src="../Image/Stussy Shorts Black.png" alt="Stussy Shorts Black"></div>
+          <div class="product-info"><h3 class="product-name">Stussy Shorts Black</h3><p class="product-price">1.890.000đ</p></div>
+        </a>
+        <a href="chitietsanpham.html?id=11" class="product-item" data-product-id="11">
+          <div class="product-image"><img src="../Image/pounchbag.png" alt="Stussy Pouch Bag"></div>
+          <div class="product-info"><h3 class="product-name">Stussy Pouch Bag</h3><p class="product-price">1.590.000đ</p></div>
+        </a>
+        <a href="chitietsanpham.html?id=12" class="product-item" data-product-id="12">
+          <div class="product-image"><img src="../Image/keychain8ball.png" alt="Stussy 8 Ball Keychain"></div>
+          <div class="product-info"><h3 class="product-name">Stussy 8 Ball Keychain</h3><p class="product-price">690.000đ</p></div>
+        </a>
+      </div>
+      <div id="searchPagination" class="search-pagination"></div>
+    </div>
+
+    <script src="../JS/static-data.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/shop.js"></script>
+  </body>
+</html>
