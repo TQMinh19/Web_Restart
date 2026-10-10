@@ -31,6 +31,43 @@ phẩm, thông tin rõ ràng và các nút thao tác dễ nhận biết.
 | Email | `admin@3bkshop.vn` |
 | Mật khẩu | `admin123` |
 
+## Hình ảnh giao diện
+
+Các ảnh dưới đây được chụp trực tiếp từ những giao diện đã xây dựng trong
+đồ án:
+
+### Trang chủ
+
+![Giao diện trang chủ](README-images/Trang-chu.png)
+
+Trang chủ giới thiệu thương hiệu, banner, menu điều hướng, tìm kiếm, tài
+khoản, giỏ hàng và chương trình khuyến mãi.
+
+### Trang Shop
+
+![Giao diện Shop](README-images/Shop.png)
+
+Trang Shop hiển thị danh sách sản phẩm để khách hàng tìm kiếm, lọc, xem chi
+tiết và mua hàng.
+
+### Trang giỏ hàng
+
+![Giao diện giỏ hàng](README-images/Gio-hang.png)
+
+Trang giỏ hàng cho phép thay đổi số lượng, xóa sản phẩm và kiểm tra tổng tiền
+trước khi thanh toán.
+
+### Đăng nhập Admin
+
+![Giao diện đăng nhập Admin](README-images/Admin-san-pham.png)
+
+Trang đăng nhập Admin bảo vệ khu vực quản trị trước khi truy cập chức năng
+quản lý dữ liệu.
+
+> Ảnh giao diện được lưu trong thư mục
+> [`README-images`](README-images) để README hiển thị ổn định khi sao chép
+> toàn bộ dự án sang máy khác.
+
 ## Giao diện người dùng
 
 ### Trang chủ
