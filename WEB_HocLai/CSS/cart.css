@@ -302,6 +302,12 @@ h4 {
   border-bottom: 1px solid #a19999;
 }
 
+.cart-empty {
+  margin: 12px 40px 16px;
+  padding: 8px 0;
+  text-align: center;
+}
+
 .cart-header .col-sanpham {
   padding-left: 35px;
 }
