@@ -15,11 +15,43 @@
 
   <body>
     <header class="main-header">
+<<<<<<< HEAD
       <div class="header-container">
         <div class="header-left">
           <a href="index.html"
             ><img src="../Image/logo.jpg" alt="Logo" class="logo"
           /></a>
+=======
+        <div class="header-container">
+            <div class="header-left">
+                <a href="index.html"><img src="../Image/logo.jpg" alt="Logo" class="logo"></a>
+            </div>
+            <nav class="header-nav">
+                <div class="nav-top">
+                    <ul>
+                        <li><a href="shop.html">SHOP</a></li>
+                        <li><a href="shop.html">THE ROLLING STONES</a></li>
+                        <li><a href="Contacts.html">CONTACT</a></li>
+                        <li><a href="aboutus.html">ABOUT US</a></li>
+                    </ul>
+                </div>
+                <div class="nav-bottom">
+                    <ul>
+                        <li class="best-seller"><a href="shop.html">BEST SELLER</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="header-right">
+                <div class="search-box">
+                    <input type="text" placeholder="Tìm kiếm...">
+                    <a href="timkiem.html" aria-label="Mở trang tìm kiếm"><button type="button"><span class="search-icon">🔍</span></button></a>
+                </div>
+                <div class="user-hover-menu"><a href="thongtinkhachhang.html" class="user-link"><span class="icon user-icon">👤</span></a><div class="user-dropdown"><a href="thongtinkhachhang.html">Thông tin tài khoản</a><a href="index.html">Đăng xuất</a></div></div>
+                <a href="cart.html" class="cart-link"><span class="icon cart-icon">🛒<span class="cart-count">0</span></span></a>
+                <span class="lang-select">Vi</span>
+                <span class="lang-select">En</span>
+            </div>
+>>>>>>> d4f205e (Update lai yeu cau do an, Dang nhap, Timkiem, User, Quan ly user, Nut xoa, Gio hang)
         </div>
         <nav class="header-nav">
           <div class="nav-top">
@@ -56,9 +88,102 @@
     </header>
 
     <section class="product-section" data-product-id="">
+<<<<<<< HEAD
       <div class="product-container">
         <div class="product-image">
           <img src="" alt="" class="main-image" />
+=======
+        <div class="product-container">
+            <div class="product-image">
+                <img src="../Image/VICTORIA TEE.jpg" alt="VICTORIA TEE" class="main-image">
+            </div>
+            <div class="product-details">
+                <h1 class="product-name">VICTORIA TEE</h1>
+                <p class="product-price">1.260.000đ</p>
+
+                <div class="product-color">
+                    <p class="color-label">BLACK</p>
+                    
+                        <div class="color-options">
+                            
+                                <img
+                                    src="../Image/VICTORIA TEE.jpg"
+                                    alt="BLACK"
+                                    data-color="BLACK"
+                                    class="color-thumbnail"
+                                >
+                            
+                        </div>
+                    
+                </div>
+
+                
+                    <div class="product-size">
+                        <p class="size-label">SIZE</p>
+                        <div class="size-options">
+                            
+                                <button class="size-btn">M</button>
+                            
+                        </div>
+                    </div>
+                
+
+                <p class="shipping-info">Miễn phí vận chuyển cho đơn hàng từ 2.000.000đ.</p>
+
+                <div class="product-info-links">
+                    <details class="details-dropdown">
+                        <summary class="details-summary">PRODUCT DETAILS →</summary>
+                        <div class="details-content">
+                            <ul>
+                                
+                                    <li>Áo thun cotton form rộng, thiết kế tối giản.</li>
+                                
+                            </ul>
+                        </div>
+                    </details>
+
+                    <details class="details-dropdown">
+                        <summary class="details-summary">SIZE GUIDE →</summary>
+                        <div class="details-content">
+                            
+                                <table class="size-guide-table">
+                                    <thead>
+                                        <tr>
+                                            
+                                                <th></th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                            <tr>
+                                                
+                                                    <td></td>
+                                                
+                                            </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            
+                                <ul>
+                                    
+                                        <li></li>
+                                    
+                                </ul>
+                            
+                                <p></p>
+                            
+                        </div>
+                    </details>
+
+                    <a href="Contacts.html" class="info-link">SHIPPING & RETURNS ></a>
+                </div>
+
+                <p class="chat-link"><a href="Contacts.html">CHAT WITH US</a></p>
+
+                <a href="cart.html" class="add-to-bag-btn" onclick="alert('Đã thêm sản phẩm vào giỏ hàng.');">ADD TO BAG</a>
+            </div>
+>>>>>>> d4f205e (Update lai yeu cau do an, Dang nhap, Timkiem, User, Quan ly user, Nut xoa, Gio hang)
         </div>
         <div class="product-details">
           <h1 class="product-name"></h1>
@@ -128,6 +253,7 @@
     </section>
 
     <script>
+<<<<<<< HEAD
       window.currentProductId = Number(
         new URLSearchParams(window.location.search).get("id") || 0,
       );
@@ -172,4 +298,12 @@
     <script src="../JS/product-detail.js"></script>
     <script src="../JS/main.js?v=20260328-2"></script>
   </body>
+=======
+        window.currentProductId = Number(new URLSearchParams(window.location.search).get("id") || 1);
+    </script>
+    <script src="../JS/static-data.js"></script>
+    <script src="../JS/product-detail.js"></script>
+</body>
+
+>>>>>>> d4f205e (Update lai yeu cau do an, Dang nhap, Timkiem, User, Quan ly user, Nut xoa, Gio hang)
 </html>

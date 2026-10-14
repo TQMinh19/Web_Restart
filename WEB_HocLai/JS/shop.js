@@ -34,57 +34,28 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     if (!allProductItems.length) return;
 
-    applyPricesFromApi(allProductItems)
-        .finally(function () {
-            hydrateProductData(allProductItems);
-            setupAdvancedControls();
-            setupHeaderSearch();
+    hydrateProductData(allProductItems);
+    setupAdvancedControls();
+    setupHeaderSearch();
 
-            const savedQuery = localStorage.getItem('searchQuery');
-            if (savedQuery) {
-                const headerSearch = document.getElementById('searchInput');
-                const advancedKeyword = document.getElementById('advancedKeyword');
+    const savedQuery = localStorage.getItem('searchQuery');
+    if (savedQuery) {
+        const headerSearch = document.getElementById('searchInput');
+        const advancedKeyword = document.getElementById('advancedKeyword');
 
-                searchState.keyword = savedQuery.trim().toLowerCase();
-                if (headerSearch) headerSearch.value = savedQuery;
-                if (advancedKeyword) advancedKeyword.value = savedQuery;
+        searchState.keyword = savedQuery.trim().toLowerCase();
+        if (headerSearch) headerSearch.value = savedQuery;
+        if (advancedKeyword) advancedKeyword.value = savedQuery;
 
-                localStorage.removeItem('searchQuery');
-            }
+        localStorage.removeItem('searchQuery');
+    }
 
-            const hasPageFromUrl = applyStateFromUrl();
-            runSearch(!hasPageFromUrl);
-        });
+    const hasPageFromUrl = applyStateFromUrl();
+    runSearch(!hasPageFromUrl);
 });
 
 function formatVnd(value) {
     return `${Number(value || 0).toLocaleString('vi-VN')}đ`;
-}
-
-async function applyPricesFromApi(items) {
-    try {
-        const response = { ok: false, json: async function () { return {}; } };
-        const data = await response.json();
-        if (!response.ok || !data?.success) {
-            return;
-        }
-
-        const mapById = data.priceMapById || {};
-        items.forEach(function (item) {
-            const productId = String(item.dataset.productId || '').trim();
-            if (!productId || !mapById[productId]) {
-                return;
-            }
-
-            const calculatedPrice = Number(mapById[productId].calculated_price || 0);
-            const priceEl = item.querySelector('.product-price');
-            if (priceEl) {
-                priceEl.textContent = formatVnd(calculatedPrice);
-            }
-        });
-    } catch (error) {
-        // Fallback giữ nguyên giá đang render sẵn trên HTML.
-    }
 }
 
 function applyStateFromUrl() {

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tìm kiếm sản phẩm | 3BK Shop</title>
+  <link rel="stylesheet" href="../CSS/shop.css">
+  <style>
+    .search-page-title { max-width: 1400px; margin: 0 auto; padding: 34px 20px 10px; font-size: 28px; }
+    .search-page-tools { max-width: 1400px; margin: 0 auto; padding: 0 20px 24px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .search-page-tools input, .search-page-tools select { padding: 11px; border: 1px solid #ccc; border-radius: 6px; }
+    .search-page-tools .price-range { display: flex; flex-direction: column; gap: 8px; min-width: 260px; }
+    .search-page-tools .price-fields, .search-page-tools .range-fields { display: flex; align-items: center; gap: 8px; }
+    .search-page-tools input[type="range"] { padding: 0; accent-color: #111; width: 125px; }
+    .search-page-tools .price-fields input { width: 120px; }
+    .search-page-tools button { padding: 11px 18px; border: 0; border-radius: 6px; background: #111; color: #fff; cursor: pointer; }
+    .search-page-products { max-width: 1400px; margin: 0 auto; padding: 0 20px 40px; }
+    .search-page-products .products-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+    @media (max-width: 768px) { .search-page-products .products-container { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+  <header class="main-header"><div class="header-container">
+    <div class="header-left"><a href="index.html"><img src="../Image/logo.jpg" alt="Logo" class="logo"></a></div>
+    <nav class="header-nav"><div class="nav-top"><ul><li><a href="shop.html">SHOP</a></li><li><a href="shop.html">THE ROLLING STONES</a></li><li><a href="Contacts.html">CONTACT</a></li><li><a href="aboutus.html">ABOUT US</a></li></ul></div></nav>
+    <div class="header-right"><div class="search-box"><input id="searchInput" type="text" placeholder="Tìm kiếm..."><a href="timkiem.html" aria-label="Mở trang tìm kiếm"><button type="button" id="searchBtn">🔍</button></a></div><a href="cart.html" class="cart-link">🛒<span class="cart-count">0</span></a></div>
+  </div></header>
+  <h1 class="search-page-title">TRANG TÌM KIẾM</h1>
+  <div class="search-page-tools">
+    <input id="searchKeyword" placeholder="Tên sản phẩm">
+    <select id="searchCategory">
+      <option value="">Loại sản phẩm</option>
+      <option value="tops">Top (TEE)</option>
+      <option value="bottoms">Bottom (Quần)</option>
+      <option value="accessories">Accessories</option>
+      <option value="jacket">Jacket / Hoodie / Sweater</option>
+      <option value="cap">Cap (Mũ)</option>
+    </select>
+    <select id="searchBrand">
+      <option value="">Hãng sản phẩm</option>
+      <option value="stussy">Stussy</option>
+      <option value="other">Khác</option>
+    </select>
+    <div class="price-range">
+      <div class="price-fields"><input id="minPrice" inputmode="numeric" value="0" placeholder="Giá từ"><span>-</span><input id="maxPrice" inputmode="numeric" value="5.000.000" placeholder="Giá đến"></div>
+      <div class="range-fields"><input id="minRange" type="range" min="0" max="5000000" step="1000" value="0" aria-label="Giá thấp nhất"><input id="maxRange" type="range" min="0" max="5000000" step="1000" value="5000000" aria-label="Giá cao nhất"></div>
+    </div>
+    <button id="applySearch">Tìm kiếm</button>
+  </div>
+  <main class="search-page-products"><p id="searchResult" class="search-meta"></p><div id="searchProducts" class="products-container"></div></main>
+  <script src="../JS/static-data.js"></script><script src="../JS/timkiem.js"></script><script src="../JS/main.js"></script>
+</body>
+</html>

@@ -1,7 +1,5 @@
 let currentSlide = 0;
 let slides, dots, totalSlides;
-const hasServerSession = typeof window.serverUserId !== 'undefined' && window.serverUserId !== null;
-let isLoggedIn = hasServerSession || localStorage.getItem('userLoggedIn') === 'true';
 const CART_STORAGE_KEY = 'webstussy_cart';
 
 function readCartItems() {
@@ -48,10 +46,6 @@ function parsePriceNumber(priceText) {
 
 function formatMoneyVnd(value) {
     return `${Number(value || 0).toLocaleString('vi-VN')}đ`;
-}
-
-async function applyDetailPriceFromApi() {
-    return Promise.resolve();
 }
 
 function ensureSizeSelectionUI() {
@@ -169,6 +163,7 @@ function setupAddToCartButtons() {
             event.preventDefault();
             const result = await addCurrentProductToCart();
             if (result.ok) {
+                alert('Đã thêm sản phẩm vào giỏ hàng.');
                 window.location.href = 'cart.html';
             }
         });
@@ -187,195 +182,28 @@ document.addEventListener('DOMContentLoaded', function () {
         updateSlide();
     }, 5000);
 
-    // Initialize login/menu state
-    initializeAuth();
-    setupUserMenu();
-    setupCartAccessGuard();
     setupAddToCartButtons();
-    applyDetailPriceFromApi();
     setupHeaderDropdownMenus();
     updateCartBadges();
 
     // Search functionality
-    const searchInput = document.getElementById('searchInput');
-    const searchBtn = document.getElementById('searchBtn');
-
-    if (searchBtn && searchInput) {
-        searchBtn.addEventListener('click', function (e) {
-            e.preventDefault();
+    document.querySelectorAll('.search-box').forEach((box) => {
+        const searchInput = box.querySelector('input');
+        const searchBtn = box.querySelector('button');
+        if (!searchInput || !searchBtn) return;
+        const submitSearch = function (event) {
             const query = searchInput.value.trim();
-            if (query) {
-                // Store search query in localStorage
-                localStorage.setItem('searchQuery', query);
-                // Redirect to shop page
-                window.location.href = 'shop.html';
-            }
-        });
-
-        // Also allow Enter key to search
-        searchInput.addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                const query = searchInput.value.trim();
-                if (query) {
-                    localStorage.setItem('searchQuery', query);
-                    window.location.href = 'shop.html';
-                }
-            }
-        });
-    }
-
-    // User menu handlers
-    const loginForm = document.getElementById('loginForm');
-    const loginToggle = document.getElementById('loginToggle');
-
-    // Handle login form submission
-    if (loginForm) {
-        const formAction = (loginForm.getAttribute('action') || '').trim();
-        const useServerAuth = formAction !== '' && formAction !== '#';
-
-        if (!useServerAuth) {
-            loginForm.addEventListener('submit', function (e) {
-                e.preventDefault();
-
-                // Get form values
-                const email = document.getElementById('email').value;
-                const password = document.getElementById('password').value;
-
-                // User pages use a simple static/demo login.
-                isLoggedIn = true;
-                localStorage.setItem('userLoggedIn', 'true');
-                localStorage.setItem('userEmail', email);
-
-                if (loginToggle) {
-                    loginToggle.checked = false;
-                }
-
-                initializeAuth();
-                setupUserMenu();
-                loginForm.reset();
-                window.location.href = 'thongtinkhachhang.html';
-            });
-        }
-    }
-});
-
-// Initialize authentication UI based on login state
-function initializeAuth() {
-    const userMenuContainer = document.querySelector('.user-menu-container');
-    const loginToggle = document.getElementById('loginToggle');
-
-    if (isLoggedIn) {
-        // Hide login modal after login
-        if (loginToggle) {
-            loginToggle.checked = false;
-        }
-    } else {
-        if (userMenuContainer) {
-            userMenuContainer.classList.remove('active');
-            userMenuContainer.classList.remove('logged-in');
-        }
-    }
-}
-
-function openLoginUI() {
-    window.location.href = 'dangnhap.html';
-}
-
-function setupUserMenu() {
-    const userIcon = document.querySelector('.user-icon');
-    if (!userIcon) return;
-
-    const serverDropdown = document.querySelector('.user-wrapper .user-dropdown');
-    if (serverDropdown) {
-        const trigger = userIcon.closest('.user-link') || userIcon;
-        if (isLoggedIn && trigger) {
-            trigger.onclick = function (e) {
-                if (trigger.tagName === 'LABEL') {
-                    e.preventDefault();
-                }
-            };
-        }
-        return;
-    }
-
-    ensureUserMenuStyles();
-
-    let trigger = userIcon.closest('.user-link') || userIcon;
-    let userMenuContainer = document.querySelector('.user-menu-container');
-
-    if (!userMenuContainer) {
-        userMenuContainer = document.createElement('div');
-        userMenuContainer.className = 'user-menu-container';
-
-        if (trigger.parentNode) {
-            trigger.parentNode.insertBefore(userMenuContainer, trigger);
-            userMenuContainer.appendChild(trigger);
-        }
-
-        const menu = document.createElement('div');
-        menu.className = 'user-dropdown-menu';
-        menu.innerHTML = `
-            <a href="thongtinkhachhang.html" class="menu-item profile-link">Thông tin khách hàng</a>
-            <a href="#" class="menu-item logout-btn">Đăng Xuất</a>
-        `;
-        userMenuContainer.appendChild(menu);
-    }
-
-    const logoutBtn = userMenuContainer.querySelector('.logout-btn');
-
-    userMenuContainer.classList.toggle('logged-in', isLoggedIn);
-    userMenuContainer.classList.remove('active');
-
-    trigger.onclick = function (e) {
-        if (!isLoggedIn) {
-            e.preventDefault();
-            openLoginUI();
-            return;
-        }
-
-        if (trigger.tagName === 'LABEL') {
-            e.preventDefault();
-        }
-    };
-
-    if (logoutBtn) {
-        logoutBtn.onclick = function (e) {
-            e.preventDefault();
-            isLoggedIn = false;
-            localStorage.removeItem('userLoggedIn');
-            localStorage.removeItem('userEmail');
-            userMenuContainer.classList.remove('active');
-            userMenuContainer.classList.remove('logged-in');
-            initializeAuth();
+            if (!query) return;
+            event.preventDefault();
+            window.location.href = `timkiem.html?q=${encodeURIComponent(query)}`;
         };
-    }
-}
-
-function setupCartAccessGuard() {
-    const cartLinks = document.querySelectorAll('a.cart-link');
-
-    cartLinks.forEach((link) => {
-        const cleanLink = link.cloneNode(true);
-        cleanLink.setAttribute('href', 'cart.html');
-
-        cleanLink.addEventListener('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (typeof e.stopImmediatePropagation === 'function') {
-                e.stopImmediatePropagation();
-            }
-
-            if (localStorage.getItem('userLoggedIn') === 'true') {
-                window.location.href = 'cart.html';
-            } else {
-                window.location.href = 'dangnhap.html?redirect=cart.html';
-            }
-        }, true);
-
-        link.parentNode.replaceChild(cleanLink, link);
+        searchBtn.addEventListener('click', submitSearch);
+        searchInput.addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') submitSearch(event);
+        });
     });
-}
+
+});
 
 function setupHeaderDropdownMenus() {
     const navTopLists = document.querySelectorAll('.header-nav .nav-top ul');

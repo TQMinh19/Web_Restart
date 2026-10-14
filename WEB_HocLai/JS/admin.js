@@ -42,10 +42,10 @@
     const query = (document.getElementById('userSearch')?.value || '').toLowerCase();
     body.innerHTML = StaticStore.getUsers().filter(u => `${u.name} ${u.email} ${u.phone}`.toLowerCase().includes(query)).map((u, i) => `
       <tr><td>${esc(u.id || String(i + 1).padStart(2, '0'))}</td><td>${esc(u.name)}</td><td>${esc(u.email)}</td>
-      <td>${esc(u.phone)}</td><td>${u.status === 'locked' ? 'Đã khóa' : 'Đang hoạt động'}</td>
+      <td>${esc(u.phone)}</td><td>${esc(u.address)}</td><td>${u.status === 'locked' ? 'Đã khóa' : 'Đang hoạt động'}</td>
       <td class="user-actions"><div class="user-action-buttons">
-        <button class="user-action-btn user-edit-btn" type="button" data-user-edit="${esc(u.email)}"><span aria-hidden="true">✎</span>Sửa</button>
-        <button class="user-action-btn user-delete-btn" type="button" data-user-delete="${esc(u.email)}"><span aria-hidden="true">×</span>Xóa</button>
+        <button class="user-action-btn" type="button" disabled>Xem</button>
+        <button class="user-action-btn" type="button" disabled>Xóa</button>
         <button class="user-action-btn user-toggle-btn" type="button" data-user-toggle="${esc(u.email)}">${u.status === 'locked' ? 'Mở khóa' : 'Khóa'}</button>
       </div></td></tr>`).join('');
   }
@@ -117,15 +117,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    if (localStorage.getItem('webstussy_admin_session') !== 'true') {
-      window.location.href = 'dangnhapadmin.html';
-      return;
-    }
     renderUsers(); renderProducts(); renderCategories(); renderOrders(); renderStats();
-    document.getElementById('adminLogout')?.addEventListener('click', () => {
-      localStorage.removeItem('webstussy_admin_session');
-      window.location.href = 'dangnhapadmin.html';
-    });
     document.getElementById('userForm')?.addEventListener('submit', e => {
       e.preventDefault();
       const users = StaticStore.getUsers();
@@ -138,7 +130,6 @@
         const user = users.find(item => item.email === editingEmail);
         if (user) {
           Object.assign(user, { name, email, phone, address });
-          if (localStorage.getItem('userEmail') === editingEmail) localStorage.setItem('userEmail', email);
         }
         delete e.target.dataset.editingEmail;
         e.target.querySelector('button').textContent = 'Thêm tài khoản';
@@ -195,32 +186,7 @@
     document.addEventListener('click', e => {
       const toggle = e.target.closest('[data-user-toggle]');
       if (toggle) { const users = StaticStore.getUsers(); const u = users.find(x => x.email === toggle.dataset.userToggle); if (u) u.status = u.status === 'locked' ? 'active' : 'locked'; StaticStore.saveUsers(users); renderUsers(); }
-      const userDelete = e.target.closest('[data-user-delete]');
-      if (userDelete) {
-        const users = StaticStore.getUsers();
-        const user = users.find(item => item.email === userDelete.dataset.userDelete);
-        if (user && confirm(`Bạn có chắc muốn xóa tài khoản ${user.name} không?`)) {
-          StaticStore.saveUsers(users.filter(item => item.email !== user.email));
-          if (localStorage.getItem('userEmail') === user.email) {
-            localStorage.removeItem('userEmail');
-            localStorage.removeItem('userLoggedIn');
-          }
-          renderUsers();
-        }
-      }
-      const userEdit = e.target.closest('[data-user-edit]');
-      if (userEdit) {
-        const user = StaticStore.getUsers().find(item => item.email === userEdit.dataset.userEdit);
-        if (user) {
-          document.getElementById('userName').value = user.name || '';
-          document.getElementById('userEmail').value = user.email || '';
-          document.getElementById('userPhone').value = user.phone || '';
-          document.getElementById('userAddress').value = user.address || '';
-          document.getElementById('userForm').dataset.editingEmail = user.email;
-          document.querySelector('#userForm button').textContent = 'Lưu thay đổi';
-          document.getElementById('users').scrollIntoView({ behavior: 'smooth' });
-        }
-        const categoryEdit = e.target.closest('[data-category-edit]');
+      const categoryEdit = e.target.closest('[data-category-edit]');
         if (categoryEdit) {
           const category = StaticStore.getCategories().find(item => item.id === categoryEdit.dataset.categoryEdit);
           if (category) {
@@ -235,7 +201,6 @@
           StaticStore.saveCategories(StaticStore.getCategories().filter(item => item.id !== categoryDelete.dataset.categoryDelete));
           renderCategories();
         }
-      }
       const del = e.target.closest('[data-product-delete]');
       if (del) {
         const products = StaticStore.getProducts();
@@ -245,8 +210,8 @@
           product.status = 'hidden';
           StaticStore.saveProducts(products);
           alert('Sản phẩm đã từng bán nên được chuyển sang trạng thái ẩn.');
-        } else if (confirm('Bạn có chắc muốn xóa sản phẩm này không?')) {
-          StaticStore.saveProducts(products.filter(item => item.id !== product.id));
+        } else {
+          alert('Sản phẩm chưa bán ra và có thể xóa, nhưng dữ liệu mẫu tĩnh không bị xóa.');
         }
         renderProducts();
       }

@@ -137,6 +137,14 @@ body {
     display: block;
 }
 
+.customer-content:has(.content-section:target) .content-section.active {
+    display: none;
+}
+
+.content-section:target {
+    display: block;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;

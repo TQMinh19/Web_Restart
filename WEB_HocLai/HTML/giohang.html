@@ -10,7 +10,7 @@
   <div class="giohang">
     <div class="giohang3bk"><a href="shop.html"><img src="../Image/logo.jpg" alt="Logo" class="logo"></a></div>
     <nav class="header-nav"><div class="nav-top"><ul><li><a href="shop.html">SHOP</a></li><li><a href="shop.html">THE ROLLING STONES</a></li><li><a href="Contacts.html">CONTACT</a></li><li><a href="aboutus.html">ABOUT US</a></li></ul></div><div class="nav-bottom"><ul><li class="best-seller"><a href="shop.html">BEST SELLER</a></li></ul></div></nav>
-    <div class="timkiem"><div class="search-box"><input type="text" placeholder="Tìm kiếm"><button><span class="search-icon">🔍</span></button></div><a href="thongtinkhachhang.html" class="user-link"><span class="icon user-icon">👤</span></a><a href="cart.html" class="cart-link"><span class="icon cart-icon">🛒<span class="cart-count">0</span></span></a><span class="lang-select">Vi</span><span class="lang-select">En</span></div>
+    <div class="timkiem"><div class="search-box"><input type="text" placeholder="Tìm kiếm"><a href="timkiem.html" aria-label="Mở trang tìm kiếm"><button type="button"><span class="search-icon">🔍</span></button></a></div><div class="user-hover-menu"><a href="thongtinkhachhang.html" class="user-link"><span class="icon user-icon">👤</span></a><div class="user-dropdown"><a href="thongtinkhachhang.html">Thông tin tài khoản</a><a href="index.html">Đăng xuất</a></div></div><a href="cart.html" class="cart-link"><span class="icon cart-icon">🛒<span class="cart-count">0</span></span></a><span class="lang-select">Vi</span><span class="lang-select">En</span></div>
   </div>
 
   <div class="container">
@@ -19,20 +19,20 @@
       <div class="left">
         <h2>Địa chỉ giao hàng</h2>
         <label>Địa chỉ có sẵn</label>
-        <select id="saved-address" onchange="fillAddress()">
+        <select id="saved-address">
           <option value="">-- Chọn địa chỉ có sẵn --</option>
           <option value="Nguyễn Minh Anh|0901234567|123 Nguyễn Huệ|Phường Bến Nghé|Quận 1|TP. Hồ Chí Minh">Nguyễn Minh Anh - 123 Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</option>
         </select>
         <br><br>
-        <label>Họ và tên</label><input type="text" name="customer_name" placeholder="Nhập họ tên người nhận" required>
-        <label>Số điện thoại</label><input type="text" name="customer_phone" placeholder="Nhập số điện thoại" required>
-        <label>Địa chỉ</label><input type="text" name="street_address" placeholder="Số nhà, tên đường" required>
-        <label>Phường/Xã</label><input type="text" name="ward" placeholder="Phường/Xã" required>
-        <label>Quận/Huyện</label><input type="text" name="district" placeholder="Quận/Huyện" required>
-        <label>Tỉnh/Thành phố</label><input type="text" name="city" placeholder="Tỉnh/Thành phố" required>
+        <label>Họ và tên</label><input type="text" name="customer_name" placeholder="Nhập họ tên người nhận">
+        <label>Số điện thoại</label><input type="text" name="customer_phone" placeholder="Nhập số điện thoại">
+        <label>Địa chỉ</label><input type="text" name="street_address" placeholder="Số nhà, tên đường">
+        <label>Phường/Xã</label><select name="ward"><option value="">-- Chọn phường/xã --</option><option>Phường Bến Nghé</option><option>Phường Đa Kao</option><option>Phường Nguyễn Thái Bình</option></select>
+        <label>Quận/Huyện</label><select name="district"><option value="">-- Chọn quận/huyện --</option><option>Quận 1</option><option>Quận 3</option><option>Quận Bình Thạnh</option><option>Quận Phú Nhuận</option><option>Quận Thanh Xuân</option><option>Huyện Củ Chi</option></select>
+        <label>Tỉnh/Thành phố</label><select name="city"><option value="">-- Chọn tỉnh/thành phố --</option><option>TP. Hồ Chí Minh</option><option>Hà Nội</option><option>Đà Nẵng</option><option>Khánh Hòa</option><option>Thừa Thiên Huế</option></select>
       </div>
       <div class="right">
-        <div class="cart-box"><h2>Đơn hàng của bạn</h2><table><tr><th>Sản phẩm</th><th>SL</th><th>Giá</th></tr><tbody id="checkout-items"></tbody><tr class="total-row"><td colspan="2"><strong>Tổng tiền</strong></td><td><strong id="checkout-total">0đ</strong></td></tr></table></div>
+        <div class="cart-box"><h2>Đơn hàng của bạn</h2><table><tr><th>Sản phẩm</th><th>SL</th><th>Giá</th></tr><tbody><tr><td>VICTORIA TEE</td><td>1</td><td>1.260.000đ</td></tr><tr><td>TEXTURED ZIP HOODED SWEATER</td><td>1</td><td>3.750.000đ</td></tr><tr><td>STUSSY WORLD TOUR TEE CAMO</td><td>2</td><td>5.940.000đ</td></tr></tbody><tr class="total-row"><td colspan="2"><strong>Tổng tiền</strong></td><td><strong>10.950.000đ</strong></td></tr></table></div>
         <div class="payment-box"><h2>Phương thức thanh toán</h2><label><input type="radio" name="payment" value="COD" checked> Thanh toán khi nhận hàng (COD)</label><label><input type="radio" name="payment" value="BANK_TRANSFER"> Chuyển khoản ngân hàng</label><label><input type="radio" name="payment" value="ONLINE"> Thanh toán Online</label></div>
         <input type="hidden" id="checkout-payload" name="checkout_payload" value="">
         <button type="submit" class="btn-order">Xác nhận đặt hàng</button>
@@ -40,22 +40,5 @@
     </form>
   </div>
 
-  <script src="../JS/static-data.js"></script>
-  <script src="../JS/giohang.js"></script>
-  <script src="../JS/main.js"></script>
-  <script>
-    function fillAddress() {
-      const selected = document.getElementById('saved-address').value;
-      const fields = ['customer_name', 'customer_phone', 'street_address', 'ward', 'district', 'city'];
-      if (!selected) {
-        fields.forEach((name) => { document.querySelector(`input[name="${name}"]`).value = ''; });
-        return;
-      }
-      selected.split('|').forEach((value, index) => {
-        const field = document.querySelector(`input[name="${fields[index]}"]`);
-        if (field) field.value = value;
-      });
-    }
-  </script>
 </body>
 </html>

@@ -5,7 +5,6 @@
     categories: 'webstussy_categories',
     orders: 'webstussy_orders',
     cart: 'webstussy_cart',
-    adminSession: 'webstussy_admin_session'
   };
 
   const defaultProducts = [

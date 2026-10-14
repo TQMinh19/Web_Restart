@@ -32,11 +32,9 @@
       <div class="timkiem">
         <div class="search-box">
           <input type="text" placeholder="Tìm kiếm..." />
-          <button><span class="search-icon">🔍</span></button>
+          <a href="timkiem.html" aria-label="Mở trang tìm kiếm"><button type="button"><span class="search-icon">🔍</span></button></a>
         </div>
-        <a href="thongtinkhachhang.html" class="user-link">
-          <span class="icon user-icon">👤</span>
-        </a>
+        <div class="user-hover-menu"><a href="thongtinkhachhang.html" class="user-link"><span class="icon user-icon">👤</span></a><div class="user-dropdown"><a href="thongtinkhachhang.html">Thông tin tài khoản</a><a href="index.html">Đăng xuất</a></div></div>
         <a href="cart.html" class="cart-link">
           <span class="icon cart-icon"
             >🛒<span class="cart-count">4</span>
@@ -71,7 +69,20 @@
         </div>
 
         <main>
-          <section class="sanpham" id="sanpham"></section>
+          <section class="sanpham" id="sanpham">
+            <div class="cart-item">
+              <div class="col-sanpham item-info"><input class="item-check" type="checkbox" checked><img src="../Image/VICTORIA TEE.jpg" alt="VICTORIA TEE" class="item-thumb"><div class="item-details"><div class="product-name">VICTORIA TEE</div><div class="product-price">1.260.000đ</div></div></div>
+              <div class="col-soluong"><div class="qty-control"><button type="button">-</button><input value="1" readonly><button type="button">+</button></div></div><div class="col-sotien">1.260.000đ</div><div class="col-thaotac"><button type="button" class="btn-delete">Xóa</button></div>
+            </div>
+            <div class="cart-item">
+              <div class="col-sanpham item-info"><input class="item-check" type="checkbox" checked><img src="../Image/TEXTURED ZIP HOODED SWEATER.jpg" alt="TEXTURED ZIP HOODED SWEATER" class="item-thumb"><div class="item-details"><div class="product-name">TEXTURED ZIP HOODED SWEATER</div><div class="product-price">3.750.000đ</div></div></div>
+              <div class="col-soluong"><div class="qty-control"><button type="button">-</button><input value="1" readonly><button type="button">+</button></div></div><div class="col-sotien">3.750.000đ</div><div class="col-thaotac"><button type="button" class="btn-delete">Xóa</button></div>
+            </div>
+            <div class="cart-item">
+              <div class="col-sanpham item-info"><input class="item-check" type="checkbox" checked><img src="../Image/worldteecamo.png" alt="STUSSY WORLD TOUR TEE CAMO" class="item-thumb"><div class="item-details"><div class="product-name">STUSSY WORLD TOUR TEE CAMO</div><div class="product-price">2.970.000đ</div></div></div>
+              <div class="col-soluong"><div class="qty-control"><button type="button">-</button><input value="2" readonly><button type="button">+</button></div></div><div class="col-sotien">5.940.000đ</div><div class="col-thaotac"><button type="button" class="btn-delete">Xóa</button></div>
+            </div>
+          </section>
         </main>
       </div>
 
@@ -205,6 +216,4 @@
       <button class="page-btn">2</button>
     </div>
   </body>
-  <script src="../JS/static-data.js"></script>
-  <script src="../JS/cart.js?v=20260328-5"></script>
 </html>

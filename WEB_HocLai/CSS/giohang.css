@@ -187,6 +187,42 @@ h1 {
   color: inherit;
 }
 
+.user-hover-menu {
+  position: relative;
+  display: inline-flex;
+}
+
+.user-hover-menu .user-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 190px;
+  padding: 8px 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+  z-index: 10000;
+}
+
+.user-hover-menu:hover .user-dropdown,
+.user-hover-menu:focus-within .user-dropdown {
+  display: block;
+}
+
+.user-hover-menu .user-dropdown a {
+  display: block;
+  padding: 10px 14px;
+  color: #222;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.user-hover-menu .user-dropdown a:hover {
+  background: #f2f2f2;
+}
+
 .icon {
   font-size: 20px;
   cursor: pointer;
@@ -270,12 +306,14 @@ h1 {
   display: block;
 }
 
-.left input {
+.left input,
+.left select {
   width: 100%;
   padding: 8px;
   margin-bottom: 12px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  background: #fff;
 }
 
 /* ----- ĐỊA CHỈ CÓ SẴN ----- */
