@@ -47,7 +47,96 @@
     </div>
     <button id="applySearch">Tìm kiếm</button>
   </div>
-  <main class="search-page-products"><p id="searchResult" class="search-meta"></p><div id="searchProducts" class="products-container"></div></main>
-  <script src="../JS/static-data.js"></script><script src="../JS/timkiem.js"></script><script src="../JS/main.js"></script>
+  <main class="search-page-products"><p id="searchResult" class="search-meta"></p><div id="searchProducts" class="products-container"></div><nav id="searchPagination" class="search-pagination" aria-label="Phân trang kết quả tìm kiếm"></nav></main>
+  <script src="../JS/static-data.js"></script><script>
+document.addEventListener('DOMContentLoaded', function () {
+  const products = StaticStore.getProducts().filter(product => product.status !== 'hidden');
+  const result = document.getElementById('searchResult');
+  const container = document.getElementById('searchProducts');
+  const keyword = document.getElementById('searchKeyword');
+  const minPrice = document.getElementById('minPrice');
+  const maxPrice = document.getElementById('maxPrice');
+  const category = document.getElementById('searchCategory');
+  const brand = document.getElementById('searchBrand');
+  const minRange = document.getElementById('minRange');
+  const maxRange = document.getElementById('maxRange');
+
+  function readPrice(input, fallback) {
+    const value = Number(String(input.value).replace(/\./g, '').replace(/[^\d]/g, ''));
+    return Number.isFinite(value) ? Math.min(5000000, Math.max(0, value)) : fallback;
+  }
+
+  function formatPrice(value) {
+    return Number(value || 0).toLocaleString('vi-VN');
+  }
+
+  function render(page = 1) {
+    const query = keyword.value.trim().toLowerCase();
+    const min = readPrice(minPrice, 0);
+    const max = readPrice(maxPrice, Number.MAX_SAFE_INTEGER);
+    const filtered = products.filter(product =>
+      product.name.toLowerCase().includes(query) &&
+      (!category.value || product.category === category.value) &&
+      (!brand.value || product.brand === brand.value) &&
+      product.price >= min && product.price <= max
+    );
+    result.textContent = `TRANG TÌM KIẾM - ${filtered.length} sản phẩm`;
+    const pageSize = 4;
+    const totalPages = Math.ceil(filtered.length / pageSize);
+    const currentPage = Math.max(1, Math.min(typeof page === 'number' ? page : 1, totalPages || 1));
+    const pageItems = filtered.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+    const pagination = document.getElementById('searchPagination');
+    pagination.replaceChildren();
+    function pageButton(label, target, disabled) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'page-btn';
+      button.textContent = label;
+      button.disabled = disabled;
+      if (String(currentPage) === label) {
+        button.classList.add('active');
+        button.setAttribute('aria-current', 'page');
+      }
+      button.addEventListener('click', () => render(target));
+      pagination.appendChild(button);
+    }
+    if (totalPages > 0) {
+      pageButton('Trước', currentPage - 1, currentPage === 1);
+      for (let p = 1; p <= totalPages; p++) pageButton(String(p), p, false);
+      pageButton('Sau', currentPage + 1, currentPage === totalPages);
+    }
+    container.innerHTML = pageItems.map(product => `<a class="product-item" href="chitietsanpham.html?id=${String(product.id).replace('SP', '')}"><div class="product-image"><img src="${product.image}" alt="${product.name}"></div><div class="product-info"><h3 class="product-name">${product.name}</h3><p class="product-price">${StaticStore.money(product.price)}</p></div></a>`).join('') || '<p>Không tìm thấy sản phẩm phù hợp.</p>';
+  }
+  const params = new URLSearchParams(window.location.search);
+  keyword.value = params.get('q') || '';
+  document.getElementById('searchInput').value = keyword.value;
+  document.getElementById('applySearch').addEventListener('click', render);
+  keyword.addEventListener('keydown', event => { if (event.key === 'Enter') { event.preventDefault(); render(); } });
+  function syncPrices(source) {
+    if (source === minRange) minPrice.value = formatPrice(minRange.value);
+    if (source === maxRange) maxPrice.value = formatPrice(maxRange.value);
+    if (source === minPrice) minRange.value = readPrice(minPrice, 0);
+    if (source === maxPrice) maxRange.value = readPrice(maxPrice, 5000000);
+    if (readPrice(minPrice, 0) > readPrice(maxPrice, 5000000)) {
+      const value = minPrice.value;
+      minPrice.value = maxPrice.value;
+      maxPrice.value = value;
+    }
+    minRange.value = readPrice(minPrice, 0);
+    maxRange.value = readPrice(maxPrice, 5000000);
+    minPrice.value = formatPrice(minRange.value);
+    maxPrice.value = formatPrice(maxRange.value);
+  }
+  [minPrice, maxPrice].forEach(input => input.addEventListener('input', () => {
+    const digits = input.value.replace(/[^\d]/g, '');
+    input.value = digits ? Number(digits).toLocaleString('vi-VN') : '';
+  }));
+  [minPrice, maxPrice].forEach(input => input.addEventListener('change', () => syncPrices(input)));
+  [minRange, maxRange].forEach(input => input.addEventListener('input', () => syncPrices(input)));
+  [category, brand].forEach(input => input.addEventListener('change', render));
+  syncPrices(minPrice);
+  render();
+});
+  </script><script src="../JS/main.js"></script>
 </body>
 </html>

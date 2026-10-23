@@ -10,15 +10,17 @@
   <main class="main" style="max-width:1000px;margin:0 auto;">
     <section class="module-card">
       <div class="admin-meta-header"><h2>Thống kê khách hàng</h2><a href="giaodienadmin.html#orders" class="btn-back-home">Quay lại quản trị</a></div>
-      <p class="stats-note">Thống kê 5 khách hàng có sẵn trong dữ liệu mẫu.</p>
-      <div class="stats-static-list">
-        <div class="stat-customer"><strong>#1 Nguyễn Minh Anh</strong><span>Tổng mua: 1.260.000đ</span><small>ORD-2026-001</small></div>
-        <div class="stat-customer"><strong>#2 Trần Hoàng Nam</strong><span>Tổng mua: 3.750.000đ</span><small>ORD-2026-002</small></div>
-        <div class="stat-customer"><strong>#3 Lê Khánh Linh</strong><span>Tổng mua: 2.970.000đ</span><small>ORD-2026-003</small></div>
-        <div class="stat-customer"><strong>#4 Phạm Gia Huy</strong><span>Tổng mua: 3.540.000đ</span><small>ORD-2026-004</small></div>
-        <div class="stat-customer"><strong>#5 Võ Ngọc Anh</strong><span>Tổng mua: 1.590.000đ</span><small>ORD-2026-005</small></div>
-      </div>
+      <p class="stats-note">5 khách hàng có tổng tiền mua cao nhất, không tính đơn đã hủy.</p>
+      <form id="statsForm" class="orders-filters">
+        <div class="orders-filter-item"><label for="statsFrom">Từ ngày</label><input id="statsFrom" type="date"></div>
+        <div class="orders-filter-item"><label for="statsTo">Đến ngày</label><input id="statsTo" type="date"></div>
+        <button type="submit" class="orders-search-btn">Thống kê</button>
+      </form>
+      <div id="statsBody" class="stats-static-list" aria-live="polite"></div>
+      <section id="order-detail-panel" class="admin-order-detail" hidden><div class="admin-order-detail-header"><h3>Chi tiết đơn hàng</h3><button type="button" data-order-detail-close>Đóng</button></div><div id="orderDetailContent"></div></section>
     </section>
   </main>
+  <script src="../JS/static-data.js"></script>
+  <script src="../JS/admin.js"></script>
 </body>
 </html>

@@ -44,8 +44,7 @@
       <tr><td>${esc(u.id || String(i + 1).padStart(2, '0'))}</td><td>${esc(u.name)}</td><td>${esc(u.email)}</td>
       <td>${esc(u.phone)}</td><td>${esc(u.address)}</td><td>${u.status === 'locked' ? 'Đã khóa' : 'Đang hoạt động'}</td>
       <td class="user-actions"><div class="user-action-buttons">
-        <button class="user-action-btn" type="button" disabled>Xem</button>
-        <button class="user-action-btn" type="button" disabled>Xóa</button>
+        <button class="user-action-btn" type="button" data-user-edit="${esc(u.email)}">Sửa</button>
         <button class="user-action-btn user-toggle-btn" type="button" data-user-toggle="${esc(u.email)}">${u.status === 'locked' ? 'Mở khóa' : 'Khóa'}</button>
       </div></td></tr>`).join('');
   }
@@ -79,6 +78,7 @@
     if (!body) return;
     const from = document.getElementById('orderFrom')?.value;
     const to = document.getElementById('orderTo')?.value;
+    if (from && to && from > to) { alert('Ngày bắt đầu phải trước hoặc bằng ngày kết thúc.'); return; }
     const status = document.getElementById('orderStatus')?.value;
     const location = (document.getElementById('orderLocation')?.value || '').toLowerCase();
     const orders = StaticStore.getOrders().filter(o => {
@@ -97,7 +97,8 @@
     if (!body) return;
     const from = document.getElementById('statsFrom')?.value;
     const to = document.getElementById('statsTo')?.value;
-    const totals = {};
+    if (from && to && from > to) { alert('Ngày bắt đầu phải trước hoặc bằng ngày kết thúc.'); return; }
+    const totals = Object.create(null);
     StaticStore.getOrders().filter(o => {
       const date = String(o.createdAt || '').slice(0, 10);
       return (!from || date >= from) && (!to || date <= to) && o.status !== 'cancelled';
@@ -109,7 +110,8 @@
         (!from || String(order.createdAt).slice(0, 10) >= from) &&
         (!to || String(order.createdAt).slice(0, 10) <= to)
       );
-      return `<div class="stat-customer"><strong>#${i + 1} ${esc(email)}</strong><span>Tổng mua: ${money(total)}</span>
+      const customer = StaticStore.getUsers().find(user => user.email === email);
+      return `<div class="stat-customer"><strong>#${i + 1} ${esc(customer?.name || email)}</strong><small>${esc(email)}</small><span>Tổng mua: ${money(total)}</span>
         <details><summary>Xem ${customerOrders.length} đơn hàng</summary>
         ${customerOrders.map(order => `<p><a href="#order-detail-panel" class="order-detail-link" data-order-detail="${esc(order.id)}">${esc(order.id)}</a> — ${money(order.total)}</p>`).join('')}
         </details></div>`;
@@ -126,10 +128,16 @@
       const phone = document.getElementById('userPhone').value.trim();
       const address = document.getElementById('userAddress').value.trim();
       const editingEmail = e.target.dataset.editingEmail;
+      if (users.some(user => user.email.toLowerCase() === email && user.email !== editingEmail)) {
+        alert('Email này đã tồn tại.'); return;
+      }
       if (editingEmail) {
         const user = users.find(item => item.email === editingEmail);
         if (user) {
           Object.assign(user, { name, email, phone, address });
+          const orders = StaticStore.getOrders();
+          orders.forEach(order => { if (order.userEmail === editingEmail) order.userEmail = email; });
+          StaticStore.saveOrders(orders);
         }
         delete e.target.dataset.editingEmail;
         e.target.querySelector('button').textContent = 'Thêm tài khoản';
@@ -141,6 +149,10 @@
         users.push({ id: `U${String(users.length + 1).padStart(2, '0')}`, name, email, phone, address, status: 'active' });
       }
       StaticStore.saveUsers(users); e.target.reset(); renderUsers();
+    });
+    document.getElementById('userForm')?.addEventListener('reset', e => {
+      delete e.target.dataset.editingEmail;
+      e.target.querySelector('button').textContent = 'Thêm tài khoản';
     });
     document.getElementById('userSearchForm')?.addEventListener('submit', e => { e.preventDefault(); renderUsers(); });
     document.querySelector('.category-form')?.addEventListener('submit', e => {
@@ -184,6 +196,20 @@
     document.getElementById('orderFilterForm')?.addEventListener('submit', e => { e.preventDefault(); renderOrders(); });
     document.getElementById('statsForm')?.addEventListener('submit', e => { e.preventDefault(); renderStats(); });
     document.addEventListener('click', e => {
+      const userEdit = e.target.closest('[data-user-edit]');
+      if (userEdit) {
+        const user = StaticStore.getUsers().find(item => item.email === userEdit.dataset.userEdit);
+        const form = document.getElementById('userForm');
+        if (user && form) {
+          document.getElementById('userName').value = user.name;
+          document.getElementById('userEmail').value = user.email;
+          document.getElementById('userPhone').value = user.phone || '';
+          document.getElementById('userAddress').value = user.address || '';
+          form.dataset.editingEmail = user.email;
+          form.querySelector('button').textContent = 'Lưu thay đổi';
+          form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
       const toggle = e.target.closest('[data-user-toggle]');
       if (toggle) { const users = StaticStore.getUsers(); const u = users.find(x => x.email === toggle.dataset.userToggle); if (u) u.status = u.status === 'locked' ? 'active' : 'locked'; StaticStore.saveUsers(users); renderUsers(); }
       const categoryEdit = e.target.closest('[data-category-edit]');
@@ -206,12 +232,17 @@
         const products = StaticStore.getProducts();
         const product = products.find(item => item.id === del.dataset.productDelete);
         if (!product) return;
-        if (Number(product.sold || 0) > 0) {
+        const wasSold = Number(product.sold || 0) > 0 || StaticStore.getOrders().some(order =>
+          order.status !== 'cancelled' && (order.items || []).some(item =>
+            item.productId === product.id || item.id === product.id || item.name === product.name
+          )
+        );
+        if (wasSold) {
           product.status = 'hidden';
           StaticStore.saveProducts(products);
           alert('Sản phẩm đã từng bán nên được chuyển sang trạng thái ẩn.');
-        } else {
-          alert('Sản phẩm chưa bán ra và có thể xóa, nhưng dữ liệu mẫu tĩnh không bị xóa.');
+        } else if (confirm(`Bạn có chắc muốn xóa sản phẩm ${product.name}?`)) {
+          StaticStore.saveProducts(products.filter(item => item.id !== product.id));
         }
         renderProducts();
       }
