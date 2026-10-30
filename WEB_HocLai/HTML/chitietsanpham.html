@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>| 3BK SHOP QUẦN ÁO</title>
+    <title>VICTORIA TEE | 3BK SHOP</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
@@ -11,7 +11,7 @@
     />
     <link rel="stylesheet" href="../CSS/main.css" />
     <link rel="stylesheet" href="../CSS/pr.css" />
-  </head>
+  <style>.size-choice input{position:absolute;opacity:0;pointer-events:none}.size-choice .size-btn{display:inline-block;cursor:pointer}.size-choice input:checked + .size-btn{background:#111;color:#fff}.size-choice input:focus-visible + .size-btn{outline:2px solid #555}</style></head>
 
   <body>
     <header class="main-header">
@@ -39,7 +39,7 @@
         <div class="header-right">
           <div class="search-box">
             <input type="text" placeholder="Tìm kiếm..." />
-            <button><span class="search-icon">🔍</span></button>
+            <a href="timkiem.html" aria-label="Mở trang tìm kiếm">🔍</a>
           </div>
           <a href="dangnhap.html" class="user-link"
             ><span class="icon user-icon">👤</span></a
@@ -55,38 +55,38 @@
       </div>
     </header>
 
-    <section class="product-section" data-product-id="">
+    <section class="product-section">
       <div class="product-container">
         <div class="product-image">
-          <img src="" alt="" class="main-image" />
+          <img src="../Image/VICTORIA TEE.jpg" alt="VICTORIA TEE" class="main-image" />
         </div>
         <div class="product-details">
-          <h1 class="product-name"></h1>
-          <p class="product-price"></p>
+          <h1 class="product-name">VICTORIA TEE</h1>
+          <p class="product-price">1.260.000đ</p>
 
           <div class="product-color">
-            <p class="color-label"></p>
+            <p class="color-label">BLACK</p>
 
             <div class="color-options">
-              <img src="" alt="" data-color="" class="color-thumbnail" />
+              <img src="../Image/VICTORIA TEE.jpg" alt="BLACK" class="color-thumbnail active" />
             </div>
           </div>
 
           <div class="product-size">
             <p class="size-label">SIZE</p>
             <div class="size-options">
-              <button class="size-btn"></button>
+              <label class="size-choice"><input type="radio" name="size" checked><span class="size-btn">S</span></label><label class="size-choice"><input type="radio" name="size" ><span class="size-btn">M</span></label><label class="size-choice"><input type="radio" name="size" ><span class="size-btn">L</span></label><label class="size-choice"><input type="radio" name="size" ><span class="size-btn">XL</span></label>
             </div>
           </div>
 
-          <p class="shipping-info"></p>
+          <p class="shipping-info">Miễn phí vận chuyển cho đơn hàng từ 2.000.000đ.</p>
 
           <div class="product-info-links">
             <details class="details-dropdown">
               <summary class="details-summary">PRODUCT DETAILS ↓</summary>
               <div class="details-content">
                 <ul>
-                  <li></li>
+                  <li>Áo thun cotton form rộng, thiết kế tối giản và dễ phối đồ.</li>
                 </ul>
               </div>
             </details>
@@ -97,21 +97,15 @@
                 <table class="size-guide-table">
                   <thead>
                     <tr>
-                      <th></th>
+                      <th>Size</th><th>Gợi ý</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td></td>
+                      <td>S / M / L / XL</td><td>Chọn kích cỡ phù hợp</td>
                     </tr>
                   </tbody>
                 </table>
-
-                <ul>
-                  <li></li>
-                </ul>
-
-                <p></p>
               </div>
             </details>
 
@@ -126,50 +120,5 @@
         </div>
       </div>
     </section>
-
-    <script>
-      window.currentProductId = Number(
-        new URLSearchParams(window.location.search).get("id") || 0,
-      );
-
-      document.addEventListener("DOMContentLoaded", function () {
-        const mainImage = document.querySelector(".main-image");
-        const colorLabel = document.querySelector(".color-label");
-        const colorThumbs = document.querySelectorAll(
-          ".color-options .color-thumbnail",
-        );
-
-        if (!colorThumbs.length) return;
-
-        colorThumbs.forEach(function (thumb) {
-          thumb.addEventListener("click", function (e) {
-            e.preventDefault();
-
-            colorThumbs.forEach(function (item) {
-              item.classList.remove("active");
-            });
-
-            thumb.classList.add("active");
-
-            const src = thumb.getAttribute("src");
-            if (mainImage && src) {
-              mainImage.setAttribute("src", src);
-            }
-
-            const color = (
-              thumb.dataset.color ||
-              thumb.getAttribute("alt") ||
-              ""
-            ).toUpperCase();
-            if (colorLabel && color) {
-              colorLabel.textContent = color;
-            }
-          });
-        });
-      });
-    </script>
-    <script src="../JS/static-data.js"></script>
-    <script src="../JS/product-detail.js"></script>
-    <script src="../JS/main.js?v=20260328-2"></script>
   </body>
 </html>
