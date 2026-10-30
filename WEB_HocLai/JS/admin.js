@@ -44,7 +44,7 @@
       <tr><td>${esc(u.id || String(i + 1).padStart(2, '0'))}</td><td>${esc(u.name)}</td><td>${esc(u.email)}</td>
       <td>${esc(u.phone)}</td><td>${esc(u.address)}</td><td>${u.status === 'locked' ? 'Đã khóa' : 'Đang hoạt động'}</td>
       <td class="user-actions"><div class="user-action-buttons">
-        <button class="user-action-btn" type="button" data-user-edit="${esc(u.email)}">Sửa</button>
+        <button class="user-action-btn" type="button" data-user-view="${esc(u.email)}">Xem thông tin</button>
         <button class="user-action-btn user-toggle-btn" type="button" data-user-toggle="${esc(u.email)}">${u.status === 'locked' ? 'Mở khóa' : 'Khóa'}</button>
       </div></td></tr>`).join('');
   }
@@ -127,65 +127,36 @@
       const email = document.getElementById('userEmail').value.trim().toLowerCase();
       const phone = document.getElementById('userPhone').value.trim();
       const address = document.getElementById('userAddress').value.trim();
-      const editingEmail = e.target.dataset.editingEmail;
-      if (users.some(user => user.email.toLowerCase() === email && user.email !== editingEmail)) {
-        alert('Email này đã tồn tại.'); return;
-      }
-      if (editingEmail) {
-        const user = users.find(item => item.email === editingEmail);
-        if (user) {
-          Object.assign(user, { name, email, phone, address });
-          const orders = StaticStore.getOrders();
-          orders.forEach(order => { if (order.userEmail === editingEmail) order.userEmail = email; });
-          StaticStore.saveOrders(orders);
-        }
-        delete e.target.dataset.editingEmail;
-        e.target.querySelector('button').textContent = 'Thêm tài khoản';
-      } else {
-        if (users.some(user => user.email === email)) {
-          alert('Email này đã tồn tại.');
-          return;
-        }
-        users.push({ id: `U${String(users.length + 1).padStart(2, '0')}`, name, email, phone, address, status: 'active' });
-      }
+      if (e.target.dataset.viewingUser) return;
+      if (users.some(user => user.email.toLowerCase() === email)) { alert('Email này đã tồn tại.'); return; }
+      users.push({ id: 'U' + String(users.length + 1).padStart(2, '0'), name, email, phone, address, status: 'active' });
       StaticStore.saveUsers(users); e.target.reset(); renderUsers();
     });
     document.getElementById('userForm')?.addEventListener('reset', e => {
-      delete e.target.dataset.editingEmail;
+      delete e.target.dataset.viewingUser;
+      ['userName', 'userEmail', 'userPhone', 'userAddress'].forEach(id => { document.getElementById(id).readOnly = false; });
+      e.target.querySelector('button').disabled = false;
       e.target.querySelector('button').textContent = 'Thêm tài khoản';
     });
     document.getElementById('userSearchForm')?.addEventListener('submit', e => { e.preventDefault(); renderUsers(); });
     document.querySelector('.category-form')?.addEventListener('submit', e => {
       e.preventDefault();
-      const categories = StaticStore.getCategories();
-      const editingId = e.target.dataset.editingId;
-      const category = {
-        id: editingId || `CAT${String(categories.length + 1).padStart(2, '0')}`,
-        name: document.getElementById('catName').value.trim(),
-        description: document.getElementById('catDesc').value.trim(),
-        value: document.getElementById('catName').value.trim().toLowerCase().replace(/\s+/g, '-')
-      };
-      const index = categories.findIndex(item => item.id === category.id);
-      if (index >= 0) categories[index] = category; else categories.push(category);
-      StaticStore.saveCategories(categories);
-      delete e.target.dataset.editingId;
-      e.target.reset();
-      e.target.querySelector('.cat-btn-add').textContent = 'Thêm';
-      renderCategories();
+      alert(e.target.dataset.editingId ? 'Đã sửa loại sản phẩm.' : 'Đã thêm loại sản phẩm.');
     });
     document.getElementById('productForm')?.addEventListener('submit', e => {
       e.preventDefault();
-      const products = StaticStore.getProducts();
-      const existing = products.find(p => p.id === productId.value.trim());
-      const category = StaticStore.getCategories().find(item => item.value === productCategory.value);
-      const product = { id: productId.value.trim(), name: productName.value.trim(), category: productCategory.value, categoryName: category?.name || productCategory.value, unit: productUnit.value.trim(), stock: Number(productStock.value), sold: Number(existing?.sold || 0), price: Number(productPrice.value), status: productStatus.value, description: productDescription.value.trim(), image: existing?.image || '' };
-      const index = products.findIndex(p => p.id === product.id);
-      if (index >= 0) products[index] = product; else products.push(product);
-      const file = productImage.files[0];
-      const save = image => { product.image = image || product.image; StaticStore.saveProducts(products); e.target.reset(); productPreview.innerHTML = ''; renderProducts(); };
-      if (file) { const reader = new FileReader(); reader.onload = () => save(reader.result); reader.readAsDataURL(file); } else save(product.image);
+      alert(e.target.dataset.editingId ? 'Đã sửa sản phẩm.' : 'Đã thêm sản phẩm.');
     });
-    document.getElementById('productReset')?.addEventListener('click', () => document.getElementById('productForm').reset());
+    document.getElementById('productPrice')?.addEventListener('input', e => {
+      const digits = e.target.value.replace(/[^0-9]/g, '').replace(/^0+(?=\d)/, '');
+      e.target.value = digits.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    });
+    document.getElementById('productReset')?.addEventListener('click', () => {
+      document.getElementById('productForm').reset();
+      productPreview.innerHTML = '';
+      delete document.getElementById('productForm').dataset.editingId;
+      document.getElementById('productForm').querySelector('button').textContent = 'Thêm sản phẩm';
+    });
     document.getElementById('productImage')?.addEventListener('change', e => {
       const file = e.target.files[0];
       if (!file) { productPreview.innerHTML = ''; return; }
@@ -196,62 +167,49 @@
     document.getElementById('orderFilterForm')?.addEventListener('submit', e => { e.preventDefault(); renderOrders(); });
     document.getElementById('statsForm')?.addEventListener('submit', e => { e.preventDefault(); renderStats(); });
     document.addEventListener('click', e => {
-      const userEdit = e.target.closest('[data-user-edit]');
-      if (userEdit) {
-        const user = StaticStore.getUsers().find(item => item.email === userEdit.dataset.userEdit);
+      const userView = e.target.closest('[data-user-view]');
+      if (userView) {
+        const user = StaticStore.getUsers().find(item => item.email === userView.dataset.userView);
         const form = document.getElementById('userForm');
         if (user && form) {
           document.getElementById('userName').value = user.name;
           document.getElementById('userEmail').value = user.email;
           document.getElementById('userPhone').value = user.phone || '';
           document.getElementById('userAddress').value = user.address || '';
-          form.dataset.editingEmail = user.email;
-          form.querySelector('button').textContent = 'Lưu thay đổi';
+          form.dataset.viewingUser = user.email;
+          ['userName', 'userEmail', 'userPhone', 'userAddress'].forEach(id => { document.getElementById(id).readOnly = true; });
+          form.querySelector('button').disabled = true;
+          form.querySelector('button').textContent = 'Đang xem thông tin';
           form.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
       }
       const toggle = e.target.closest('[data-user-toggle]');
       if (toggle) { const users = StaticStore.getUsers(); const u = users.find(x => x.email === toggle.dataset.userToggle); if (u) u.status = u.status === 'locked' ? 'active' : 'locked'; StaticStore.saveUsers(users); renderUsers(); }
       const categoryEdit = e.target.closest('[data-category-edit]');
-        if (categoryEdit) {
-          const category = StaticStore.getCategories().find(item => item.id === categoryEdit.dataset.categoryEdit);
-          if (category) {
-            document.getElementById('catName').value = category.name;
-            document.getElementById('catDesc').value = category.description;
-            document.querySelector('.category-form').dataset.editingId = category.id;
-            document.querySelector('.cat-btn-add').textContent = 'Lưu thay đổi';
-          }
+      if (categoryEdit) {
+        const category = StaticStore.getCategories().find(item => item.id === categoryEdit.dataset.categoryEdit);
+        const form = document.querySelector('.category-form');
+        if (category && form) {
+          document.getElementById('catName').value = category.name;
+          document.getElementById('catDesc').value = category.description || '';
+          form.dataset.editingId = category.id;
+          form.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
-        const categoryDelete = e.target.closest('[data-category-delete]');
-        if (categoryDelete && confirm('Bạn có chắc muốn xóa loại sản phẩm này không?')) {
-          StaticStore.saveCategories(StaticStore.getCategories().filter(item => item.id !== categoryDelete.dataset.categoryDelete));
-          renderCategories();
-        }
-      const del = e.target.closest('[data-product-delete]');
-      if (del) {
-        const products = StaticStore.getProducts();
-        const product = products.find(item => item.id === del.dataset.productDelete);
-        if (!product) return;
-        const wasSold = Number(product.sold || 0) > 0 || StaticStore.getOrders().some(order =>
-          order.status !== 'cancelled' && (order.items || []).some(item =>
-            item.productId === product.id || item.id === product.id || item.name === product.name
-          )
-        );
-        if (wasSold) {
-          product.status = 'hidden';
-          StaticStore.saveProducts(products);
-          alert('Sản phẩm đã từng bán nên được chuyển sang trạng thái ẩn.');
-        } else if (confirm(`Bạn có chắc muốn xóa sản phẩm ${product.name}?`)) {
-          StaticStore.saveProducts(products.filter(item => item.id !== product.id));
-        }
-        renderProducts();
       }
+      if (e.target.closest('[data-category-save]')) alert('Đã sửa loại sản phẩm.');
+      if (e.target.closest('[data-category-delete]') || e.target.closest('[data-category-remove]')) alert('Đã xóa loại sản phẩm.');
+      const del = e.target.closest('[data-product-delete]');
+      if (del) alert('Đã xóa sản phẩm.');
       const edit = e.target.closest('[data-product-edit]');
       if (edit) {
         const p = StaticStore.getProducts().find(x => x.id === edit.dataset.productEdit);
         if (p) {
+          const form = document.getElementById('productForm');
+          form.dataset.editingId = p.id;
+          form.querySelector('button').textContent = 'Lưu thay đổi';
+          form.scrollIntoView({ behavior: 'smooth', block: 'center' });
           productId.value = p.id; productName.value = p.name; productCategory.value = p.category;
-          productUnit.value = p.unit || 'cái'; productStock.value = p.stock; productPrice.value = p.price;
+          productUnit.value = p.unit || 'cái'; productStock.value = p.stock; productPrice.value = Number(p.price || 0).toLocaleString('vi-VN');
           productStatus.value = p.status; productDescription.value = p.description || '';
           productPreview.innerHTML = p.image ? `<img src="${esc(p.image)}" alt="Ảnh hiện tại của sản phẩm">` : '';
         }
