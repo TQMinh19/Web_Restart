@@ -116,7 +116,7 @@ function syncControlsFromState() {
     if (keywordInput) keywordInput.value = keyword;
     if (categorySelect) categorySelect.value = searchState.category || '';
     if (brandSelect) brandSelect.value = searchState.brand || '';
-    if (minInput) minInput.value = String(searchState.minPrice);
+    if (minInput) minInput.value = searchState.minPrice === 0 ? '' : String(searchState.minPrice);
     if (maxInput) maxInput.value = String(searchState.maxPrice);
     if (minRange) minRange.value = String(searchState.minPrice);
     if (maxRange) maxRange.value = String(searchState.maxPrice);
@@ -185,7 +185,7 @@ function setupAdvancedControls() {
         const maxValue = sanitizeNumber(maxInput.value, DEFAULT_MAX_PRICE);
         const normalized = normalizeMinMax(minValue, maxValue);
 
-        minInput.value = String(normalized.min);
+        minInput.value = normalized.min === 0 ? '' : String(normalized.min);
         maxInput.value = String(normalized.max);
         minRange.value = String(normalized.min);
         maxRange.value = String(normalized.max);
@@ -201,7 +201,7 @@ function setupAdvancedControls() {
 
         minRange.value = String(normalized.min);
         maxRange.value = String(normalized.max);
-        minInput.value = String(normalized.min);
+        minInput.value = normalized.min === 0 ? '' : String(normalized.min);
         maxInput.value = String(normalized.max);
 
         searchState.minPrice = normalized.min;

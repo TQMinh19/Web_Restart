@@ -7,6 +7,7 @@
 .login-card {
   margin:0;
   background:#fff;
+  color:#18181b;
   padding:40px;
   width:100%;
   max-width:440px;
@@ -30,7 +31,34 @@
 .login-card .notice {
   margin:20px 0}
 .login-card .eyebrow {
-  color:#52525b}
+  color:#45454f}
+.login-card .muted,
+.login-card .notice {
+  color:#45454f}
+.login-card label,
+.login-card .brand {
+  color:#18181b}
+.login-card input {
+  background:#fff;
+  color:#18181b;
+  border-color:#71717a}
+.login-card input::placeholder {
+  color:#595963;
+  opacity:1}
+.login-card form button {
+  background:#18181b;
+  border-color:#18181b;
+  color:#fff}
+.login-card form button:hover {
+  background:#38383d;
+  border-color:#38383d;
+  color:#fff}
+.login-card>a:last-child {
+  color:#1d4ed8;
+  text-decoration:underline}
+.login-card :focus-visible {
+  outline:3px solid #1d4ed8;
+  outline-offset:3px}
 @media(max-width:480px) {
   .login-card {
   padding:28px 24px}
