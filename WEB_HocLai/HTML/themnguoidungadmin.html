@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Thêm người dùng | 3BK Admin</title><link rel="stylesheet" href="../CSS/giaodienadmin.css"></head>
+<body>
+<div class="admin-layout">
+<aside class="sidebar"><a class="brand" href="giaodienadmin.html">3BK <span>ADMIN</span></a>
+<p class="nav-label">QUẢN LÝ CỬA HÀNG</p>
+<nav aria-label="Quản trị"><a href="giaodienadmin.html" aria-current="page">Người dùng</a><a href="loaisanphamadmin.html">Loại sản phẩm</a><a href="sanphamadmin.html">Sản phẩm</a><a href="donhangadmin.html">Đơn hàng</a><a href="thongkeadmin.html">Thống kê</a></nav><a class="store-link" href="index.html">Xem cửa hàng ↗</a></aside>
+<div class="workspace">
+<header class="topbar"><span>3BK SHOP / Quản trị</span>
+<div><strong>Quang Minh</strong><a href="dangnhapadmin.html">Đăng xuất</a></div></header>
+<main>
+<div class="page-heading">
+<div>
+<p class="eyebrow">QUẢN TRỊ 3BK SHOP</p>
+<h1>Thêm người dùng</h1></div></div>
+<p class="notice">Giao diện đồ án web tĩnh · Dữ liệu mẫu dùng để trình bày.</p>
+<div id="feedback" role="status" hidden></div>
+<section class="card">
+<form id="userForm" class="edit-form">
+<label for="userName">Họ và tên<input id="userName" type="text" required autocomplete="name"></label>
+<label for="userEmail">Email<input id="userEmail" type="email" required autocomplete="email"></label>
+<label for="userPhone">Số điện thoại<input id="userPhone" type="tel" required pattern="[0-9]{10,11}"></label>
+<label for="userAddress">Địa chỉ<input id="userAddress" type="text" required></label>
+<label for="userStatus">Trạng thái<select id="userStatus">
+<option value="active">Đang hoạt động</option>
+<option value="locked">Đã khóa</option></select></label>
+<div class="form-actions"><button type="submit">Lưu thông tin</button><button class="secondary" type="reset">Nhập lại</button><a class="button secondary" href="giaodienadmin.html">Quay lại danh sách</a></div></form></section></main></div></div>
+<script src="../JS/admin.js"></script></body></html>

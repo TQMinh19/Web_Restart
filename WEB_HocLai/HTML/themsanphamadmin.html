@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Thêm sản phẩm | 3BK Admin</title><link rel="stylesheet" href="../CSS/giaodienadmin.css"></head>
+<body>
+<div class="admin-layout">
+<aside class="sidebar"><a class="brand" href="giaodienadmin.html">3BK <span>ADMIN</span></a>
+<p class="nav-label">QUẢN LÝ CỬA HÀNG</p>
+<nav aria-label="Quản trị"><a href="giaodienadmin.html">Người dùng</a><a href="loaisanphamadmin.html">Loại sản phẩm</a><a href="sanphamadmin.html" aria-current="page">Sản phẩm</a><a href="donhangadmin.html">Đơn hàng</a><a href="thongkeadmin.html">Thống kê</a></nav><a class="store-link" href="index.html">Xem cửa hàng ↗</a></aside>
+<div class="workspace">
+<header class="topbar"><span>3BK SHOP / Quản trị</span>
+<div><strong>Quang Minh</strong><a href="dangnhapadmin.html">Đăng xuất</a></div></header>
+<main>
+<div class="page-heading">
+<div>
+<p class="eyebrow">QUẢN TRỊ 3BK SHOP</p>
+<h1>Thêm sản phẩm</h1></div></div>
+<p class="notice">Giao diện đồ án web tĩnh · Dữ liệu mẫu dùng để trình bày.</p>
+<div id="feedback" role="status" hidden></div>
+<section class="card">
+<form id="productForm" class="edit-form">
+<label for="productId">Mã sản phẩm<input id="productId" type="text" required placeholder="Ví dụ: SP13"></label>
+<label for="productName">Tên sản phẩm<input id="productName" type="text" required></label>
+<label for="productCategory">Phân loại<select id="productCategory">
+<option value="tops">Áo thun</option>
+<option value="jacket">Áo khoác</option>
+<option value="bottoms">Quần</option>
+<option value="accessories">Phụ kiện</option>
+<option value="cap">Mũ</option></select></label>
+<label for="productUnit">Đơn vị tính<input id="productUnit" type="text" required value="cái"></label>
+<label for="productPrice">Giá bán (VNĐ)<input id="productPrice" type="number" required min="1" step="1"></label>
+<label for="productStock">Số lượng tồn kho<input id="productStock" type="number" required min="0" step="1"></label>
+<label for="productStatus">Trạng thái<select id="productStatus">
+<option value="active">Đang bán</option>
+<option value="hidden">Ẩn sản phẩm</option></select></label>
+<label for="productSizes">Size<input id="productSizes" type="text" placeholder="Ví dụ: S / M / L / XL hoặc ONE SIZE" required></label>
+<label for="productColor">Màu sắc<input id="productColor" type="text" placeholder="Ví dụ: BLACK" required></label>
+<label for="productImage">Hình ảnh sản phẩm<input id="productImage" type="file" accept="image/*"><small>Chọn ảnh để xem trước. Khi sửa, ảnh hiện tại được giữ nếu chưa chọn ảnh khác.</small></label>
+<div id="productPreview" class="image-preview"><span>Chưa chọn hình ảnh</span></div>
+<label class="full" for="productDescription">Mô tả sản phẩm<textarea id="productDescription" rows="4"></textarea></label>
+<div class="form-actions"><button type="submit">Lưu thông tin</button><button class="secondary" type="reset">Nhập lại</button><a class="button secondary" href="sanphamadmin.html">Quay lại danh sách</a></div></form></section></main></div></div>
+<script src="../JS/admin.js"></script></body></html>

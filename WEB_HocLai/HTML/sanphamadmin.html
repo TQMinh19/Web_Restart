@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Quản lý sản phẩm | 3BK Admin</title><link rel="stylesheet" href="../CSS/giaodienadmin.css"></head>
+<body>
+<div class="admin-layout">
+<aside class="sidebar"><a class="brand" href="giaodienadmin.html">3BK <span>ADMIN</span></a>
+<p class="nav-label">QUẢN LÝ CỬA HÀNG</p>
+<nav aria-label="Quản trị"><a href="giaodienadmin.html">Người dùng</a><a href="loaisanphamadmin.html">Loại sản phẩm</a><a href="sanphamadmin.html" aria-current="page">Sản phẩm</a><a href="donhangadmin.html">Đơn hàng</a><a href="thongkeadmin.html">Thống kê</a></nav><a class="store-link" href="index.html">Xem cửa hàng ↗</a></aside>
+<div class="workspace">
+<header class="topbar"><span>3BK SHOP / Quản trị</span>
+<div><strong>Quang Minh</strong><a href="dangnhapadmin.html">Đăng xuất</a></div></header>
+<main>
+<div class="page-heading">
+<div>
+<p class="eyebrow">QUẢN TRỊ 3BK SHOP</p>
+<h1>Quản lý sản phẩm</h1></div></div>
+<p class="notice">Giao diện đồ án web tĩnh · Dữ liệu mẫu dùng để trình bày.</p>
+<div id="feedback" role="status" hidden></div>
+<section class="card">
+<div class="section-heading">
+<h2>Danh sách sản phẩm</h2><a class="button" href="themsanphamadmin.html">+ Thêm sản phẩm</a></div>
+<form id="productSearchForm" class="toolbar">
+<label for="productSearch">Tìm sản phẩm<input id="productSearch" type="search" placeholder="Mã hoặc tên sản phẩm"></label>
+<label for="filterCategory">Phân loại<select id="filterCategory">
+<option value="">Tất cả</option>
+<option value="tops">Áo thun</option>
+<option value="jacket">Áo khoác</option>
+<option value="bottoms">Quần</option>
+<option value="accessories">Phụ kiện</option>
+<option value="cap">Mũ</option></select></label><button>Tìm kiếm</button><button type="reset" class="secondary">Đặt lại</button></form>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th scope="col">Mã</th>
+<th scope="col">Sản phẩm</th>
+<th scope="col">Phân loại</th>
+<th scope="col">Giá bán</th>
+<th scope="col">Tồn kho</th>
+<th scope="col">Size</th>
+<th scope="col">Trạng thái</th>
+<th scope="col">Thao tác</th></tr></thead>
+<tbody id="productsBody">
+<tr data-category="tops">
+<td>SP01</td>
+<td>
+<div class="product-cell"><img src="../Image/VICTORIA TEE.jpg" alt="VICTORIA TEE"><strong>VICTORIA TEE</strong></div></td>
+<td>Áo thun</td>
+<td>1.260.000đ</td>
+<td>20</td>
+<td class="product-sizes">S / M / L / XL</td>
+<td><span class="badge">Đang bán</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP01">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP01">Sửa</a><button type="button" class="danger" data-demo-action>Xóa</button></div></td></tr>
+<tr data-category="jacket">
+<td>SP02</td>
+<td>
+<div class="product-cell"><img src="../Image/TEXTURED ZIP HOODED SWEATER.jpg" alt="TEXTURED ZIP HOODED SWEATER"><strong>TEXTURED ZIP HOODED SWEATER</strong></div></td>
+<td>Áo khoác</td>
+<td>3.750.000đ</td>
+<td>12</td>
+<td class="product-sizes">S / M / L / XL</td>
+<td><span class="badge">Đang bán</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP02">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP02">Sửa</a><button type="button" class="danger" data-demo-action>Xóa</button></div></td></tr>
+<tr data-category="tops">
+<td>SP03</td>
+<td>
+<div class="product-cell"><img src="../Image/BIG_MEATY_TEE_PIGMENT_DYED.jpg" alt="BIG &amp; MEATY TEE PIGMENT DYED"><strong>BIG &amp; MEATY TEE PIGMENT DYED</strong></div></td>
+<td>Áo thun</td>
+<td>1.260.000đ</td>
+<td>18</td>
+<td class="product-sizes">S / M / L / XL</td>
+<td><span class="badge">Đang bán</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP03">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP03">Sửa</a><button type="button" class="danger" data-demo-action>Xóa</button></div></td></tr>
+<tr data-category="jacket">
+<td>SP04</td>
+<td>
+<div class="product-cell"><img src="../Image/TRUCKER JACKET DENIM.jpg" alt="TRUCKER JACKET DENIM"><strong>TRUCKER JACKET DENIM</strong></div></td>
+<td>Áo khoác</td>
+<td>3.540.000đ</td>
+<td>8</td>
+<td class="product-sizes">S / M / L / XL</td>
+<td><span class="badge">Đang bán</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP04">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP04">Sửa</a><button type="button" class="danger" data-demo-action>Xóa</button></div></td></tr>
+<tr data-category="tops">
+<td>SP05</td>
+<td>
+<div class="product-cell"><img src="../Image/worldteecamo.png" alt="STUSSY WORLD TOUR TEE CAMO"><strong>STUSSY WORLD TOUR TEE CAMO</strong></div></td>
+<td>Áo thun</td>
+<td>2.970.000đ</td>
+<td>15</td>
+<td class="product-sizes">S / M / L / XL</td>
+<td><span class="badge">Đang bán</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP05">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP05">Sửa</a><button type="button" class="danger" data-demo-action>Xóa</button></div></td></tr>
+<tr data-category="tops">
+<td>SP06</td>
+<td>
+<div class="product-cell"><img src="../Image/7blacktee.png" alt="STUSSY S MARK 7 BLACK TEE"><strong>STUSSY S MARK 7 BLACK TEE</strong></div></td>
+<td>Áo thun</td>
+<td>3.270.000đ</td>
+<td>10</td>
+<td class="product-sizes">S / M / L / XL</td>
+<td><span class="badge">Đang bán</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP06">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP06">Sửa</a><button type="button" class="danger" data-demo-action>Xóa</button></div></td></tr>
+<tr data-category="tops">
+<td>SP07</td>
+<td>
+<div class="product-cell"><img src="../Image/SunsetTeeFOG.png" alt="STUSSY SUNSET TEE FOG"><strong>STUSSY SUNSET TEE FOG</strong></div></td>
+<td>Áo thun</td>
+<td>3.870.000đ</td>
+<td>9</td>
+<td class="product-sizes">S / M / L / XL</td>
+<td><span class="badge">Đang bán</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP07">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP07">Sửa</a><button type="button" class="danger" data-demo-action>Xóa</button></div></td></tr>
+<tr data-category="jacket">
+<td>SP08</td>
+<td>
+<div class="product-cell"><img src="../Image/StussyAmsterdamSweatshirt.png" alt="STUSSY AMSTERDAM SWEATSHIRT"><strong>STUSSY AMSTERDAM SWEATSHIRT</strong></div></td>
+<td>Áo khoác</td>
+<td>4.170.000đ</td>
+<td>7</td>
+<td class="product-sizes">S / M / L / XL</td>
+<td><span class="badge">Đang bán</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP08">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP08">Sửa</a><button type="button" class="danger" data-demo-action>Xóa</button></div></td></tr>
+<tr data-category="cap">
+<td>SP09</td>
+<td>
+<div class="product-cell"><img src="../Image/Stussy Stock Cuff Beanie Black.png" alt="STUSSY STOCK CUFF BEANIE"><strong>STUSSY STOCK CUFF BEANIE</strong></div></td>
+<td>Mũ</td>
+<td>990.000đ</td>
+<td>25</td>
+<td class="product-sizes">ONE SIZE</td>
+<td><span class="badge">Đang bán</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP09">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP09">Sửa</a><button type="button" class="danger" data-demo-action>Xóa</button></div></td></tr>
+<tr data-category="bottoms">
+<td>SP10</td>
+<td>
+<div class="product-cell"><img src="../Image/Stussy Shorts Black.png" alt="STUSSY SHORTS BLACK"><strong>STUSSY SHORTS BLACK</strong></div></td>
+<td>Quần</td>
+<td>1.890.000đ</td>
+<td>14</td>
+<td class="product-sizes">S / M / L / XL</td>
+<td><span class="badge">Đang bán</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP10">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP10">Sửa</a><button type="button" class="danger" data-demo-action>Xóa</button></div></td></tr>
+<tr data-category="accessories">
+<td>SP11</td>
+<td>
+<div class="product-cell"><img src="../Image/pounchbag.png" alt="STUSSY POUCH BAG"><strong>STUSSY POUCH BAG</strong></div></td>
+<td>Phụ kiện</td>
+<td>1.590.000đ</td>
+<td>11</td>
+<td class="product-sizes">ONE SIZE</td>
+<td><span class="badge">Đang bán</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP11">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP11">Sửa</a><button type="button" class="danger" data-demo-action>Xóa</button></div></td></tr>
+<tr data-category="accessories">
+<td>SP12</td>
+<td>
+<div class="product-cell"><img src="../Image/keychain8ball.png" alt="STUSSY 8 BALL KEYCHAIN"><strong>STUSSY 8 BALL KEYCHAIN</strong></div></td>
+<td>Phụ kiện</td>
+<td>690.000đ</td>
+<td>30</td>
+<td class="product-sizes">ONE SIZE</td>
+<td><span class="badge">Đang bán</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP12">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP12">Sửa</a><button type="button" class="danger" data-demo-action>Xóa</button></div></td></tr>
+</tbody></table></div></section></main></div></div>
+<script src="../JS/admin.js"></script></body></html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Quản lý loại sản phẩm | 3BK Admin</title><link rel="stylesheet" href="../CSS/giaodienadmin.css"></head>
+<body>
+<div class="admin-layout">
+<aside class="sidebar"><a class="brand" href="giaodienadmin.html">3BK <span>ADMIN</span></a>
+<p class="nav-label">QUẢN LÝ CỬA HÀNG</p>
+<nav aria-label="Quản trị"><a href="giaodienadmin.html">Người dùng</a><a href="loaisanphamadmin.html" aria-current="page">Loại sản phẩm</a><a href="sanphamadmin.html">Sản phẩm</a><a href="donhangadmin.html">Đơn hàng</a><a href="thongkeadmin.html">Thống kê</a></nav><a class="store-link" href="index.html">Xem cửa hàng ↗</a></aside>
+<div class="workspace">
+<header class="topbar"><span>3BK SHOP / Quản trị</span>
+<div><strong>Quang Minh</strong><a href="dangnhapadmin.html">Đăng xuất</a></div></header>
+<main>
+<div class="page-heading">
+<div>
+<p class="eyebrow">QUẢN TRỊ 3BK SHOP</p>
+<h1>Quản lý loại sản phẩm</h1></div></div>
+<p class="notice">Giao diện đồ án web tĩnh · Dữ liệu mẫu dùng để trình bày.</p>
+<div id="feedback" role="status" hidden></div>
+<section class="card">
+<h2>Thông tin loại sản phẩm</h2>
+<form id="categoryForm" class="edit-form">
+<label for="catName">Tên loại<input id="catName" type="text" required></label>
+<label for="catDesc">Mô tả<textarea id="catDesc" rows="3"></textarea></label>
+<div class="form-actions"><button>Lưu loại sản phẩm</button><button type="reset" class="secondary">Nhập mới</button></div></form></section>
+<section class="card">
+<h2>Danh sách loại sản phẩm</h2>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th scope="col">Mã</th>
+<th scope="col">Tên loại</th>
+<th scope="col">Mô tả</th>
+<th scope="col">Thao tác</th></tr></thead>
+<tbody id="categoriesBody">
+<tr>
+<td>CAT01</td>
+<td>Áo thun</td>
+<td>Sản phẩm áo thun</td>
+<td>
+<div class="actions"><a class="button secondary" href="sualoaisanphamadmin.html#CAT01">Sửa</a><button class="danger" type="button" data-demo-action>Xóa</button></div></td></tr>
+<tr>
+<td>CAT02</td>
+<td>Áo khoác</td>
+<td>Jacket, hoodie và sweater</td>
+<td>
+<div class="actions"><a class="button secondary" href="sualoaisanphamadmin.html#CAT02">Sửa</a><button class="danger" type="button" data-demo-action>Xóa</button></div></td></tr>
+<tr>
+<td>CAT03</td>
+<td>Quần</td>
+<td>Quần thời trang</td>
+<td>
+<div class="actions"><a class="button secondary" href="sualoaisanphamadmin.html#CAT03">Sửa</a><button class="danger" type="button" data-demo-action>Xóa</button></div></td></tr>
+<tr>
+<td>CAT04</td>
+<td>Phụ kiện</td>
+<td>Túi, móc khóa và phụ kiện</td>
+<td>
+<div class="actions"><a class="button secondary" href="sualoaisanphamadmin.html#CAT04">Sửa</a><button class="danger" type="button" data-demo-action>Xóa</button></div></td></tr>
+<tr>
+<td>CAT05</td>
+<td>Mũ</td>
+<td>Các loại mũ</td>
+<td>
+<div class="actions"><a class="button secondary" href="sualoaisanphamadmin.html#CAT05">Sửa</a><button class="danger" type="button" data-demo-action>Xóa</button></div></td></tr>
+</tbody></table></div></section></main></div></div>
+<script src="../JS/admin.js"></script></body></html>

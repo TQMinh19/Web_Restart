@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Quản lý đơn hàng | 3BK Admin</title><link rel="stylesheet" href="../CSS/giaodienadmin.css"></head>
+<body>
+<div class="admin-layout">
+<aside class="sidebar"><a class="brand" href="giaodienadmin.html">3BK <span>ADMIN</span></a>
+<p class="nav-label">QUẢN LÝ CỬA HÀNG</p>
+<nav aria-label="Quản trị"><a href="giaodienadmin.html">Người dùng</a><a href="loaisanphamadmin.html">Loại sản phẩm</a><a href="sanphamadmin.html">Sản phẩm</a><a href="donhangadmin.html" aria-current="page">Đơn hàng</a><a href="thongkeadmin.html">Thống kê</a></nav><a class="store-link" href="index.html">Xem cửa hàng ↗</a></aside>
+<div class="workspace">
+<header class="topbar"><span>3BK SHOP / Quản trị</span>
+<div><strong>Quang Minh</strong><a href="dangnhapadmin.html">Đăng xuất</a></div></header>
+<main>
+<div class="page-heading">
+<div>
+<p class="eyebrow">QUẢN TRỊ 3BK SHOP</p>
+<h1>Quản lý đơn hàng</h1></div></div>
+<p class="notice">Giao diện đồ án web tĩnh · Dữ liệu mẫu dùng để trình bày.</p>
+<div id="feedback" role="status" hidden></div>
+<section class="card">
+<h2>Tra cứu đơn hàng</h2>
+<form id="orderFilterForm" class="toolbar">
+<label for="orderFrom">Từ ngày<input id="orderFrom" type="date" ></label>
+<label for="orderTo">Đến ngày<input id="orderTo" type="date" ></label>
+<label for="orderStatus">Trạng thái<select id="orderStatus">
+<option value="">Tất cả</option>
+<option value="pending">Chưa xác nhận</option>
+<option value="confirmed">Đã xác nhận</option>
+<option value="delivered">Đã giao thành công</option>
+<option value="completed">Hoàn tất</option>
+<option value="cancelled">Hủy đơn</option></select></label>
+<label for="orderLocation">Địa điểm giao hàng<input id="orderLocation" type="search" placeholder="Quận, huyện, thành phố"></label><button>Tra cứu</button><button type="reset" class="secondary">Đặt lại</button></form>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th scope="col">Mã đơn</th>
+<th scope="col">Khách hàng</th>
+<th scope="col">Ngày đặt</th>
+<th scope="col">Tổng tiền</th>
+<th scope="col">Trạng thái</th>
+<th scope="col">Thao tác</th></tr></thead>
+<tbody id="ordersBody">
+<tr data-date="2026-09-28" data-status="delivered">
+<td>ORD-2026-001</td>
+<td>Nguyễn Minh Anh<small>123 Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</small></td>
+<td>28/09/2026</td>
+<td>1.260.000đ</td>
+<td><select aria-label="Trạng thái đơn ORD-2026-001">
+<option value="pending" disabled>Chưa xác nhận</option>
+<option value="confirmed" disabled>Đã xác nhận</option>
+<option value="delivered" selected>Đã giao thành công</option>
+<option value="completed">Hoàn tất</option>
+<option value="cancelled" disabled>Hủy đơn</option></select></td>
+<td><a class="button secondary" href="chitietdonhangadmin.html#ORD-2026-001">Xem chi tiết</a></td></tr>
+<tr data-date="2026-09-29" data-status="completed">
+<td>ORD-2026-002</td>
+<td>Trần Hoàng Nam<small>25 Lê Lợi, Quận 1, TP. Hồ Chí Minh</small></td>
+<td>29/09/2026</td>
+<td>3.750.000đ</td>
+<td><select aria-label="Trạng thái đơn ORD-2026-002">
+<option value="pending" disabled>Chưa xác nhận</option>
+<option value="confirmed" disabled>Đã xác nhận</option>
+<option value="delivered" disabled>Đã giao thành công</option>
+<option value="completed" selected>Hoàn tất</option>
+<option value="cancelled" disabled>Hủy đơn</option></select></td>
+<td><a class="button secondary" href="chitietdonhangadmin.html#ORD-2026-002">Xem chi tiết</a></td></tr>
+<tr data-date="2026-09-30" data-status="delivered">
+<td>ORD-2026-003</td>
+<td>Lê Khánh Linh<small>88 Nguyễn Trãi, Quận Thanh Xuân, Hà Nội</small></td>
+<td>30/09/2026</td>
+<td>2.970.000đ</td>
+<td><select aria-label="Trạng thái đơn ORD-2026-003">
+<option value="pending" disabled>Chưa xác nhận</option>
+<option value="confirmed" disabled>Đã xác nhận</option>
+<option value="delivered" selected>Đã giao thành công</option>
+<option value="completed">Hoàn tất</option>
+<option value="cancelled" disabled>Hủy đơn</option></select></td>
+<td><a class="button secondary" href="chitietdonhangadmin.html#ORD-2026-003">Xem chi tiết</a></td></tr>
+<tr data-date="2026-10-01" data-status="confirmed">
+<td>ORD-2026-004</td>
+<td>Phạm Gia Huy<small>16 Trần Phú, Hải Châu, Đà Nẵng</small></td>
+<td>01/10/2026</td>
+<td>3.540.000đ</td>
+<td><select aria-label="Trạng thái đơn ORD-2026-004">
+<option value="pending" disabled>Chưa xác nhận</option>
+<option value="confirmed" selected>Đã xác nhận</option>
+<option value="delivered">Đã giao thành công</option>
+<option value="completed" disabled>Hoàn tất</option>
+<option value="cancelled">Hủy đơn</option></select></td>
+<td><a class="button secondary" href="chitietdonhangadmin.html#ORD-2026-004">Xem chi tiết</a></td></tr>
+<tr data-date="2026-10-02" data-status="pending">
+<td>ORD-2026-005</td>
+<td>Võ Ngọc Anh<small>42 Phan Xích Long, Phú Nhuận, TP. Hồ Chí Minh</small></td>
+<td>02/10/2026</td>
+<td>1.590.000đ</td>
+<td><select aria-label="Trạng thái đơn ORD-2026-005">
+<option value="pending" selected>Chưa xác nhận</option>
+<option value="confirmed">Đã xác nhận</option>
+<option value="delivered" disabled>Đã giao thành công</option>
+<option value="completed" disabled>Hoàn tất</option>
+<option value="cancelled">Hủy đơn</option></select></td>
+<td><a class="button secondary" href="chitietdonhangadmin.html#ORD-2026-005">Xem chi tiết</a></td></tr>
+<tr data-date="2026-10-03" data-status="delivered">
+<td>ORD-2026-006</td>
+<td>Bùi Thanh Tâm<small>19 Điện Biên Phủ, Bình Thạnh, TP. Hồ Chí Minh</small></td>
+<td>03/10/2026</td>
+<td>3.270.000đ</td>
+<td><select aria-label="Trạng thái đơn ORD-2026-006">
+<option value="pending" disabled>Chưa xác nhận</option>
+<option value="confirmed" disabled>Đã xác nhận</option>
+<option value="delivered" selected>Đã giao thành công</option>
+<option value="completed">Hoàn tất</option>
+<option value="cancelled" disabled>Hủy đơn</option></select></td>
+<td><a class="button secondary" href="chitietdonhangadmin.html#ORD-2026-006">Xem chi tiết</a></td></tr>
+<tr data-date="2026-10-04" data-status="completed">
+<td>ORD-2026-007</td>
+<td>Phan Quỳnh Mai<small>61 Trần Hưng Đạo, Hoàn Kiếm, Hà Nội</small></td>
+<td>04/10/2026</td>
+<td>3.870.000đ</td>
+<td><select aria-label="Trạng thái đơn ORD-2026-007">
+<option value="pending" disabled>Chưa xác nhận</option>
+<option value="confirmed" disabled>Đã xác nhận</option>
+<option value="delivered" disabled>Đã giao thành công</option>
+<option value="completed" selected>Hoàn tất</option>
+<option value="cancelled" disabled>Hủy đơn</option></select></td>
+<td><a class="button secondary" href="chitietdonhangadmin.html#ORD-2026-007">Xem chi tiết</a></td></tr>
+<tr data-date="2026-10-05" data-status="confirmed">
+<td>ORD-2026-008</td>
+<td>Hồ Đức Anh<small>27 Nguyễn Văn Linh, Hải Châu, Đà Nẵng</small></td>
+<td>05/10/2026</td>
+<td>1.890.000đ</td>
+<td><select aria-label="Trạng thái đơn ORD-2026-008">
+<option value="pending" disabled>Chưa xác nhận</option>
+<option value="confirmed" selected>Đã xác nhận</option>
+<option value="delivered">Đã giao thành công</option>
+<option value="completed" disabled>Hoàn tất</option>
+<option value="cancelled">Hủy đơn</option></select></td>
+<td><a class="button secondary" href="chitietdonhangadmin.html#ORD-2026-008">Xem chi tiết</a></td></tr>
+<tr data-date="2026-10-06" data-status="pending">
+<td>ORD-2026-009</td>
+<td>Đặng Thu Hà<small>54 Lý Thường Kiệt, Nha Trang, Khánh Hòa</small></td>
+<td>06/10/2026</td>
+<td>990.000đ</td>
+<td><select aria-label="Trạng thái đơn ORD-2026-009">
+<option value="pending" selected>Chưa xác nhận</option>
+<option value="confirmed">Đã xác nhận</option>
+<option value="delivered" disabled>Đã giao thành công</option>
+<option value="completed" disabled>Hoàn tất</option>
+<option value="cancelled">Hủy đơn</option></select></td>
+<td><a class="button secondary" href="chitietdonhangadmin.html#ORD-2026-009">Xem chi tiết</a></td></tr>
+<tr data-date="2026-10-07" data-status="delivered">
+<td>ORD-2026-010</td>
+<td>Mai Quốc Bảo<small>102 Lê Duẩn, Thành phố Huế</small></td>
+<td>07/10/2026</td>
+<td>4.170.000đ</td>
+<td><select aria-label="Trạng thái đơn ORD-2026-010">
+<option value="pending" disabled>Chưa xác nhận</option>
+<option value="confirmed" disabled>Đã xác nhận</option>
+<option value="delivered" selected>Đã giao thành công</option>
+<option value="completed">Hoàn tất</option>
+<option value="cancelled" disabled>Hủy đơn</option></select></td>
+<td><a class="button secondary" href="chitietdonhangadmin.html#ORD-2026-010">Xem chi tiết</a></td></tr>
+</tbody></table></div></section></main></div></div>
+<script src="../JS/admin.js"></script></body></html>

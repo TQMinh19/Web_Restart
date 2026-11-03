@@ -1,64 +1,119 @@
 <!doctype html>
 <html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quản lý sản phẩm</title>
-  <link rel="stylesheet" href="../CSS/giaodienadmin.css">
-</head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Quản lý người dùng | 3BK Admin</title><link rel="stylesheet" href="../CSS/giaodienadmin.css"></head>
 <body>
-  <div class="container">
-    <aside class="sidebar">
-      <h2>Quản Lý</h2>
-      <nav><ul>
-        <li><a href="#users">Người dùng</a></li>
-        <li><a href="#categories">Loại sản phẩm</a></li>
-        <li><a href="#products">Sản phẩm</a></li>
-        <li><a href="#orders">Đơn hàng</a></li>
-        <li><a href="thongkeadmin.html">Thống kê</a></li>
-      </ul></nav>
-    </aside>
-    <main class="main">
-      <section class="admin-meta-card">
-        <div class="admin-meta-header"><h2>Giao diện cho người quản trị</h2><div><a href="dangnhapadmin.html" class="btn-back-home">Đăng xuất</a><a href="index.html" class="btn-back-home">Quay về trang chủ</a></div></div>
-        <div class="admin-meta-grid">
-          <div><h3>Thông tin đăng nhập quản trị</h3><p>Tài khoản: Quang Minh</p><p>Vai trò: Super Admin</p><p>Trang đăng nhập: dangnhapadmin.html</p></div>
-          <div><h3>Chức năng theo đề bài</h3><ul><li>Quản lý người dùng</li><li>Quản lý loại và sản phẩm</li><li>Quản lý đơn hàng</li><li>Thống kê mua hàng</li></ul></div>
-        </div>
-      </section>
-
-
-      <section id="users" class="module"><div class="users-admin-card">
-        <h2>Quản lý người dùng</h2>
-        <form id="userSearchForm" class="users-toolbar" action="#users" method="get"><label for="userSearch" class="users-toolbar-label">Tìm:</label><input id="userSearch" class="users-search-input" type="text" placeholder="Email / tên / số điện thoại"><button class="users-toolbar-action" type="submit">Tìm</button></form>
-        <form id="userForm" class="products-form-grid">
-          <label>Họ và tên<input id="userName" type="text" required></label>
-          <label>Email<input id="userEmail" type="email" required></label>
-          <label>Số điện thoại<input id="userPhone" type="tel" pattern="[0-9]{10,11}" required></label>
-          <label>Địa chỉ<input id="userAddress" type="text" required></label>
-          <div class="products-form-actions"><button type="submit">Thêm tài khoản</button><button type="reset">Hủy / Nhập mới</button></div>
-        </form>
-        <table class="users-table"><thead><tr><th>ID</th><th>Họ tên</th><th>Email</th><th>Số điện thoại</th><th>Địa chỉ</th><th>Trạng thái</th><th>Thao tác</th></tr></thead><tbody id="usersBody"></tbody></table>
-      </div></section>
-
-      <section id="categories" class="module module-card categories-module"><h2>Quản lý loại sản phẩm</h2><div class="categories-layout">
-        <form class="category-form" action="#categories" method="get" novalidate><label for="catName">Tên loại</label><input id="catName" type="text" placeholder="Ví dụ: Áo thun"><label for="catDesc">Mô tả</label><textarea id="catDesc" placeholder="Mô tả loại sản phẩm"></textarea><div class="category-form-actions"><button class="cat-btn cat-btn-add" type="submit">Thêm</button><button class="cat-btn cat-btn-edit" type="button" data-category-save>Sửa</button><button class="cat-btn cat-btn-delete" type="button" data-category-remove>Xóa</button></div></form>
-        <div class="categories-table-wrap"><table class="categories-table"><thead><tr><th>ID</th><th>Tên loại</th><th>Mô tả</th><th>Thao tác</th></tr></thead><tbody id="categoriesBody"></tbody></table></div>
-      </div></section>
-
-      <section id="products" class="module module-card products-module"><h2>Quản lý sản phẩm</h2>
-        <form id="productForm" class="products-form-grid" action="#products" method="get" novalidate><input id="productId" type="text" placeholder="Mã sản phẩm"><input id="productName" type="text" placeholder="Tên sản phẩm"><select id="productCategory"><option value="tops">Áo thun</option><option value="bottoms">Quần</option><option value="accessories">Phụ kiện</option><option value="jacket">Áo khoác</option><option value="cap">Mũ</option></select><input id="productUnit" type="text" placeholder="Đơn vị tính" value="cái"><input id="productStock" type="number" placeholder="Số lượng" min="0"><input id="productPrice" type="text" inputmode="numeric" placeholder="Giá bán" min="0"><input id="productImage" type="file" accept="image/*"><select id="productStatus"><option value="active">Đang bán</option><option value="hidden">Ẩn sản phẩm</option></select><textarea id="productDescription" placeholder="Mô tả sản phẩm"></textarea><div id="productPreview" class="product-preview"></div><div class="products-form-actions"><button type="submit">Thêm sản phẩm</button><button id="productReset" type="button">Làm mới</button></div></form>
-        <table class="products-table"><thead><tr><th>Mã</th><th>Tên</th><th>Loại</th><th>Giá</th><th>Trạng thái</th><th>Hành động</th></tr></thead><tbody id="productsBody"></tbody></table>
-      </section>
-
-      <section id="orders" class="module module-card orders-module"><h2>Quản lý đơn hàng</h2>
-        <form id="orderFilterForm" class="orders-filters" action="#orders" method="get"><div class="orders-filter-item"><label>Từ ngày</label><input id="orderFrom" type="date" min="2020-01-01"></div><div class="orders-filter-item"><label>Đến ngày</label><input id="orderTo" type="date" min="2020-01-01"></div><div class="orders-filter-item"><label>Trạng thái</label><select id="orderStatus"><option value="">Tất cả</option><option value="pending">Chưa xác nhận</option><option value="confirmed">Đã xác nhận</option><option value="delivered">Đã giao thành công</option><option value="completed">Hoàn tất</option><option value="cancelled">Hủy đơn</option></select></div><input id="orderLocation" type="text" placeholder="Quận / huyện / thành phố"><button class="orders-search-btn" type="submit">Tra cứu</button></form>
-        <table class="orders-table"><thead><tr><th>Mã đơn</th><th>Khách hàng</th><th>Ngày đặt</th><th>Tổng tiền</th><th>Trạng thái</th><th>Thao tác</th></tr></thead><tbody id="ordersBody"></tbody></table>
-        <section id="order-detail-panel" class="admin-order-detail" hidden aria-live="polite"><div class="admin-order-detail-header"><h3>Chi tiết đơn hàng</h3><button type="button" data-order-detail-close>Đóng</button></div><div id="orderDetailContent"></div></section>
-      </section>
-    </main>
-  </div>
-  <script src="../JS/static-data.js"></script>
-  <script src="../JS/admin.js"></script>
-</body>
-</html>
+<div class="admin-layout">
+<aside class="sidebar"><a class="brand" href="giaodienadmin.html">3BK <span>ADMIN</span></a>
+<p class="nav-label">QUẢN LÝ CỬA HÀNG</p>
+<nav aria-label="Quản trị"><a href="giaodienadmin.html" aria-current="page">Người dùng</a><a href="loaisanphamadmin.html">Loại sản phẩm</a><a href="sanphamadmin.html">Sản phẩm</a><a href="donhangadmin.html">Đơn hàng</a><a href="thongkeadmin.html">Thống kê</a></nav><a class="store-link" href="index.html">Xem cửa hàng ↗</a></aside>
+<div class="workspace">
+<header class="topbar"><span>3BK SHOP / Quản trị</span>
+<div><strong>Quang Minh</strong><a href="dangnhapadmin.html">Đăng xuất</a></div></header>
+<main>
+<div class="page-heading">
+<div>
+<p class="eyebrow">QUẢN TRỊ 3BK SHOP</p>
+<h1>Quản lý người dùng</h1></div></div>
+<p class="notice">Giao diện đồ án web tĩnh · Dữ liệu mẫu dùng để trình bày.</p>
+<div id="feedback" role="status" hidden></div>
+<section class="card">
+<div class="section-heading">
+<h2>Danh sách người dùng</h2><a class="button" href="themnguoidungadmin.html">+ Thêm người dùng</a></div>
+<form id="userSearchForm" class="toolbar">
+<label for="userSearch">Tìm người dùng<input id="userSearch" type="search" placeholder="Tên, email hoặc số điện thoại"></label><button>Tìm kiếm</button><button type="reset" class="secondary">Đặt lại</button></form>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th scope="col">Mã</th>
+<th scope="col">Họ tên / Email</th>
+<th scope="col">Liên hệ / Địa chỉ</th>
+<th scope="col">Trạng thái</th>
+<th scope="col">Thao tác</th></tr></thead>
+<tbody id="usersBody">
+<tr>
+<td>US01</td>
+<td><strong>Nguyễn Minh Anh</strong><small>minhanh@example.com</small></td>
+<td>0901234567<small>123 Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</small></td>
+<td><span class="badge">Đang hoạt động</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US01">Sửa</a><button class="secondary" type="button" data-demo-action>Khóa</button></div></td></tr>
+<tr>
+<td>US02</td>
+<td><strong>Trần Hoàng Nam</strong><small>hoangnam@example.com</small></td>
+<td>0912345678<small>25 Lê Lợi, Quận 1, TP. Hồ Chí Minh</small></td>
+<td><span class="badge">Đang hoạt động</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US02">Sửa</a><button class="secondary" type="button" data-demo-action>Khóa</button></div></td></tr>
+<tr>
+<td>US03</td>
+<td><strong>Lê Khánh Linh</strong><small>khanhlinh@example.com</small></td>
+<td>0923456789<small>88 Nguyễn Trãi, Quận Thanh Xuân, Hà Nội</small></td>
+<td><span class="badge">Đang hoạt động</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US03">Sửa</a><button class="secondary" type="button" data-demo-action>Khóa</button></div></td></tr>
+<tr>
+<td>US04</td>
+<td><strong>Phạm Gia Huy</strong><small>giahuy@example.com</small></td>
+<td>0934567890<small>16 Trần Phú, Hải Châu, Đà Nẵng</small></td>
+<td><span class="badge">Đang hoạt động</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US04">Sửa</a><button class="secondary" type="button" data-demo-action>Khóa</button></div></td></tr>
+<tr>
+<td>US05</td>
+<td><strong>Võ Ngọc Anh</strong><small>ngocanh@example.com</small></td>
+<td>0945678901<small>42 Phan Xích Long, Phú Nhuận, TP. Hồ Chí Minh</small></td>
+<td><span class="badge">Đang hoạt động</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US05">Sửa</a><button class="secondary" type="button" data-demo-action>Khóa</button></div></td></tr>
+<tr>
+<td>US06</td>
+<td><strong>Đỗ Minh Quân</strong><small>minhquan@example.com</small></td>
+<td>0956789012<small>10 Cầu Giấy, Hà Nội</small></td>
+<td><span class="badge">Đang hoạt động</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US06">Sửa</a><button class="secondary" type="button" data-demo-action>Khóa</button></div></td></tr>
+<tr>
+<td>US07</td>
+<td><strong>Nguyễn Thảo Vy</strong><small>thaovy@example.com</small></td>
+<td>0967890123<small>73 Võ Văn Tần, Quận 3, TP. Hồ Chí Minh</small></td>
+<td><span class="badge off">Đã khóa</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US07">Sửa</a><button class="secondary" type="button" data-demo-action>Mở khóa</button></div></td></tr>
+<tr>
+<td>US08</td>
+<td><strong>Bùi Thanh Tâm</strong><small>thanhtam@example.com</small></td>
+<td>0978901234<small>19 Điện Biên Phủ, Bình Thạnh, TP. Hồ Chí Minh</small></td>
+<td><span class="badge">Đang hoạt động</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US08">Sửa</a><button class="secondary" type="button" data-demo-action>Khóa</button></div></td></tr>
+<tr>
+<td>US09</td>
+<td><strong>Phan Quỳnh Mai</strong><small>quynhmai@example.com</small></td>
+<td>0989012345<small>61 Trần Hưng Đạo, Hoàn Kiếm, Hà Nội</small></td>
+<td><span class="badge">Đang hoạt động</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US09">Sửa</a><button class="secondary" type="button" data-demo-action>Khóa</button></div></td></tr>
+<tr>
+<td>US10</td>
+<td><strong>Hồ Đức Anh</strong><small>ducanh@example.com</small></td>
+<td>0990123456<small>27 Nguyễn Văn Linh, Hải Châu, Đà Nẵng</small></td>
+<td><span class="badge">Đang hoạt động</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US10">Sửa</a><button class="secondary" type="button" data-demo-action>Khóa</button></div></td></tr>
+<tr>
+<td>US11</td>
+<td><strong>Đặng Thu Hà</strong><small>thuha@example.com</small></td>
+<td>0902345678<small>54 Lý Thường Kiệt, Nha Trang, Khánh Hòa</small></td>
+<td><span class="badge">Đang hoạt động</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US11">Sửa</a><button class="secondary" type="button" data-demo-action>Khóa</button></div></td></tr>
+<tr>
+<td>US12</td>
+<td><strong>Mai Quốc Bảo</strong><small>quocbao@example.com</small></td>
+<td>0913456789<small>102 Lê Duẩn, Thành phố Huế</small></td>
+<td><span class="badge">Đang hoạt động</span></td>
+<td>
+<div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US12">Sửa</a><button class="secondary" type="button" data-demo-action>Khóa</button></div></td></tr>
+</tbody></table></div></section></main></div></div>
+<script src="../JS/admin.js"></script></body></html>
