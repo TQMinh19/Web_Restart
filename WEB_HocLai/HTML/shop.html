@@ -45,7 +45,7 @@
           placeholder="Tên sản phẩm..."
         />
 
-        <select id="advancedCategory" class="adv-input select" aria-label="Loại sản phẩm"><option value="">Tất cả loại sản phẩm</option><option value="tops">Áo thun</option><option value="jacket">Áo khoác</option><option value="bottoms">Quần</option><option value="accessories">Phụ kiện</option><option value="cap">Mũ</option></select>
+        <details class="category-picker"><summary aria-label="Loại sản phẩm"><span class="category-picker-label">Tất cả loại sản phẩm</span><span aria-hidden="true">⌄</span></summary><div class="category-picker-options"><button type="button" data-category-value="">Tất cả loại sản phẩm</button><button type="button" data-category-value="tops">Áo thun</button><button type="button" data-category-value="jacket">Áo khoác</button><button type="button" data-category-value="bottoms">Quần</button><button type="button" data-category-value="accessories">Phụ kiện</button><button type="button" data-category-value="cap">Mũ</button></div><select hidden tabindex="-1" id="advancedCategory" class="adv-input select" aria-label="Loại sản phẩm"><option value="">Tất cả loại sản phẩm</option><option value="tops">Áo thun</option><option value="jacket">Áo khoác</option><option value="bottoms">Quần</option><option value="accessories">Phụ kiện</option><option value="cap">Mũ</option></select></details>
 
         <select id="advancedBrand" class="adv-input select">
           <option value="">Hãng</option>
@@ -243,5 +243,6 @@
     </div>
     <script src="../JS/main.js"></script>
     <script src="../JS/shop.js"></script>
-  </body>
+    <script src="../JS/category-picker.js"></script>
+</body>
 </html>

@@ -30,7 +30,23 @@ body.store-auth { display: block; height: auto; min-height: 100vh; }
 .store-auth > .card:has(.login-container) { min-height: calc(100vh - 210px); }
 
 /* Identical category controls and page controls for shop and search results. */
-#advancedCategory, #searchCategory { min-width: 190px; height: 44px; padding: 0 36px 0 12px; border: 1px solid #ccc; border-radius: 6px; background: #fff; color: #222; font: 14px "Inter", "Segoe UI", Arial, sans-serif; }
+.category-picker { position: relative; min-width: 240px; margin: 0; padding: 0; border: 0; font: 14px "Inter", "Segoe UI", Arial, sans-serif; }
+.category-picker > select { display: none; }
+.category-picker > summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 44px; padding: 0 12px; border: 1px solid #ccc; border-radius: 6px; background: #fff; color: #222; list-style: none; cursor: pointer; white-space: nowrap; }
+.category-picker > summary::-webkit-details-marker { display: none; }
+.category-picker-options { position: absolute; top: calc(100% + 4px); left: 0; right: 0; z-index: 20; margin: 0; padding: 4px; border: 1px solid #d7dde6; border-radius: 6px; background: #fff; box-shadow: 0 6px 18px #0002; }
+.category-picker .category-picker-options button { display: block; width: 100%; height: auto; min-height: 0; margin: 0; padding: 9px 12px; border: 0; border-radius: 3px; background: #fff; color: #222; text-align: left; font: inherit; line-height: 1.4; box-shadow: none; cursor: pointer; }
+.category-picker .category-picker-options button:hover, .category-picker .category-picker-options button.selected { background: #f0f1f3; }
+.category-picker summary:focus-visible, .category-picker-options button:focus-visible { outline: 2px solid #555; outline-offset: 2px; }
+#advancedCategory, #searchCategory { min-width: 240px; height: 44px; padding: 0 36px 0 12px; border: 1px solid #ccc; border-radius: 6px; background: #fff; color: #222; font: 14px "Inter", "Segoe UI", Arial, sans-serif; }
+@media (min-width: 1201px) {
+  .advanced-search-row { grid-template-columns: minmax(0, 1.2fr) minmax(240px, .8fr) minmax(140px, .8fr) minmax(0, 2fr) auto; }
+  .advanced-search-row > *, .advanced-search-row .price-inputs > input { min-width: 0; }
+}
+@media (max-width: 600px) {
+  #advancedCategory, #searchCategory { width: 100%; min-width: 0; }
+  .category-picker { width: 100%; min-width: 0; }
+}
 .search-pagination { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 30px 0 10px; flex-wrap: wrap; }
 .search-pagination .page-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 38px; height: 38px; margin: 0; padding: 0 12px; border: 1px solid #d7dde6; border-radius: 999px; background: #fff; color: #222; font: 600 14px "Inter", "Segoe UI", Arial, sans-serif; line-height: 1; cursor: pointer; box-shadow: none; }
 .search-pagination .page-btn:hover, .search-pagination .page-btn.active { background: #111827; color: #fff; border-color: #111827; box-shadow: none; }
