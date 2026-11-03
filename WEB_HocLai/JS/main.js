@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 5000);
 
     setupAddToCartButtons();
-    setupHeaderDropdownMenus();
+
     updateCartBadges();
 
     // Search functionality
@@ -204,118 +204,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
-
-function setupHeaderDropdownMenus() {
-    const navTopLists = document.querySelectorAll('.header-nav .nav-top ul');
-    if (!navTopLists.length) return;
-
-    ensureHeaderDropdownStyles();
-
-    const menuConfig = {
-        SHOP: [
-            { label: 'TOPS', href: 'shop.html?category=tops&page=1' },
-            { label: 'BOTTOMS', href: 'shop.html?category=bottoms&page=1' },
-            { label: 'ACCESSORIES', href: 'shop.html?category=accessories&page=1' }
-        ],
-        THEROLLINGSTONES: [
-            { label: 'CAPS', href: 'shop.html?category=cap&page=1' },
-            { label: 'JACKETS/HOODIE', href: 'shop.html?category=jacket&page=1' }
-        ]
-    };
-
-    navTopLists.forEach((list) => {
-        const items = list.querySelectorAll(':scope > li');
-
-        items.forEach((item) => {
-            if (item.dataset.dropdownReady === 'true') return;
-
-            const link = item.querySelector(':scope > a');
-            if (!link) return;
-
-            const key = link.textContent.trim().toUpperCase().replace(/[^A-Z]/g, '');
-            const options = menuConfig[key];
-            if (!options) return;
-
-            const dropdown = document.createElement('div');
-            dropdown.className = 'nav-dropdown-menu';
-
-            options.forEach((entry) => {
-                const option = document.createElement('a');
-                if (typeof entry === 'string') {
-                    option.href = '#';
-                    option.textContent = entry;
-                } else {
-                    option.href = entry.href || '#';
-                    option.textContent = entry.label || '';
-                }
-                dropdown.appendChild(option);
-            });
-
-            item.classList.add('nav-item-with-dropdown');
-            item.appendChild(dropdown);
-            item.dataset.dropdownReady = 'true';
-        });
-    });
-}
-
-function ensureHeaderDropdownStyles() {
-    if (document.getElementById('navDropdownStyles')) return;
-
-    const style = document.createElement('style');
-    style.id = 'navDropdownStyles';
-    style.textContent = `
-        .header-nav .nav-top,
-        .header-nav .nav-top ul,
-        .header-nav .nav-top li {
-            overflow: visible;
-        }
-
-        .header-nav .nav-top li {
-            position: relative;
-        }
-
-        .header-nav .nav-top li.nav-item-with-dropdown > .nav-dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            min-width: 220px;
-            background: rgba(0, 0, 0, 0.74);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
-            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.34);
-            z-index: 1250;
-        }
-
-        .header-nav .nav-top li.nav-item-with-dropdown:hover > .nav-dropdown-menu {
-            display: block;
-        }
-
-        .header-nav .nav-top li.nav-item-with-dropdown > .nav-dropdown-menu a {
-            display: block;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 700;
-            line-height: 1.2;
-            padding: 12px 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            white-space: nowrap;
-        }
-
-        .header-nav .nav-top li.nav-item-with-dropdown > .nav-dropdown-menu a:last-child {
-            border-bottom: none;
-        }
-
-        .header-nav .nav-top li.nav-item-with-dropdown > .nav-dropdown-menu a:hover {
-            background: rgba(255, 255, 255, 0.12);
-        }
-    `;
-
-    document.head.appendChild(style);
-}
 
 function ensureUserMenuStyles() {
     if (document.getElementById('userMenuStyles')) return;

@@ -8,43 +8,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../CSS/main.css?v=20260328a" />
     <link rel="stylesheet" href="../CSS/thongtinkhachhang.css?v=20260328b" />
-  </head>
+    <link rel="stylesheet" href="../CSS/storefront.css">
+</head>
 
   <body>
-    <header class="main-header">
-      <div class="header-container">
-        <div class="header-left">
-          <a href="index.html"><img src="../Image/logo.jpg" alt="Logo" class="logo" /></a>
-        </div>
-        <nav class="header-nav">
-          <div class="nav-top">
-            <ul>
-              <li><a href="shop.html">SHOP</a></li>
-              <li><a href="shop.html">THE ROLLING STONES</a></li>
-              <li><a href="Contacts.html">CONTACT</a></li>
-              <li><a href="aboutus.html">ABOUT US</a></li>
-            </ul>
-          </div>
-          <div class="nav-bottom">
-            <ul>
-              <li class="best-seller"><a href="shop.html">BEST SELLER</a></li>
-            </ul>
-          </div>
-        </nav>
-        <div class="header-right">
-          <div class="search-box">
-            <input type="text" placeholder="Tìm kiếm..." />
-            <a href="timkiem.html" aria-label="Mở trang tìm kiếm"><button type="button"><span class="search-icon">🔍</span></button></a>
-          </div>
-          <div class="user-hover-menu"><a href="thongtinkhachhang.html" class="user-link"><span class="icon user-icon">👤</span></a><div class="user-dropdown"><a href="#info">Thông tin tài khoản</a><a href="index.html">Đăng xuất</a></div></div>
-          <a href="cart.html" class="cart-link">
-            <span class="icon cart-icon">🛒<span class="cart-count">0</span></span>
-          </a>
-          <span class="lang-select">Vi</span>
-          <span class="lang-select">En</span>
-        </div>
+    <header class="store-header">
+  <div class="store-header-inner">
+    <a class="store-logo" href="index.html" aria-label="3BK Shop - Trang chủ"><img src="../Image/logo.jpg" alt="3BK Shop"></a>
+    <nav class="store-nav" aria-label="Điều hướng chính">
+      <div class="store-nav-top">
+        <details class="store-menu"><summary>SHOP <span aria-hidden="true">⌄</span></summary><div class="store-dropdown"><a href="shop.html">Tất cả sản phẩm</a><a href="shop.html?category=tops&amp;page=1">Áo thun</a><a href="shop.html?category=jacket&amp;page=1">Áo khoác</a><a href="shop.html?category=bottoms&amp;page=1">Quần</a><a href="shop.html?category=accessories&amp;page=1">Phụ kiện</a><a href="shop.html?category=cap&amp;page=1">Mũ</a></div></details>
+        <a href="shop.html">THE ROLLING STONES</a><a href="Contacts.html">CONTACT</a><a href="aboutus.html">ABOUT US</a>
       </div>
-    </header>
+      <a class="store-best" href="shop.html">BEST SELLER</a>
+    </nav>
+    <div class="store-tools">
+      <form class="store-search" action="timkiem.html" method="get" role="search"><input type="search" name="q" placeholder="Tìm kiếm..." aria-label="Tên sản phẩm"><button type="submit" aria-label="Tìm kiếm">⌕</button></form>
+      <details class="store-menu store-account"><summary aria-label="Tài khoản">👤</summary><div class="store-dropdown"><a href="dangnhap.html">Đăng nhập</a><a href="dangky.html">Đăng ký</a><a href="thongtinkhachhang.html">Thông tin tài khoản</a><a href="thongtinkhachhang.html#history">Lịch sử mua hàng</a></div></details>
+      <a class="store-cart" href="cart.html" aria-label="Giỏ hàng">🛒</a><span class="store-lang">Vi</span><span class="store-lang">En</span>
+    </div>
+  </div>
+</header>
 
     <div class="customer-container">
       <div class="customer-sidebar">

@@ -1,0 +1,59 @@
+/* Shared storefront header; static markup also works when opened from a file. */
+.store-header, .store-header * { box-sizing: border-box; font-family: "Inter", "Segoe UI", Arial, sans-serif; }
+.store-header { position: relative; z-index: 100; width: 100%; margin: 0; padding: 22px 0; background: #fff; color: #222; border-bottom: 1px solid #e5e5e5; }
+.store-header .store-header-inner { width: 100%; max-width: 1440px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 32px; }
+.store-header a { color: #222; text-decoration: none; }
+.store-header .store-logo { display: block; flex: 0 0 72px; }
+.store-header .store-logo img { display: block; width: 64px; height: 72px; object-fit: contain; border: 0; border-radius: 0; }
+.store-header .store-nav { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 12px; min-width: 0; }
+.store-header .store-nav-top { display: flex; align-items: center; justify-content: center; gap: 24px; }
+.store-header .store-nav-top > a, .store-header .store-nav-top summary { font-size: 15px; font-weight: 700; white-space: nowrap; padding: 8px 0; }
+.store-header .store-best { color: #e74c3c; font-size: 15px; font-weight: 700; }
+.store-header .store-tools { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+.store-header .store-search { display: flex; align-items: center; gap: 8px; width: 200px; margin: 0; padding: 8px 12px; border: 1px solid #ddd; border-radius: 24px; background: #fafafa; }
+.store-header .store-search input { width: 100%; min-width: 0; height: auto; margin: 0; padding: 0; color: #222; background: transparent; border: 0; border-radius: 0; font-size: 14px; outline: none; box-shadow: none; }
+.store-header .store-search button { flex: 0 0 24px; width: 24px; height: 24px; margin: 0; padding: 0; border: 0; color: #222; background: transparent; font-size: 25px; line-height: 1; box-shadow: none; cursor: pointer; }
+.store-header .store-menu { position: relative; margin: 0; padding: 0; border: 0; }
+.store-header summary { cursor: pointer; list-style: none; }
+.store-header summary::-webkit-details-marker { display: none; }
+.store-header .store-dropdown { display: none; position: absolute; top: 100%; left: 0; min-width: 200px; padding: 8px; background: #fff; border: 1px solid #e3e3e3; border-radius: 8px; box-shadow: 0 10px 26px #0002; z-index: 101; }
+.store-header .store-menu[open] > .store-dropdown, .store-header .store-menu:hover > .store-dropdown, .store-header .store-menu:focus-within > .store-dropdown { display: block; }
+.store-header .store-dropdown a { display: block; padding: 10px 12px; border-radius: 4px; font-size: 14px; font-weight: 500; white-space: nowrap; }
+.store-header .store-dropdown a:hover, .store-header .store-dropdown a:focus-visible { background: #f1f1f1; }
+.store-header .store-account .store-dropdown { left: auto; right: 0; }
+.store-header .store-account summary, .store-header .store-cart { display: block; padding: 8px 0; font-size: 23px; line-height: 1; }
+.store-header .store-lang { font-size: 15px; }
+.store-header a:focus-visible, .store-header summary:focus-visible, .store-header button:focus-visible { outline: 2px solid #444; outline-offset: 4px; }
+.store-header .store-search:focus-within { outline: 2px solid #555; outline-offset: 2px; }
+body.store-auth { display: block; height: auto; min-height: 100vh; }
+.store-auth > .card { margin: 40px auto; }
+.store-auth > .card:has(.login-container) { min-height: calc(100vh - 210px); }
+
+/* Identical category controls and page controls for shop and search results. */
+#advancedCategory, #searchCategory { min-width: 190px; height: 44px; padding: 0 36px 0 12px; border: 1px solid #ccc; border-radius: 6px; background: #fff; color: #222; font: 14px "Inter", "Segoe UI", Arial, sans-serif; }
+.search-pagination { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 30px 0 10px; flex-wrap: wrap; }
+.search-pagination .page-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 38px; height: 38px; margin: 0; padding: 0 12px; border: 1px solid #d7dde6; border-radius: 999px; background: #fff; color: #222; font: 600 14px "Inter", "Segoe UI", Arial, sans-serif; line-height: 1; cursor: pointer; box-shadow: none; }
+.search-pagination .page-btn:hover, .search-pagination .page-btn.active { background: #111827; color: #fff; border-color: #111827; box-shadow: none; }
+.search-pagination .page-btn:disabled, .search-pagination [aria-disabled="true"] { opacity: .45; cursor: default; background: #fff; color: #777; border-color: #d7dde6; box-shadow: none; }
+.search-pagination .page-btn:focus-visible { outline: 2px solid #555; outline-offset: 3px; }
+.catalog-controls { display: none; align-items: center; gap: 8px; }
+#catalog-page-1:checked ~ nav .catalog-controls-1, #catalog-page-2:checked ~ nav .catalog-controls-2, #catalog-page-3:checked ~ nav .catalog-controls-3 { display: flex; }
+#catalog-page-1:checked ~ nav label[for="catalog-page-1"], #catalog-page-2:checked ~ nav label[for="catalog-page-2"], #catalog-page-3:checked ~ nav label[for="catalog-page-3"] { background: #111827; color: #fff; border-color: #111827; }
+@media (max-width: 1150px) {
+  .store-header .store-header-inner { flex-wrap: wrap; gap: 16px 24px; }
+  .store-header .store-nav { order: 3; flex-basis: 100%; }
+  .store-header .store-tools { margin-left: auto; }
+}
+@media (max-width: 600px) {
+  .store-header { padding: 14px 0; }
+  .store-header .store-header-inner { padding: 0 16px; gap: 12px; }
+  .store-header .store-logo { flex-basis: 44px; }
+  .store-header .store-logo img { width: 40px; height: 48px; }
+  .store-header .store-tools { gap: 10px; }
+  .store-header .store-search { width: min(40vw, 200px); }
+  .store-header .store-lang { display: none; }
+  .store-header .store-nav-top { flex-wrap: wrap; gap: 4px 16px; }
+  .store-header .store-nav-top > a, .store-header .store-nav-top summary { font-size: 12px; }
+  .store-header .store-best { font-size: 13px; }
+  .store-header .store-nav { gap: 8px; }
+}
