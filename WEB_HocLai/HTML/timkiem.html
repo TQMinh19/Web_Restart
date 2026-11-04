@@ -1,89 +1,569 @@
 <!doctype html>
 <html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tìm kiếm sản phẩm | 3BK Shop</title>
-  <link rel="stylesheet" href="../CSS/shop.css">
-  <style>
-    .search-page-title { max-width: 1400px; margin: 0 auto; padding: 34px 20px 10px; font-size: 28px; }
-    .search-page-tools { max-width: 1400px; margin: 0 auto; padding: 0 20px 24px; display: flex; gap: 12px; flex-wrap: wrap; }
-    .search-page-tools input, .search-page-tools select { padding: 11px; border: 1px solid #ccc; border-radius: 6px; }
-    .search-page-tools .price-range { display: flex; flex-direction: column; gap: 8px; min-width: 260px; }
-    .search-page-tools .price-fields, .search-page-tools .range-fields { display: flex; align-items: center; gap: 8px; }
-    .search-page-tools input[type="range"] { padding: 0; accent-color: #111; width: 125px; }
-    .search-page-tools .price-fields input { width: 120px; }
-    .search-page-tools button { padding: 11px 18px; border: 0; border-radius: 6px; background: #111; color: #fff; cursor: pointer; }
-    .search-page-products { max-width: 1400px; margin: 0 auto; padding: 0 20px 40px; }
-    .search-page-products .products-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
-    @media (max-width: 768px) { .search-page-products .products-container { grid-template-columns: repeat(2, 1fr); } }
-  .catalog-page{position:absolute;opacity:0;pointer-events:none}.search-page-products .catalog-group{display:none}
-#catalog-page-1:checked ~ .catalog-group-1{display:grid} #catalog-page-1:checked ~ nav label[for="catalog-page-1"]{background:#111;color:#fff}
-#catalog-page-2:checked ~ .catalog-group-2{display:grid} #catalog-page-2:checked ~ nav label[for="catalog-page-2"]{background:#111;color:#fff}
-#catalog-page-3:checked ~ .catalog-group-3{display:grid} #catalog-page-3:checked ~ nav label[for="catalog-page-3"]{background:#111;color:#fff}
-.search-pagination label{cursor:pointer}</style>
-  <link rel="stylesheet" href="../CSS/storefront.css">
-</head>
-<body>
-  <header class="store-header">
-  <div class="store-header-inner">
-    <a class="store-logo" href="index.html" aria-label="3BK Shop - Trang chủ"><img src="../Image/logo.jpg" alt="3BK Shop"></a>
-    <nav class="store-nav" aria-label="Điều hướng chính">
-      <div class="store-nav-top">
-        <details class="store-menu"><summary>SHOP <span aria-hidden="true">⌄</span></summary><div class="store-dropdown"><a href="shop.html">Tất cả sản phẩm</a><a href="shop.html?category=tops&amp;page=1">Áo thun</a><a href="shop.html?category=jacket&amp;page=1">Áo khoác</a><a href="shop.html?category=bottoms&amp;page=1">Quần</a><a href="shop.html?category=accessories&amp;page=1">Phụ kiện</a><a href="shop.html?category=cap&amp;page=1">Mũ</a></div></details>
-        <a href="shop.html">THE ROLLING STONES</a><a href="Contacts.html">CONTACT</a><a href="aboutus.html">ABOUT US</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tìm kiếm sản phẩm | 3BK Shop</title>
+    <link rel="stylesheet" href="../CSS/shop.css" />
+    <style>
+      .search-page-title {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 34px 20px 10px;
+        font-size: 28px;
+      }
+      .search-page-tools {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px 24px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .search-page-tools input,
+      .search-page-tools select {
+        padding: 11px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+      .search-page-tools .price-range {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        min-width: 260px;
+      }
+      .search-page-tools .price-fields,
+      .search-page-tools .range-fields {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .search-page-tools input[type="range"] {
+        padding: 0;
+        accent-color: #111;
+        width: 125px;
+      }
+      .search-page-tools .price-fields input {
+        width: 120px;
+      }
+      .search-page-tools button {
+        padding: 11px 18px;
+        border: 0;
+        border-radius: 6px;
+        background: #111;
+        color: #fff;
+        cursor: pointer;
+      }
+      .search-page-products {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px 40px;
+      }
+      .search-page-products .products-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 22px;
+      }
+      @media (max-width: 768px) {
+        .search-page-products .products-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      .catalog-page {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+      .search-page-products .catalog-group {
+        display: none;
+      }
+      #catalog-page-1:checked ~ .catalog-group-1 {
+        display: grid;
+      }
+      #catalog-page-1:checked ~ nav label[for="catalog-page-1"] {
+        background: #111;
+        color: #fff;
+      }
+      #catalog-page-2:checked ~ .catalog-group-2 {
+        display: grid;
+      }
+      #catalog-page-2:checked ~ nav label[for="catalog-page-2"] {
+        background: #111;
+        color: #fff;
+      }
+      #catalog-page-3:checked ~ .catalog-group-3 {
+        display: grid;
+      }
+      #catalog-page-3:checked ~ nav label[for="catalog-page-3"] {
+        background: #111;
+        color: #fff;
+      }
+      .search-pagination label {
+        cursor: pointer;
+      }
+    </style>
+    <link rel="stylesheet" href="../CSS/storefront.css" />
+  </head>
+  <body>
+    <header class="store-header">
+      <div class="store-header-inner">
+        <a
+          class="store-logo"
+          href="index.html"
+          aria-label="3BK Shop - Trang chủ"
+          ><img src="../Image/logo.jpg" alt="3BK Shop"
+        /></a>
+        <nav class="store-nav" aria-label="Điều hướng chính">
+          <div class="store-nav-top">
+            <details class="store-menu">
+              <summary>SHOP <span aria-hidden="true">⌄</span></summary>
+              <div class="store-dropdown">
+                <a href="shop.html">Tất cả sản phẩm</a
+                ><a href="shop.html?category=tops&amp;page=1">Áo thun</a
+                ><a href="shop.html?category=jacket&amp;page=1">Áo khoác</a
+                ><a href="shop.html?category=bottoms&amp;page=1">Quần</a
+                ><a href="shop.html?category=accessories&amp;page=1">Phụ kiện</a
+                ><a href="shop.html?category=cap&amp;page=1">Mũ</a>
+              </div>
+            </details>
+            <a href="shop.html">THE ROLLING STONES</a
+            ><a href="Contacts.html">CONTACT</a
+            ><a href="aboutus.html">ABOUT US</a>
+          </div>
+          <a class="store-best" href="shop.html">BEST SELLER</a>
+        </nav>
+        <div class="store-tools">
+          <form
+            class="store-search"
+            action="timkiem.html"
+            method="get"
+            role="search"
+          >
+            <input
+              type="search"
+              name="q"
+              placeholder="Tìm kiếm..."
+              aria-label="Tên sản phẩm"
+            /><button type="submit" aria-label="Tìm kiếm">⌕</button>
+          </form>
+          <details class="store-menu store-account">
+            <summary aria-label="Tài khoản">👤</summary>
+            <div class="store-dropdown">
+              <a href="dangnhap.html">Đăng nhập</a
+              ><a href="dangky.html">Đăng ký</a
+              ><a href="thongtinkhachhang.html">Thông tin tài khoản</a
+              ><a href="thongtinkhachhang.html#history">Lịch sử mua hàng</a>
+            </div>
+          </details>
+          <a class="store-cart" href="cart.html" aria-label="Giỏ hàng">🛒</a
+          ><span class="store-lang">Vi</span><span class="store-lang">En</span>
+        </div>
       </div>
-      <a class="store-best" href="shop.html">BEST SELLER</a>
-    </nav>
-    <div class="store-tools">
-      <form class="store-search" action="timkiem.html" method="get" role="search"><input type="search" name="q" placeholder="Tìm kiếm..." aria-label="Tên sản phẩm"><button type="submit" aria-label="Tìm kiếm">⌕</button></form>
-      <details class="store-menu store-account"><summary aria-label="Tài khoản">👤</summary><div class="store-dropdown"><a href="dangnhap.html">Đăng nhập</a><a href="dangky.html">Đăng ký</a><a href="thongtinkhachhang.html">Thông tin tài khoản</a><a href="thongtinkhachhang.html#history">Lịch sử mua hàng</a></div></details>
-      <a class="store-cart" href="cart.html" aria-label="Giỏ hàng">🛒</a><span class="store-lang">Vi</span><span class="store-lang">En</span>
-    </div>
-  </div>
-</header>
-  <h1 class="search-page-title">TRANG TÌM KIẾM</h1>
-  <div class="search-page-tools">
-    <input id="searchKeyword" placeholder="Tên sản phẩm">
-    <details class="category-picker"><summary aria-label="Loại sản phẩm"><span class="category-picker-label">Tất cả loại sản phẩm</span><span aria-hidden="true">⌄</span></summary><div class="category-picker-options"><button type="button" data-category-value="">Tất cả loại sản phẩm</button><button type="button" data-category-value="tops">Áo thun</button><button type="button" data-category-value="jacket">Áo khoác</button><button type="button" data-category-value="bottoms">Quần</button><button type="button" data-category-value="accessories">Phụ kiện</button><button type="button" data-category-value="cap">Mũ</button></div><select hidden tabindex="-1" id="searchCategory" aria-label="Loại sản phẩm"><option value="">Tất cả loại sản phẩm</option><option value="tops">Áo thun</option><option value="jacket">Áo khoác</option><option value="bottoms">Quần</option><option value="accessories">Phụ kiện</option><option value="cap">Mũ</option></select></details>
-    <select id="searchBrand">
-      <option value="">Hãng sản phẩm</option>
-      <option value="stussy">Stussy</option>
-      <option value="other">Khác</option>
-    </select>
-    <div class="price-range">
-      <div class="price-fields"><input id="minPrice" inputmode="numeric" placeholder="0" aria-label="Giá tối thiểu"><span>-</span><input id="maxPrice" inputmode="numeric" value="5.000.000" placeholder="Giá đến"></div>
-      <div class="range-fields"><input id="minRange" type="range" min="0" max="5000000" step="1000" value="0" aria-label="Giá thấp nhất"><input id="maxRange" type="range" min="0" max="5000000" step="1000" value="5000000" aria-label="Giá cao nhất"></div>
-    </div>
-    <button type="button" id="applySearch">Tìm kiếm</button>
-  </div>
-  <main class="search-page-products"><p class="search-meta">12 sản phẩm</p><input class="catalog-page" type="radio" name="catalog-page" id="catalog-page-1" checked><input class="catalog-page" type="radio" name="catalog-page" id="catalog-page-2" ><input class="catalog-page" type="radio" name="catalog-page" id="catalog-page-3" ><div class="products-container catalog-group catalog-group-1"><a class="product-item" href="chitietsanpham.html"><div class="product-image"><img src="../Image/VICTORIA TEE.jpg" alt="VICTORIA TEE"></div><div class="product-info"><h3 class="product-name">VICTORIA TEE</h3><p class="product-price">1.260.000đ</p></div></a>
-<a class="product-item" href="chitiet-hooded-sweater.html"><div class="product-image"><img src="../Image/TEXTURED ZIP HOODED SWEATER.jpg" alt="TEXTURED ZIP HOODED SWEATER"></div><div class="product-info"><h3 class="product-name">TEXTURED ZIP HOODED SWEATER</h3><p class="product-price">3.750.000đ</p></div></a>
-<a class="product-item" href="chitiet-big-meaty-tee.html"><div class="product-image"><img src="../Image/BIG_MEATY_TEE_PIGMENT_DYED.jpg" alt="BIG &amp; MEATY TEE PIGMENT DYED"></div><div class="product-info"><h3 class="product-name">BIG &amp; MEATY TEE PIGMENT DYED</h3><p class="product-price">1.260.000đ</p></div></a>
-<a class="product-item" href="chitiet-trucker-jacket.html"><div class="product-image"><img src="../Image/TRUCKER JACKET DENIM.jpg" alt="TRUCKER JACKET DENIM"></div><div class="product-info"><h3 class="product-name">TRUCKER JACKET DENIM</h3><p class="product-price">3.540.000đ</p></div></a></div><div class="products-container catalog-group catalog-group-2"><a class="product-item" href="chitiet-world-tour-tee.html"><div class="product-image"><img src="../Image/worldteecamo.png" alt="STUSSY WORLD TOUR TEE CAMO"></div><div class="product-info"><h3 class="product-name">STUSSY WORLD TOUR TEE CAMO</h3><p class="product-price">2.970.000đ</p></div></a>
-<a class="product-item" href="chitiet-s-mark-tee.html"><div class="product-image"><img src="../Image/7blacktee.png" alt="STUSSY S MARK 7 BLACK TEE"></div><div class="product-info"><h3 class="product-name">STUSSY S MARK 7 BLACK TEE</h3><p class="product-price">3.270.000đ</p></div></a>
-<a class="product-item" href="chitiet-sunset-tee.html"><div class="product-image"><img src="../Image/SunsetTeeFOG.png" alt="STUSSY SUNSET TEE FOG"></div><div class="product-info"><h3 class="product-name">STUSSY SUNSET TEE FOG</h3><p class="product-price">3.870.000đ</p></div></a>
-<a class="product-item" href="chitiet-amsterdam-sweatshirt.html"><div class="product-image"><img src="../Image/StussyAmsterdamSweatshirt.png" alt="STUSSY AMSTERDAM SWEATSHIRT"></div><div class="product-info"><h3 class="product-name">STUSSY AMSTERDAM SWEATSHIRT</h3><p class="product-price">4.170.000đ</p></div></a></div><div class="products-container catalog-group catalog-group-3"><a class="product-item" href="chitiet-beanie.html"><div class="product-image"><img src="../Image/Stussy Stock Cuff Beanie Black.png" alt="STUSSY STOCK CUFF BEANIE"></div><div class="product-info"><h3 class="product-name">STUSSY STOCK CUFF BEANIE</h3><p class="product-price">990.000đ</p></div></a>
-<a class="product-item" href="chitiet-shorts.html"><div class="product-image"><img src="../Image/Stussy Shorts Black.png" alt="STUSSY SHORTS BLACK"></div><div class="product-info"><h3 class="product-name">STUSSY SHORTS BLACK</h3><p class="product-price">1.890.000đ</p></div></a>
-<a class="product-item" href="chitiet-pouch-bag.html"><div class="product-image"><img src="../Image/pounchbag.png" alt="STUSSY POUCH BAG"></div><div class="product-info"><h3 class="product-name">STUSSY POUCH BAG</h3><p class="product-price">1.590.000đ</p></div></a>
-<a class="product-item" href="chitiet-keychain.html"><div class="product-image"><img src="../Image/keychain8ball.png" alt="STUSSY 8 BALL KEYCHAIN"></div><div class="product-info"><h3 class="product-name">STUSSY 8 BALL KEYCHAIN</h3><p class="product-price">690.000đ</p></div></a></div><nav class="search-pagination catalog-pagination" aria-label="Phân trang kết quả tìm kiếm"><div class="catalog-controls catalog-controls-1"><span class="page-btn" aria-disabled="true">Trước</span><label class="page-btn active" for="catalog-page-1" aria-current="page" tabindex="0">1</label><label class="page-btn" for="catalog-page-2"  tabindex="0">2</label><label class="page-btn" for="catalog-page-3"  tabindex="0">3</label><label class="page-btn" for="catalog-page-2" tabindex="0">Sau</label></div><div class="catalog-controls catalog-controls-2"><label class="page-btn" for="catalog-page-1" tabindex="0">Trước</label><label class="page-btn" for="catalog-page-1"  tabindex="0">1</label><label class="page-btn active" for="catalog-page-2" aria-current="page" tabindex="0">2</label><label class="page-btn" for="catalog-page-3"  tabindex="0">3</label><label class="page-btn" for="catalog-page-3" tabindex="0">Sau</label></div><div class="catalog-controls catalog-controls-3"><label class="page-btn" for="catalog-page-2" tabindex="0">Trước</label><label class="page-btn" for="catalog-page-1"  tabindex="0">1</label><label class="page-btn" for="catalog-page-2"  tabindex="0">2</label><label class="page-btn active" for="catalog-page-3" aria-current="page" tabindex="0">3</label><span class="page-btn" aria-disabled="true">Sau</span></div></nav></main>
-<script>
-(function () {
-  document.querySelectorAll('.catalog-pagination label').forEach(label => label.addEventListener('keydown', event => {
-    if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); label.click(); }
-  }));
-  const min = document.getElementById('minPrice');
-  const max = document.getElementById('maxPrice');
-  const minRange = document.getElementById('minRange');
-  const maxRange = document.getElementById('maxRange');
-  const format = value => String(value).replace(/[^0-9]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-  [min, max].forEach(input => input.addEventListener('input', () => { input.value = format(input.value); }));
-  [[minRange, min], [maxRange, max]].forEach(([range, input]) => {
-    range.addEventListener('input', () => { input.value = format(range.value); });
-    input.addEventListener('change', () => { range.value = Number(input.value.replace(/\./g, '')); });
-  });
-}());
-</script>
-  <script src="../JS/category-picker.js"></script>
-</body>
+    </header>
+    <h1 class="search-page-title">TRANG TÌM KIẾM</h1>
+    <!-- <div class="search-page-tools">
+      <input id="searchKeyword" placeholder="Tên sản phẩm" />
+      <details class="category-picker">
+        <summary aria-label="Loại sản phẩm">
+          <span class="category-picker-label">Tất cả loại sản phẩm</span
+          ><span aria-hidden="true">⌄</span>
+        </summary>
+        <div class="category-picker-options">
+          <button type="button" data-category-value="">
+            Tất cả loại sản phẩm</button
+          ><button type="button" data-category-value="tops">Áo thun</button
+          ><button type="button" data-category-value="jacket">Áo khoác</button
+          ><button type="button" data-category-value="bottoms">Quần</button
+          ><button type="button" data-category-value="accessories">
+            Phụ kiện</button
+          ><button type="button" data-category-value="cap">Mũ</button>
+        </div>
+        <select
+          hidden
+          tabindex="-1"
+          id="searchCategory"
+          aria-label="Loại sản phẩm"
+        >
+          <option value="">Tất cả loại sản phẩm</option>
+          <option value="tops">Áo thun</option>
+          <option value="jacket">Áo khoác</option>
+          <option value="bottoms">Quần</option>
+          <option value="accessories">Phụ kiện</option>
+          <option value="cap">Mũ</option>
+        </select>
+      </details>
+      <select id="searchBrand">
+        <option value="">Hãng sản phẩm</option>
+        <option value="stussy">Stussy</option>
+        <option value="other">Khác</option>
+      </select>
+      <div class="price-range">
+        <div class="price-fields">
+          <input
+            id="minPrice"
+            inputmode="numeric"
+            placeholder="0"
+            aria-label="Giá tối thiểu"
+          /><span>-</span
+          ><input
+            id="maxPrice"
+            inputmode="numeric"
+            value="5.000.000"
+            placeholder="Giá đến"
+          />
+        </div>
+        <div class="range-fields">
+          <input
+            id="minRange"
+            type="range"
+            min="0"
+            max="5000000"
+            step="1000"
+            value="0"
+            aria-label="Giá thấp nhất"
+          /><input
+            id="maxRange"
+            type="range"
+            min="0"
+            max="5000000"
+            step="1000"
+            value="5000000"
+            aria-label="Giá cao nhất"
+          />
+        </div>
+      </div>
+      <button type="button" id="applySearch">Tìm kiếm</button>
+    </div> -->
+    <section class="search-page-tools">
+      <div class="advanced-search-row">
+        <input
+          type="text"
+          id="advancedKeyword"
+          class="adv-input keyword"
+          placeholder="Tên sản phẩm..."
+        />
+
+        <details class="category-picker">
+          <summary aria-label="Loại sản phẩm">
+            <span class="category-picker-label">Tất cả loại sản phẩm</span
+            ><span aria-hidden="true">⌄</span>
+          </summary>
+          <div class="category-picker-options">
+            <button type="button" data-category-value="">
+              Tất cả loại sản phẩm</button
+            ><button type="button" data-category-value="tops">Áo thun</button
+            ><button type="button" data-category-value="jacket">Áo khoác</button
+            ><button type="button" data-category-value="bottoms">Quần</button
+            ><button type="button" data-category-value="accessories">
+              Phụ kiện</button
+            ><button type="button" data-category-value="cap">Mũ</button>
+          </div>
+          <select
+            hidden
+            tabindex="-1"
+            id="advancedCategory"
+            class="adv-input select"
+            aria-label="Loại sản phẩm"
+          >
+            <option value="">Tất cả loại sản phẩm</option>
+            <option value="tops">Áo thun</option>
+            <option value="jacket">Áo khoác</option>
+            <option value="bottoms">Quần</option>
+            <option value="accessories">Phụ kiện</option>
+            <option value="cap">Mũ</option>
+          </select>
+        </details>
+
+        <select id="advancedBrand" class="adv-input select">
+          <option value="">Hãng</option>
+          <option value="stussy">Stussy</option>
+          <option value="other">Khác</option>
+        </select>
+
+        <div class="price-range-group">
+          <div class="price-inputs">
+            <input
+              type="number"
+              id="advancedMinPrice"
+              class="adv-input price"
+              min="0"
+              step="1000"
+              placeholder="0"
+              aria-label="Giá tối thiểu"
+            />
+            <span class="price-separator">-</span>
+            <input
+              type="number"
+              id="advancedMaxPrice"
+              class="adv-input price"
+              min="0"
+              step="1000"
+              value="5000000"
+            />
+          </div>
+
+          <div class="range-sliders">
+            <input
+              type="range"
+              id="advancedMinRange"
+              min="0"
+              max="5000000"
+              step="1000"
+              value="0"
+            />
+            <input
+              type="range"
+              id="advancedMaxRange"
+              min="0"
+              max="5000000"
+              step="1000"
+              value="5000000"
+            />
+          </div>
+        </div>
+
+        <button id="advancedSearchBtn" class="advanced-search-btn">
+          Tìm Kiếm
+        </button>
+      </div>
+    </section>
+    <main class="search-page-products">
+      <p class="search-meta">12 sản phẩm</p>
+      <input
+        class="catalog-page"
+        type="radio"
+        name="catalog-page"
+        id="catalog-page-1"
+        checked
+      /><input
+        class="catalog-page"
+        type="radio"
+        name="catalog-page"
+        id="catalog-page-2"
+      /><input
+        class="catalog-page"
+        type="radio"
+        name="catalog-page"
+        id="catalog-page-3"
+      />
+      <div class="products-container catalog-group catalog-group-1">
+        <a class="product-item" href="chitietsanpham.html"
+          ><div class="product-image">
+            <img src="../Image/VICTORIA TEE.jpg" alt="VICTORIA TEE" />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">VICTORIA TEE</h3>
+            <p class="product-price">1.260.000đ</p>
+          </div></a
+        >
+        <a class="product-item" href="chitiet-hooded-sweater.html"
+          ><div class="product-image">
+            <img
+              src="../Image/TEXTURED ZIP HOODED SWEATER.jpg"
+              alt="TEXTURED ZIP HOODED SWEATER"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">TEXTURED ZIP HOODED SWEATER</h3>
+            <p class="product-price">3.750.000đ</p>
+          </div></a
+        >
+        <a class="product-item" href="chitiet-big-meaty-tee.html"
+          ><div class="product-image">
+            <img
+              src="../Image/BIG_MEATY_TEE_PIGMENT_DYED.jpg"
+              alt="BIG &amp; MEATY TEE PIGMENT DYED"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">BIG &amp; MEATY TEE PIGMENT DYED</h3>
+            <p class="product-price">1.260.000đ</p>
+          </div></a
+        >
+        <a class="product-item" href="chitiet-trucker-jacket.html"
+          ><div class="product-image">
+            <img
+              src="../Image/TRUCKER JACKET DENIM.jpg"
+              alt="TRUCKER JACKET DENIM"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">TRUCKER JACKET DENIM</h3>
+            <p class="product-price">3.540.000đ</p>
+          </div></a
+        >
+      </div>
+      <div class="products-container catalog-group catalog-group-2">
+        <a class="product-item" href="chitiet-world-tour-tee.html"
+          ><div class="product-image">
+            <img
+              src="../Image/worldteecamo.png"
+              alt="STUSSY WORLD TOUR TEE CAMO"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">STUSSY WORLD TOUR TEE CAMO</h3>
+            <p class="product-price">2.970.000đ</p>
+          </div></a
+        >
+        <a class="product-item" href="chitiet-s-mark-tee.html"
+          ><div class="product-image">
+            <img src="../Image/7blacktee.png" alt="STUSSY S MARK 7 BLACK TEE" />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">STUSSY S MARK 7 BLACK TEE</h3>
+            <p class="product-price">3.270.000đ</p>
+          </div></a
+        >
+        <a class="product-item" href="chitiet-sunset-tee.html"
+          ><div class="product-image">
+            <img src="../Image/SunsetTeeFOG.png" alt="STUSSY SUNSET TEE FOG" />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">STUSSY SUNSET TEE FOG</h3>
+            <p class="product-price">3.870.000đ</p>
+          </div></a
+        >
+        <a class="product-item" href="chitiet-amsterdam-sweatshirt.html"
+          ><div class="product-image">
+            <img
+              src="../Image/StussyAmsterdamSweatshirt.png"
+              alt="STUSSY AMSTERDAM SWEATSHIRT"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">STUSSY AMSTERDAM SWEATSHIRT</h3>
+            <p class="product-price">4.170.000đ</p>
+          </div></a
+        >
+      </div>
+      <div class="products-container catalog-group catalog-group-3">
+        <a class="product-item" href="chitiet-beanie.html"
+          ><div class="product-image">
+            <img
+              src="../Image/Stussy Stock Cuff Beanie Black.png"
+              alt="STUSSY STOCK CUFF BEANIE"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">STUSSY STOCK CUFF BEANIE</h3>
+            <p class="product-price">990.000đ</p>
+          </div></a
+        >
+        <a class="product-item" href="chitiet-shorts.html"
+          ><div class="product-image">
+            <img
+              src="../Image/Stussy Shorts Black.png"
+              alt="STUSSY SHORTS BLACK"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">STUSSY SHORTS BLACK</h3>
+            <p class="product-price">1.890.000đ</p>
+          </div></a
+        >
+        <a class="product-item" href="chitiet-pouch-bag.html"
+          ><div class="product-image">
+            <img src="../Image/pounchbag.png" alt="STUSSY POUCH BAG" />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">STUSSY POUCH BAG</h3>
+            <p class="product-price">1.590.000đ</p>
+          </div></a
+        >
+        <a class="product-item" href="chitiet-keychain.html"
+          ><div class="product-image">
+            <img
+              src="../Image/keychain8ball.png"
+              alt="STUSSY 8 BALL KEYCHAIN"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">STUSSY 8 BALL KEYCHAIN</h3>
+            <p class="product-price">690.000đ</p>
+          </div></a
+        >
+      </div>
+      <nav
+        class="search-pagination catalog-pagination"
+        aria-label="Phân trang kết quả tìm kiếm"
+      >
+        <div class="catalog-controls catalog-controls-1">
+          <span class="page-btn" aria-disabled="true">Trước</span
+          ><label
+            class="page-btn active"
+            for="catalog-page-1"
+            aria-current="page"
+            tabindex="0"
+            >1</label
+          ><label class="page-btn" for="catalog-page-2" tabindex="0">2</label
+          ><label class="page-btn" for="catalog-page-3" tabindex="0">3</label
+          ><label class="page-btn" for="catalog-page-2" tabindex="0">Sau</label>
+        </div>
+        <div class="catalog-controls catalog-controls-2">
+          <label class="page-btn" for="catalog-page-1" tabindex="0">Trước</label
+          ><label class="page-btn" for="catalog-page-1" tabindex="0">1</label
+          ><label
+            class="page-btn active"
+            for="catalog-page-2"
+            aria-current="page"
+            tabindex="0"
+            >2</label
+          ><label class="page-btn" for="catalog-page-3" tabindex="0">3</label
+          ><label class="page-btn" for="catalog-page-3" tabindex="0">Sau</label>
+        </div>
+        <div class="catalog-controls catalog-controls-3">
+          <label class="page-btn" for="catalog-page-2" tabindex="0">Trước</label
+          ><label class="page-btn" for="catalog-page-1" tabindex="0">1</label
+          ><label class="page-btn" for="catalog-page-2" tabindex="0">2</label
+          ><label
+            class="page-btn active"
+            for="catalog-page-3"
+            aria-current="page"
+            tabindex="0"
+            >3</label
+          ><span class="page-btn" aria-disabled="true">Sau</span>
+        </div>
+      </nav>
+    </main>
+    <script>
+      (function () {
+        document
+          .querySelectorAll(".catalog-pagination label")
+          .forEach((label) =>
+            label.addEventListener("keydown", (event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                label.click();
+              }
+            }),
+          );
+        const min = document.getElementById("minPrice");
+        const max = document.getElementById("maxPrice");
+        const minRange = document.getElementById("minRange");
+        const maxRange = document.getElementById("maxRange");
+        const format = (value) =>
+          String(value)
+            .replace(/[^0-9]/g, "")
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        [min, max].forEach((input) =>
+          input.addEventListener("input", () => {
+            input.value = format(input.value);
+          }),
+        );
+        [
+          [minRange, min],
+          [maxRange, max],
+        ].forEach(([range, input]) => {
+          range.addEventListener("input", () => {
+            input.value = format(range.value);
+          });
+          input.addEventListener("change", () => {
+            range.value = Number(input.value.replace(/\./g, ""));
+          });
+        });
+      })();
+    </script>
+    <script src="../JS/category-picker.js"></script>
+  </body>
 </html>
