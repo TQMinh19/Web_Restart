@@ -92,14 +92,9 @@
     });
 
     document.querySelectorAll('.edit-form, #statsForm').forEach(form => {
+      form.noValidate = true;
       form.addEventListener('submit', event => {
         event.preventDefault();
-        notify('Đây là giao diện mẫu của web tĩnh. Thao tác không thay đổi hoặc lưu dữ liệu.');
-      });
-    });
-    document.querySelectorAll('[data-demo-action]').forEach(button => {
-      button.addEventListener('click', () => {
-        notify('Đây là nút minh họa trên giao diện web tĩnh. Dữ liệu mẫu được giữ nguyên.');
       });
     });
   });

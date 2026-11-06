@@ -36,70 +36,6 @@
       <img src="../Image/back.jpg" alt="Banner" class="banner-image" />
     </div>
 
-    <section class="advanced-search-section">
-      <div class="advanced-search-row">
-        <input
-          type="text"
-          id="advancedKeyword"
-          class="adv-input keyword"
-          placeholder="Tên sản phẩm..."
-        />
-
-        <details class="category-picker"><summary aria-label="Loại sản phẩm"><span class="category-picker-label">Tất cả loại sản phẩm</span><span aria-hidden="true">⌄</span></summary><div class="category-picker-options"><button type="button" data-category-value="">Tất cả loại sản phẩm</button><button type="button" data-category-value="tops">Áo thun</button><button type="button" data-category-value="jacket">Áo khoác</button><button type="button" data-category-value="bottoms">Quần</button><button type="button" data-category-value="accessories">Phụ kiện</button><button type="button" data-category-value="cap">Mũ</button></div><select hidden tabindex="-1" id="advancedCategory" class="adv-input select" aria-label="Loại sản phẩm"><option value="">Tất cả loại sản phẩm</option><option value="tops">Áo thun</option><option value="jacket">Áo khoác</option><option value="bottoms">Quần</option><option value="accessories">Phụ kiện</option><option value="cap">Mũ</option></select></details>
-
-        <select id="advancedBrand" class="adv-input select">
-          <option value="">Hãng</option>
-          <option value="stussy">Stussy</option>
-          <option value="other">Khác</option>
-        </select>
-
-        <div class="price-range-group">
-          <div class="price-inputs">
-            <input
-              type="number"
-              id="advancedMinPrice"
-              class="adv-input price"
-              min="0"
-              step="1000" placeholder="0" aria-label="Giá tối thiểu"
-             
-            />
-            <span class="price-separator">-</span>
-            <input
-              type="number"
-              id="advancedMaxPrice"
-              class="adv-input price"
-              min="0"
-              step="1000"
-              value="5000000"
-            />
-          </div>
-
-          <div class="range-sliders">
-            <input
-              type="range"
-              id="advancedMinRange"
-              min="0"
-              max="5000000"
-              step="1000"
-              value="0"
-            />
-            <input
-              type="range"
-              id="advancedMaxRange"
-              min="0"
-              max="5000000"
-              step="1000"
-              value="5000000"
-            />
-          </div>
-        </div>
-
-        <button id="advancedSearchBtn" class="advanced-search-btn">
-          Tìm Kiếm
-        </button>
-      </div>
-    </section>
-
     <div class="products-section">
       <div id="searchMeta" class="search-meta"></div>
       <div class="products-container">
@@ -243,6 +179,5 @@
     </div>
     <script src="../JS/main.js"></script>
     <script src="../JS/shop.js"></script>
-    <script src="../JS/category-picker.js"></script>
 </body>
 </html>
