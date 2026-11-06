@@ -20,7 +20,7 @@
     </nav>
     <div class="store-tools">
       <form class="store-search" action="timkiem.html" method="get" role="search"><input type="search" name="q" placeholder="Tìm kiếm..." aria-label="Tên sản phẩm"><button type="submit" aria-label="Tìm kiếm">⌕</button></form>
-      <details class="store-menu store-account"><summary aria-label="Tài khoản">👤</summary><div class="store-dropdown"><a href="dangnhap.html">Đăng nhập</a><a href="dangky.html">Đăng ký</a><a href="thongtinkhachhang.html">Thông tin tài khoản</a><a href="thongtinkhachhang.html#history">Lịch sử mua hàng</a></div></details>
+      <details class="store-menu store-account"><summary aria-label="Tài khoản">👤</summary><div class="store-dropdown"><a href="dangnhap.html">Đăng nhập</a><a href="dangky.html">Đăng ký</a></div></details>
       <a class="store-cart" href="cart.html" aria-label="Giỏ hàng">🛒</a><span class="store-lang">Vi</span><span class="store-lang">En</span>
     </div>
   </div>
@@ -35,14 +35,13 @@
         <label>Địa chỉ có sẵn</label>
         <select id="saved-address">
           <option value="">-- Chọn địa chỉ có sẵn --</option>
-          <option value="Nguyễn Minh Anh|0901234567|123 Nguyễn Huệ|Phường Bến Nghé|Quận 1|TP. Hồ Chí Minh">Nguyễn Minh Anh - 123 Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</option>
+          <option value="Nguyễn Minh Anh|0901234567|123 Nguyễn Huệ|Phường Sài Gòn|TP. Hồ Chí Minh">Nguyễn Minh Anh - 123 Nguyễn Huệ, Phường Sài Gòn, TP. Hồ Chí Minh</option>
         </select>
         <br><br>
         <label>Họ và tên</label><input type="text" name="customer_name" placeholder="Nhập họ tên người nhận">
         <label>Số điện thoại</label><input type="text" name="customer_phone" placeholder="Nhập số điện thoại">
         <label>Địa chỉ</label><input type="text" name="street_address" placeholder="Số nhà, tên đường">
-        <label>Phường/Xã</label><select name="ward"><option value="">-- Chọn phường/xã --</option><option>Phường Bến Nghé</option><option>Phường Đa Kao</option><option>Phường Nguyễn Thái Bình</option></select>
-        <label>Quận/Huyện</label><select name="district"><option value="">-- Chọn quận/huyện --</option><option>Quận 1</option><option>Quận 3</option><option>Quận Bình Thạnh</option><option>Quận Phú Nhuận</option><option>Quận Thanh Xuân</option><option>Huyện Củ Chi</option></select>
+        <label>Phường/Xã</label><input type="text" name="ward" list="ward-suggestions" placeholder="Nhập phường/xã"><datalist id="ward-suggestions"><option value="Phường Sài Gòn"><option value="Phường Bến Thành"><option value="Phường Tân Định"></datalist>
         <label>Tỉnh/Thành phố</label><select name="city"><option value="">-- Chọn tỉnh/thành phố --</option><option>TP. Hồ Chí Minh</option><option>Hà Nội</option><option>Đà Nẵng</option><option>Khánh Hòa</option><option>Thừa Thiên Huế</option></select>
       </div>
       <div class="right">

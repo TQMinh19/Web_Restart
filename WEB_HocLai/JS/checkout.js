@@ -1,7 +1,7 @@
 (function () {
   const form = document.getElementById('checkout-form');
   const savedAddress = document.getElementById('saved-address');
-  const addressFields = ['customer_name', 'customer_phone', 'street_address', 'ward', 'district', 'city'];
+  const addressFields = ['customer_name', 'customer_phone', 'street_address', 'ward', 'city'];
 
   savedAddress.addEventListener('change', function () {
     if (!savedAddress.value) return;

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanh toán đơn hàng</title>
+  <link rel="stylesheet" href="../../CSS/giohang.css">
+  <link rel="stylesheet" href="../../CSS/storefront.css">
+</head>
+<body>
+  <header class="store-header">
+  <div class="store-header-inner">
+    <a class="store-logo" href="index.html" aria-label="3BK Shop - Trang chủ"><img src="../../Image/logo.jpg" alt="3BK Shop"></a>
+    <nav class="store-nav" aria-label="Điều hướng chính">
+      <div class="store-nav-top">
+        <details class="store-menu"><summary>SHOP <span aria-hidden="true">⌄</span></summary><div class="store-dropdown"><a href="shop.html">Tất cả sản phẩm</a><a href="shop.html?category=tops&amp;page=1">Áo thun</a><a href="shop.html?category=jacket&amp;page=1">Áo khoác</a><a href="shop.html?category=bottoms&amp;page=1">Quần</a><a href="shop.html?category=accessories&amp;page=1">Phụ kiện</a><a href="shop.html?category=cap&amp;page=1">Mũ</a></div></details>
+        <a href="shop.html">THE ROLLING STONES</a><a href="Contacts.html">CONTACT</a><a href="aboutus.html">ABOUT US</a>
+      </div>
+      <a class="store-best" href="shop.html">BEST SELLER</a>
+    </nav>
+    <div class="store-tools">
+      <form class="store-search" action="timkiem.html" method="get" role="search"><input type="search" name="q" placeholder="Tìm kiếm..." aria-label="Tên sản phẩm"><button type="submit" aria-label="Tìm kiếm">⌕</button></form>
+      <details class="store-menu store-account"><summary aria-label="Tài khoản">👤</summary><div class="store-dropdown"><a href="thongtinkhachhang.html">Thông tin tài khoản</a><a href="thongtinkhachhang.html#history">Lịch sử mua hàng</a><a href="../index.html">Đăng xuất</a></div></details>
+      <a class="store-cart" href="cart.html" aria-label="Giỏ hàng">🛒</a><span class="store-lang">Vi</span><span class="store-lang">En</span>
+    </div>
+  </div>
+</header>
+
+  <div class="container">
+    <h1>Thanh toán</h1>
+    <p>Tài khoản mua hàng mẫu: <strong>Nguyễn Minh Anh</strong> — minhanh@example.com. <a href="../dangnhap.html">Đăng nhập tài khoản khác</a></p>
+    <form class="layout" id="checkout-form" method="post" action="thanhtoan.html">
+      <div class="left">
+        <h2>Địa chỉ giao hàng</h2>
+        <label>Địa chỉ có sẵn</label>
+        <select id="saved-address">
+          <option value="">-- Chọn địa chỉ có sẵn --</option>
+          <option value="Nguyễn Minh Anh|0901234567|123 Nguyễn Huệ|Phường Sài Gòn|TP. Hồ Chí Minh">Nguyễn Minh Anh - 123 Nguyễn Huệ, Phường Sài Gòn, TP. Hồ Chí Minh</option>
+        </select>
+        <br><br>
+        <label>Họ và tên</label><input type="text" name="customer_name" placeholder="Nhập họ tên người nhận">
+        <label>Số điện thoại</label><input type="text" name="customer_phone" placeholder="Nhập số điện thoại">
+        <label>Địa chỉ</label><input type="text" name="street_address" placeholder="Số nhà, tên đường">
+        <label>Phường/Xã</label><input type="text" name="ward" list="ward-suggestions" placeholder="Nhập phường/xã"><datalist id="ward-suggestions"><option value="Phường Sài Gòn"><option value="Phường Bến Thành"><option value="Phường Tân Định"></datalist>
+        <label>Tỉnh/Thành phố</label><select name="city"><option value="">-- Chọn tỉnh/thành phố --</option><option>TP. Hồ Chí Minh</option><option>Hà Nội</option><option>Đà Nẵng</option><option>Khánh Hòa</option><option>Thừa Thiên Huế</option></select>
+      </div>
+      <div class="right">
+        <div class="cart-box"><h2>Đơn hàng của bạn</h2><table><tr><th>Sản phẩm</th><th>SL</th><th>Giá</th></tr><tbody><tr><td>VICTORIA TEE</td><td>1</td><td>1.260.000đ</td></tr><tr><td>TEXTURED ZIP HOODED SWEATER</td><td>1</td><td>3.750.000đ</td></tr><tr><td>STUSSY WORLD TOUR TEE CAMO</td><td>2</td><td>5.940.000đ</td></tr></tbody><tr class="total-row"><td colspan="2"><strong>Tổng tiền</strong></td><td><strong>10.950.000đ</strong></td></tr></table></div>
+        <div class="payment-box"><h2>Phương thức thanh toán</h2><label><input type="radio" name="payment" value="COD" checked> Thanh toán khi nhận hàng (COD)</label><label><input type="radio" name="payment" value="BANK_TRANSFER"> Chuyển khoản ngân hàng</label><label><input type="radio" name="payment" value="ONLINE"> Thanh toán Online</label></div>
+        <input type="hidden" id="checkout-payload" name="checkout_payload" value="">
+        <button type="submit" class="btn-order">Xác nhận đặt hàng</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="../../JS/checkout.js"></script>
+</body>
+</html>

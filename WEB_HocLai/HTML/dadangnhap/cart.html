@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giỏ hàng của bạn | 3BK Shop</title>
+    <link rel="stylesheet" href="../../CSS/cart.css" />
+    <link rel="stylesheet" href="../../CSS/storefront.css">
+</head>
+
+  <body>
+    <header class="store-header">
+  <div class="store-header-inner">
+    <a class="store-logo" href="index.html" aria-label="3BK Shop - Trang chủ"><img src="../../Image/logo.jpg" alt="3BK Shop"></a>
+    <nav class="store-nav" aria-label="Điều hướng chính">
+      <div class="store-nav-top">
+        <details class="store-menu"><summary>SHOP <span aria-hidden="true">⌄</span></summary><div class="store-dropdown"><a href="shop.html">Tất cả sản phẩm</a><a href="shop.html?category=tops&amp;page=1">Áo thun</a><a href="shop.html?category=jacket&amp;page=1">Áo khoác</a><a href="shop.html?category=bottoms&amp;page=1">Quần</a><a href="shop.html?category=accessories&amp;page=1">Phụ kiện</a><a href="shop.html?category=cap&amp;page=1">Mũ</a></div></details>
+        <a href="shop.html">THE ROLLING STONES</a><a href="Contacts.html">CONTACT</a><a href="aboutus.html">ABOUT US</a>
+      </div>
+      <a class="store-best" href="shop.html">BEST SELLER</a>
+    </nav>
+    <div class="store-tools">
+      <form class="store-search" action="timkiem.html" method="get" role="search"><input type="search" name="q" placeholder="Tìm kiếm..." aria-label="Tên sản phẩm"><button type="submit" aria-label="Tìm kiếm">⌕</button></form>
+      <details class="store-menu store-account"><summary aria-label="Tài khoản">👤</summary><div class="store-dropdown"><a href="thongtinkhachhang.html">Thông tin tài khoản</a><a href="thongtinkhachhang.html#history">Lịch sử mua hàng</a><a href="../index.html">Đăng xuất</a></div></details>
+      <a class="store-cart" href="cart.html" aria-label="Giỏ hàng">🛒</a><span class="store-lang">Vi</span><span class="store-lang">En</span>
+    </div>
+  </div>
+</header>
+    <div class="page-title">
+      <h2>3BK Shop | GIỎ HÀNG</h2>
+    </div>
+    <div class="container">
+      <div class="dssp">
+        <header>
+          <h2>Danh sách sản phẩm <small id="count">(3)</small></h2>
+        </header>
+
+        <div class="selectall">
+          <input type="checkbox" id="select-all" checked />
+          <label for="select-all" class="text-h3">Chọn tất cả</label>
+          <span class="text-h3" id="select-count">Đã chọn (3)</span>
+        </div>
+
+        <div class="cart-header">
+          <div class="col-sanpham item-info">
+            <div class="col-title">Sản phẩm</div>
+          </div>
+          <div class="col-title col-soluong">Số lượng</div>
+          <div class="col-title col-sotien">Tổng tiền</div>
+          <div class="col-title col-thaotac">Xoá</div>
+        </div>
+
+        <main>
+          <section class="sanpham" id="sanpham">
+            <div class="cart-item">
+              <div class="col-sanpham item-info"><input class="item-check" type="checkbox" checked><img src="../../Image/VICTORIA TEE.jpg" alt="VICTORIA TEE" class="item-thumb"><div class="item-details"><div class="product-name">VICTORIA TEE</div><div class="product-price">1.260.000đ</div></div></div>
+              <div class="col-soluong"><div class="qty-control"><button type="button">-</button><input value="1" readonly><button type="button">+</button></div></div><div class="col-sotien">1.260.000đ</div><div class="col-thaotac"><button type="button" class="btn-delete">Xóa</button></div>
+            </div>
+            <div class="cart-item">
+              <div class="col-sanpham item-info"><input class="item-check" type="checkbox" checked><img src="../../Image/TEXTURED ZIP HOODED SWEATER.jpg" alt="TEXTURED ZIP HOODED SWEATER" class="item-thumb"><div class="item-details"><div class="product-name">TEXTURED ZIP HOODED SWEATER</div><div class="product-price">3.750.000đ</div></div></div>
+              <div class="col-soluong"><div class="qty-control"><button type="button">-</button><input value="1" readonly><button type="button">+</button></div></div><div class="col-sotien">3.750.000đ</div><div class="col-thaotac"><button type="button" class="btn-delete">Xóa</button></div>
+            </div>
+            <div class="cart-item">
+              <div class="col-sanpham item-info"><input class="item-check" type="checkbox" checked><img src="../../Image/worldteecamo.png" alt="STUSSY WORLD TOUR TEE CAMO" class="item-thumb"><div class="item-details"><div class="product-name">STUSSY WORLD TOUR TEE CAMO</div><div class="product-price">2.970.000đ</div></div></div>
+              <div class="col-soluong"><div class="qty-control"><button type="button">-</button><input value="2" readonly><button type="button">+</button></div></div><div class="col-sotien">5.940.000đ</div><div class="col-thaotac"><button type="button" class="btn-delete">Xóa</button></div>
+            </div>
+          </section>
+        </main>
+      </div>
+
+      <aside class="thanhtoan">
+        <h2>
+          Thanh toán
+          <small id="ttcount" style="color: var(--muted); font-weight: 600"
+            >(3)</small
+          >
+        </h2>
+
+        <div class="thanhtoan-list" id="thanhtoan-list">
+          <div>VICTORIA TEE x1</div>
+          <div>TEXTURED ZIP HOODED SWEATER x1</div>
+          <div>STUSSY WORLD TOUR TEE CAMO x2</div>
+        </div>
+
+        <div class="totals">
+          <div style="font-weight: 700">
+            <span>Tổng</span>
+            <span id="total">10.950.000đ</span>
+          </div>
+        </div>
+
+        <div class="checkout">
+          <a href="giohang.html" class="btn" id="checkout">Mua hàng</a>
+          <button id="clear" class="btn ghost" type="button">Xóa giỏ</button>
+        </div>
+      </aside>
+    </div>
+    <div class="title-otherproducts">
+      <h2>Sản phẩm khác</h2>
+    </div>
+    <div class="otherproducts">
+      <a href="chitietsanpham.html" class="product-item">
+        <div class="product-image">
+          <img src="../../Image/VICTORIA TEE.jpg" alt="VICTORIA TEE " />
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">VICTORIA TEE</h3>
+          <p class="product-price">1.260.000đ</p>
+        </div>
+      </a>
+      <a href="chitiet-hooded-sweater.html" class="product-item">
+        <div class="product-image">
+          <img
+            src="../../Image/TEXTURED ZIP HOODED SWEATER.jpg"
+            alt="TEXTURED ZIP HOODED SWEATER"
+          />
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">TEXTURED ZIP HOODED SWEATER</h3>
+          <p class="product-price">3.750.000đ</p>
+        </div>
+      </a>
+
+      <a href="chitiet-big-meaty-tee.html" class="product-item">
+        <div class="product-image">
+          <img
+            src="../../Image/BIG_MEATY_TEE_PIGMENT_DYED.jpg"
+            alt="BIG & MEATY TEE PIGMENT DYED"
+          />
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">BIG & MEATY TEE PIGMENT DYED</h3>
+          <p class="product-price">1.260.000đ</p>
+        </div>
+      </a>
+
+      <a href="chitiet-trucker-jacket.html" class="product-item">
+        <div class="product-image">
+          <img
+            src="../../Image/TRUCKER JACKET DENIM.jpg"
+            alt="TRUCKER JACKET DENIM"
+          />
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">TRUCKER JACKET DENIM</h3>
+          <p class="product-price">3.540.000đ</p>
+        </div>
+      </a>
+
+      <a href="chitiet-world-tour-tee.html" class="product-item">
+        <div class="product-image">
+          <img
+            src="../../Image/worldteecamo.png"
+            alt="Stussy World Tour Tee Camo"
+          />
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Stussy World Tour Tee Camo</h3>
+          <p class="product-price">2.970.000đ</p>
+        </div>
+      </a>
+
+      <a href="chitiet-s-mark-tee.html" class="product-item">
+        <div class="product-image">
+          <img src="../../Image/7blacktee.png" alt="Stussy S Mark 7 Black Tee" />
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Stussy S Mark 7 Black Tee</h3>
+          <p class="product-price">3.270.000đ</p>
+        </div>
+      </a>
+
+      <a href="chitiet-sunset-tee.html" class="product-item">
+        <div class="product-image">
+          <img src="../../Image/SunsetTeeFOG.png" alt="Stussy Sunset Tee FOG" />
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Stussy Sunset Tee FOG</h3>
+          <p class="product-price">3.870.000đ</p>
+        </div>
+      </a>
+
+      <a href="chitiet-amsterdam-sweatshirt.html" class="product-item">
+        <div class="product-image">
+          <img
+            src="../../Image/StussyAmsterdamSweatshirt.png"
+            alt="Stussy Amsterdam Sweatshirt"
+          />
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Stussy Amsterdam Sweatshirt</h3>
+          <p class="product-price">4.170.000đ</p>
+        </div>
+      </a>
+    </div>
+    <div class="pagination-container">
+      <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+    </div>
+  </body>
+</html>
