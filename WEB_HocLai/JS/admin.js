@@ -57,7 +57,6 @@
       });
       form.addEventListener('reset', () => setTimeout(filter, 0));
     }
-    bindFilter('userSearchForm', 'usersBody', 'userSearch');
     bindFilter('productSearchForm', 'productsBody', 'productSearch', 'filterCategory');
     bindFilter('orderFilterForm', 'ordersBody', 'orderLocation');
 
@@ -91,7 +90,7 @@
       form.addEventListener('reset', restore);
     });
 
-    document.querySelectorAll('.edit-form, #statsForm').forEach(form => {
+    document.querySelectorAll('.edit-form, #statsForm, #userSearchForm').forEach(form => {
       form.noValidate = true;
       form.addEventListener('submit', event => {
         event.preventDefault();
