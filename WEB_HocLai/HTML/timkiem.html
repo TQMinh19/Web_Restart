@@ -283,22 +283,22 @@
         <div class="price-range-group">
           <div class="price-inputs">
             <input
-              type="number"
+              type="text" inputmode="numeric"
               id="advancedMinPrice"
               class="adv-input price"
-              min="0"
-              step="1000"
+             
+             
               placeholder="0"
               aria-label="Giá tối thiểu"
             />
             <span class="price-separator">-</span>
             <input
-              type="number"
+              type="text" inputmode="numeric"
               id="advancedMaxPrice"
               class="adv-input price"
-              min="0"
-              step="1000"
-              value="5000000"
+             
+             
+              value="5.000.000"
             />
           </div>
 
@@ -328,7 +328,7 @@
       </div>
     </section>
     <main class="search-page-products">
-      <p class="search-meta">12 sản phẩm</p>
+      <p class="search-meta" id="searchPageStatus" aria-live="polite" aria-atomic="true">Trang 1/3 · Hiển thị 1–4 / 12 sản phẩm</p>
       <input
         class="catalog-page"
         type="radio"
@@ -538,10 +538,20 @@
               }
             }),
           );
-        const min = document.getElementById("minPrice");
-        const max = document.getElementById("maxPrice");
-        const minRange = document.getElementById("minRange");
-        const maxRange = document.getElementById("maxRange");
+        const pageInputs = Array.from(document.querySelectorAll('input[name="catalog-page"]'));
+        const pageStatus = document.getElementById('searchPageStatus');
+        function updatePageStatus() {
+          const index = pageInputs.findIndex(input => input.checked);
+          if (index < 0) return;
+          pageStatus.textContent = 'Trang ' + (index + 1) + '/3 · Hiển thị ' + (index * 4 + 1) + '–' + (index * 4 + 4) + ' / 12 sản phẩm';
+        }
+        pageInputs.forEach(input => input.addEventListener('change', updatePageStatus));
+        window.addEventListener('pageshow', updatePageStatus);
+        updatePageStatus();
+        const min = document.getElementById("advancedMinPrice");
+        const max = document.getElementById("advancedMaxPrice");
+        const minRange = document.getElementById("advancedMinRange");
+        const maxRange = document.getElementById("advancedMaxRange");
         const format = (value) =>
           String(value)
             .replace(/[^0-9]/g, "")
@@ -560,6 +570,7 @@
           });
           input.addEventListener("change", () => {
             range.value = Number(input.value.replace(/\./g, ""));
+            input.value = input.value.trim() ? format(range.value) : "";
           });
         });
       })();
