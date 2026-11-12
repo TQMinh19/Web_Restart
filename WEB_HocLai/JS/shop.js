@@ -319,7 +319,8 @@ function runSearch(resetPage) {
         const price = Number(item.dataset.price || '0');
 
         const passKeyword = !searchState.keyword || text.includes(searchState.keyword);
-        const passCategory = !searchState.category || category === searchState.category;
+        const passCategory = !searchState.category || category === searchState.category ||
+            (searchState.category === 'accessories' && category === 'cap');
         const passBrand = !searchState.brand || brand === searchState.brand;
         const passPrice = price >= searchState.minPrice && price <= searchState.maxPrice;
 
