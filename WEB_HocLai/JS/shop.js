@@ -1,6 +1,13 @@
 const ITEMS_PER_PAGE = 4;
 const DEFAULT_MIN_PRICE = 0;
 const DEFAULT_MAX_PRICE = 5000000;
+const CATEGORY_TITLES = {
+    tops: 'Áo thun',
+    bottoms: 'Quần',
+    jacket: 'Áo khoác',
+    accessories: 'Phụ kiện',
+    cap: 'Mũ'
+};
 
 let allProductItems = [];
 let filteredItems = [];
@@ -73,7 +80,7 @@ function applyStateFromUrl() {
         searchState.keyword = keywordFromUrl.toLowerCase();
     }
 
-    if (['tops', 'bottoms', 'accessories', 'jacket', 'cap'].includes(categoryFromUrl)) {
+    if (Object.hasOwn(CATEGORY_TITLES, categoryFromUrl)) {
         searchState.category = categoryFromUrl;
     }
 
@@ -416,6 +423,11 @@ function renderPagination() {
 }
 
 function renderSearchMeta() {
+    const heading = document.getElementById('catalogHeading');
+    if (heading) {
+        heading.textContent = CATEGORY_TITLES[searchState.category] ?? 'Tất cả sản phẩm';
+    }
+
     const meta = document.getElementById('searchMeta');
     if (!meta) return;
 
