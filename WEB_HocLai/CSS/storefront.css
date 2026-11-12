@@ -7,7 +7,8 @@
 .store-header .store-logo img { display: block; width: 64px; height: 72px; object-fit: contain; border: 0; border-radius: 0; }
 .store-header .store-nav { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 12px; min-width: 0; }
 .store-header .store-nav-top { display: flex; align-items: center; justify-content: center; gap: 24px; }
-.store-header .store-nav-top > a, .store-header .store-nav-top summary { font-size: 15px; font-weight: 700; white-space: nowrap; padding: 8px 0; }
+.store-header .store-nav-top > a, .store-header .store-nav-top summary, .store-header .store-nav-top > .store-shop-menu > a { font-family: "Inter", "Segoe UI", Arial, sans-serif; font-size: 15px; font-weight: 700; line-height: 1.5; white-space: nowrap; padding: 8px 0; }
+.store-header .store-shop-link { display: block; }
 .store-header .store-best { color: #e74c3c; font-size: 15px; font-weight: 700; }
 .store-header .store-tools { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
 .store-header .store-search { display: flex; align-items: center; gap: 8px; width: 200px; margin: 0; padding: 8px 12px; border: 1px solid #ddd; border-radius: 24px; background: #fafafa; }
@@ -64,7 +65,7 @@ body.store-auth { display: block; height: auto; min-height: 100vh; }
   .store-header .store-search { width: min(40vw, 200px); }
   .store-header .store-lang { display: none; }
   .store-header .store-nav-top { flex-wrap: wrap; gap: 4px 16px; }
-  .store-header .store-nav-top > a, .store-header .store-nav-top summary { font-size: 12px; }
+  .store-header .store-nav-top > a, .store-header .store-nav-top summary, .store-header .store-nav-top > .store-shop-menu > a { font-size: 12px; }
   .store-header .store-best { font-size: 13px; }
   .store-header .store-nav { gap: 8px; }
 }
