@@ -116,7 +116,7 @@
         <nav class="store-nav" aria-label="Điều hướng chính">
           <div class="store-nav-top">
             <details class="store-menu">
-              <summary>SHOP <span aria-hidden="true">⌄</span></summary>
+              <summary>SHOP</summary>
               <div class="store-dropdown">
                 <a href="shop.html">Tất cả sản phẩm</a
                 ><a href="shop.html?category=tops&amp;page=1">Áo thun</a
@@ -155,35 +155,10 @@
     <h1 class="search-page-title">TRANG TÌM KIẾM</h1>
     <!-- <div class="search-page-tools">
       <input id="searchKeyword" placeholder="Tên sản phẩm" />
-      <details class="category-picker">
-        <summary aria-label="Loại sản phẩm">
-          <span class="category-picker-label">Tất cả loại sản phẩm</span
-          ><span aria-hidden="true">⌄</span>
-        </summary>
-        <div class="category-picker-options">
-          <button type="button" data-category-value="">
-            Tất cả loại sản phẩm</button
-          ><button type="button" data-category-value="tops">Áo thun</button
-          ><button type="button" data-category-value="jacket">Áo khoác</button
-          ><button type="button" data-category-value="bottoms">Quần</button
-          ><button type="button" data-category-value="accessories">
-            Phụ kiện</button
-          ><button type="button" data-category-value="cap">Mũ</button>
-        </div>
-        <select
-          hidden
-          tabindex="-1"
+      <select
           id="searchCategory"
           aria-label="Loại sản phẩm"
-        >
-          <option value="">Tất cả loại sản phẩm</option>
-          <option value="tops">Áo thun</option>
-          <option value="jacket">Áo khoác</option>
-          <option value="bottoms">Quần</option>
-          <option value="accessories">Phụ kiện</option>
-          <option value="cap">Mũ</option>
-        </select>
-      </details>
+        ><option value="">Tất cả loại sản phẩm</option><option value="tops">Áo thun</option><option value="jacket">Áo khoác</option><option value="bottoms">Quần</option><option value="accessories">Phụ kiện</option><option value="cap">Mũ</option></select>
       <select id="searchBrand">
         <option value="">Hãng sản phẩm</option>
         <option value="stussy">Stussy</option>
@@ -235,36 +210,11 @@
           placeholder="Tên sản phẩm..."
         />
 
-        <details class="category-picker">
-          <summary aria-label="Loại sản phẩm">
-            <span class="category-picker-label">Tất cả loại sản phẩm</span
-            ><span aria-hidden="true">⌄</span>
-          </summary>
-          <div class="category-picker-options">
-            <button type="button" data-category-value="">
-              Tất cả loại sản phẩm</button
-            ><button type="button" data-category-value="tops">Áo thun</button
-            ><button type="button" data-category-value="jacket">Áo khoác</button
-            ><button type="button" data-category-value="bottoms">Quần</button
-            ><button type="button" data-category-value="accessories">
-              Phụ kiện</button
-            ><button type="button" data-category-value="cap">Mũ</button>
-          </div>
-          <select
-            hidden
-            tabindex="-1"
+        <select
             id="advancedCategory"
             class="adv-input select"
             aria-label="Loại sản phẩm"
-          >
-            <option value="">Tất cả loại sản phẩm</option>
-            <option value="tops">Áo thun</option>
-            <option value="jacket">Áo khoác</option>
-            <option value="bottoms">Quần</option>
-            <option value="accessories">Phụ kiện</option>
-            <option value="cap">Mũ</option>
-          </select>
-        </details>
+          ><option value="">Tất cả loại sản phẩm</option><option value="tops">Áo thun</option><option value="jacket">Áo khoác</option><option value="bottoms">Quần</option><option value="accessories">Phụ kiện</option><option value="cap">Mũ</option></select>
 
         <select id="advancedBrand" class="adv-input select">
           <option value="">Hãng</option>
@@ -291,25 +241,6 @@
              
              
               value="5.000.000"
-            />
-          </div>
-
-          <div class="range-sliders">
-            <input
-              type="range"
-              id="advancedMinRange"
-              min="0"
-              max="5000000"
-              step="1000"
-              value="0"
-            />
-            <input
-              type="range"
-              id="advancedMaxRange"
-              min="0"
-              max="5000000"
-              step="1000"
-              value="5000000"
             />
           </div>
         </div>
@@ -542,8 +473,6 @@
         updatePageStatus();
         const min = document.getElementById("advancedMinPrice");
         const max = document.getElementById("advancedMaxPrice");
-        const minRange = document.getElementById("advancedMinRange");
-        const maxRange = document.getElementById("advancedMaxRange");
         const format = (value) =>
           String(value)
             .replace(/[^0-9]/g, "")
@@ -553,20 +482,7 @@
             input.value = format(input.value);
           }),
         );
-        [
-          [minRange, min],
-          [maxRange, max],
-        ].forEach(([range, input]) => {
-          range.addEventListener("input", () => {
-            input.value = format(range.value);
-          });
-          input.addEventListener("change", () => {
-            range.value = Number(input.value.replace(/\./g, ""));
-            input.value = input.value.trim() ? format(range.value) : "";
-          });
-        });
       })();
     </script>
-    <script src="../JS/category-picker.js"></script>
   </body>
 </html>

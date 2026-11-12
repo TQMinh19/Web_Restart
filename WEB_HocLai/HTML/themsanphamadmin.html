@@ -27,15 +27,16 @@
 <option value="accessories">Phụ kiện</option>
 <option value="cap">Mũ</option></select></label>
 <label for="productUnit">Đơn vị tính<input id="productUnit" type="text" required value="cái"></label>
-<label for="productPrice">Giá bán (VNĐ)<input id="productPrice" type="number" required min="1" step="1"></label>
+<label for="productPrice">Giá bán (VNĐ)<input id="productPrice" type="text" inputmode="decimal" required placeholder="0"></label>
 <label for="productStock">Số lượng tồn kho<input id="productStock" type="number" required min="0" step="1"></label>
 <label for="productStatus">Trạng thái<select id="productStatus">
 <option value="active">Đang bán</option>
 <option value="hidden">Ẩn sản phẩm</option></select></label>
-<label for="productSizes">Size<input id="productSizes" type="text" placeholder="Ví dụ: S / M / L / XL hoặc ONE SIZE" required></label>
+<label for="productSizes">Size<select id="productSizes" name="productSizes"><option value="S" selected>S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option><option value="ONE SIZE">ONE SIZE</option></select></label>
 <label for="productColor">Màu sắc<input id="productColor" type="text" placeholder="Ví dụ: BLACK" required></label>
 <label for="productImage">Hình ảnh sản phẩm<input id="productImage" type="file" accept="image/*"><small>Chọn ảnh để xem trước. Khi sửa, ảnh hiện tại được giữ nếu chưa chọn ảnh khác.</small></label>
 <div id="productPreview" class="image-preview"><span>Chưa chọn hình ảnh</span></div>
 <label class="full" for="productDescription">Mô tả sản phẩm<textarea id="productDescription" rows="4"></textarea></label>
-<div class="form-actions"><button type="submit">Lưu thông tin</button><button class="secondary" type="reset">Nhập lại</button><a class="button secondary" href="sanphamadmin.html">Quay lại danh sách</a></div></form></section></main></div></div>
-<script src="../JS/admin.js"></script></body></html>
+<div class="form-actions"><button type="button" popovertarget="demo-added">Lưu thông tin</button><button class="secondary" type="reset">Nhập lại</button><a class="button secondary" href="sanphamadmin.html">Quay lại danh sách</a></div></form></section></main></div></div>
+<script src="../JS/admin.js"></script><div id="demo-added" class="demo-notice" popover role="status"><p>Đã thêm.</p><button type="button" popovertarget="demo-added" popovertargetaction="hide">Đóng</button></div>
+</body></html>

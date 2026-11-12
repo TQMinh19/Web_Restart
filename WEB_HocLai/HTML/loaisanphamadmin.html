@@ -21,7 +21,7 @@
 <form id="categoryForm" class="edit-form">
 <label for="catName">Tên loại<input id="catName" type="text" required></label>
 <label for="catDesc">Mô tả<textarea id="catDesc" rows="3"></textarea></label>
-<div class="form-actions"><button>Lưu loại sản phẩm</button><button type="reset" class="secondary">Nhập mới</button></div></form></section>
+<div class="form-actions"><button type="button" popovertarget="demo-added">Lưu loại sản phẩm</button><button type="reset" class="secondary">Nhập mới</button></div></form></section>
 <section class="card">
 <h2>Danh sách loại sản phẩm</h2>
 <div class="table-wrap">
@@ -38,30 +38,32 @@
 <td>Áo thun</td>
 <td>Sản phẩm áo thun</td>
 <td>
-<div class="actions"><a class="button secondary" href="sualoaisanphamadmin.html#CAT01">Sửa</a><button class="danger" type="button" data-demo-action>Xóa</button></div></td></tr>
+<div class="actions"><a class="button secondary" href="sualoaisanphamadmin.html#CAT01">Sửa</a><button class="danger" type="button" popovertarget="demo-deleted">Xóa</button></div></td></tr>
 <tr>
 <td>CAT02</td>
 <td>Áo khoác</td>
 <td>Jacket, hoodie và sweater</td>
 <td>
-<div class="actions"><a class="button secondary" href="sualoaisanphamadmin.html#CAT02">Sửa</a><button class="danger" type="button" data-demo-action>Xóa</button></div></td></tr>
+<div class="actions"><a class="button secondary" href="sualoaisanphamadmin.html#CAT02">Sửa</a><button class="danger" type="button" popovertarget="demo-deleted">Xóa</button></div></td></tr>
 <tr>
 <td>CAT03</td>
 <td>Quần</td>
 <td>Quần thời trang</td>
 <td>
-<div class="actions"><a class="button secondary" href="sualoaisanphamadmin.html#CAT03">Sửa</a><button class="danger" type="button" data-demo-action>Xóa</button></div></td></tr>
+<div class="actions"><a class="button secondary" href="sualoaisanphamadmin.html#CAT03">Sửa</a><button class="danger" type="button" popovertarget="demo-deleted">Xóa</button></div></td></tr>
 <tr>
 <td>CAT04</td>
 <td>Phụ kiện</td>
 <td>Túi, móc khóa và phụ kiện</td>
 <td>
-<div class="actions"><a class="button secondary" href="sualoaisanphamadmin.html#CAT04">Sửa</a><button class="danger" type="button" data-demo-action>Xóa</button></div></td></tr>
+<div class="actions"><a class="button secondary" href="sualoaisanphamadmin.html#CAT04">Sửa</a><button class="danger" type="button" popovertarget="demo-deleted">Xóa</button></div></td></tr>
 <tr>
 <td>CAT05</td>
 <td>Mũ</td>
 <td>Các loại mũ</td>
 <td>
-<div class="actions"><a class="button secondary" href="sualoaisanphamadmin.html#CAT05">Sửa</a><button class="danger" type="button" data-demo-action>Xóa</button></div></td></tr>
+<div class="actions"><a class="button secondary" href="sualoaisanphamadmin.html#CAT05">Sửa</a><button class="danger" type="button" popovertarget="demo-deleted">Xóa</button></div></td></tr>
 </tbody></table></div></section></main></div></div>
-<script src="../JS/admin.js"></script></body></html>
+<script src="../JS/admin.js"></script><div id="demo-added" class="demo-notice" popover role="status"><p>Đã thêm.</p><button type="button" popovertarget="demo-added" popovertargetaction="hide">Đóng</button></div>
+<div id="demo-deleted" class="demo-notice" popover role="status"><p>Đã xóa.</p><button type="button" popovertarget="demo-deleted" popovertargetaction="hide">Đóng</button></div>
+</body></html>
