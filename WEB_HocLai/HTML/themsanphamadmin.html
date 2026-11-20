@@ -32,7 +32,17 @@
 <label for="productStatus">Trạng thái<select id="productStatus">
 <option value="active">Đang bán</option>
 <option value="hidden">Ẩn sản phẩm</option></select></label>
-<label for="productSizes">Size<select id="productSizes" name="productSizes"><option value="S" selected>S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option><option value="ONE SIZE">ONE SIZE</option></select></label>
+<fieldset id="productSizes" class="admin-size-field">
+  <legend>Size</legend>
+  <div class="admin-size-options">
+    <label for="productSizes-S"><input id="productSizes-S" type="checkbox" name="productSizes" value="S"><span>S</span></label>
+    <label for="productSizes-M"><input id="productSizes-M" type="checkbox" name="productSizes" value="M"><span>M</span></label>
+    <label for="productSizes-L"><input id="productSizes-L" type="checkbox" name="productSizes" value="L"><span>L</span></label>
+    <label for="productSizes-XL"><input id="productSizes-XL" type="checkbox" name="productSizes" value="XL"><span>XL</span></label>
+    <label for="productSizes-ONE-SIZE"><input id="productSizes-ONE-SIZE" type="checkbox" name="productSizes" value="ONE SIZE"><span>ONE SIZE</span></label>
+  </div>
+  <small>Có thể chọn nhiều size.</small>
+</fieldset>
 <label for="productColor">Màu sắc<input id="productColor" type="text" placeholder="Ví dụ: BLACK" required></label>
 <label for="productImage">Hình ảnh sản phẩm<input id="productImage" type="file" accept="image/*"><small>Chọn ảnh để xem trước. Khi sửa, ảnh hiện tại được giữ nếu chưa chọn ảnh khác.</small></label>
 <div id="productPreview" class="image-preview"><span>Chưa chọn hình ảnh</span></div>

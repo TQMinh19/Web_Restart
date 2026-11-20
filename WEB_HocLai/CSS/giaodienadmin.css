@@ -388,3 +388,48 @@ h1 {
   white-space: nowrap;
   font-size: 12px;
 }
+
+.admin-size-field {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.admin-size-field legend {
+  margin-bottom: 6px;
+  padding: 0;
+  font-weight: 600;
+}
+
+.admin-size-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.admin-size-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 8px 12px;
+  border: 1px solid #a1a1aa;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.admin-size-options input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  accent-color: #18181b;
+  cursor: pointer;
+}
+
+.admin-size-options label:has(input:checked) {
+  border-color: #18181b;
+  background: #f4f4f5;
+}
