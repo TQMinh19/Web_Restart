@@ -9,7 +9,7 @@
 .store-header .store-nav-top { display: flex; align-items: center; justify-content: center; gap: 24px; }
 .store-header .store-nav-top > a, .store-header .store-nav-top summary, .store-header .store-nav-top > .store-shop-menu > a { font-family: "Inter", "Segoe UI", Arial, sans-serif; font-size: 15px; font-weight: 700; line-height: 1.5; white-space: nowrap; padding: 8px 0; }
 .store-header .store-shop-link { display: block; }
-.store-header .store-best { color: #e74c3c; font-size: 15px; font-weight: 700; }
+.store-header .store-best { color: var(--store-best-color, #e74c3c); font-size: 15px; font-weight: 700; }
 .store-header .store-tools { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
 .store-header .store-search { display: flex; align-items: center; gap: 8px; width: 200px; margin: 0; padding: 8px 12px; border: 1px solid #ddd; border-radius: 24px; background: #fafafa; }
 .store-header .store-search input { width: 100%; min-width: 0; height: auto; margin: 0; padding: 0; color: #222; background: transparent; border: 0; border-radius: 0; font-size: 14px; outline: none; box-shadow: none; }
@@ -103,6 +103,23 @@ body.store-auth { display: block; height: auto; min-height: 100vh; }
 .store-header .shop-category-menu > .store-dropdown a:focus-visible {
   outline: 2px solid #fff;
   outline-offset: -2px;
+}
+
+.store-header .store-best-menu {
+  --store-best-color: #e74c3c;
+}
+
+.store-header .store-best-menu > .store-best {
+  display: block;
+}
+
+.store-header .store-best-menu > .store-dropdown {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.store-header .store-best-menu > .store-dropdown a {
+  color: var(--store-best-color);
 }
 
 @media (max-width: 600px) {
