@@ -87,7 +87,6 @@
       form.addEventListener('reset', () => setTimeout(filter, 0));
     }
     bindFilter('productSearchForm', 'productsBody', 'productSearch', 'filterCategory');
-    bindFilter('orderFilterForm', 'ordersBody', 'orderLocation');
 
     // Xem trước hình do người dùng chọn; ảnh mẫu gốc nằm ngay trong HTML.
     document.querySelectorAll('input[type="file"]').forEach(input => {
@@ -119,7 +118,7 @@
       form.addEventListener('reset', restore);
     });
 
-    document.querySelectorAll('.edit-form, #statsForm, #userSearchForm').forEach(form => {
+    document.querySelectorAll('.edit-form, #statsForm, #userSearchForm, #orderFilterForm').forEach(form => {
       form.noValidate = true;
       form.addEventListener('submit', event => {
         event.preventDefault();
