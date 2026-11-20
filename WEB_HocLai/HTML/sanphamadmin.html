@@ -3,12 +3,12 @@
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Quản lý sản phẩm | 3BK Admin</title><link rel="stylesheet" href="../CSS/giaodienadmin.css"></head>
 <body>
 <div class="admin-layout">
-<aside class="sidebar"><a class="brand" href="giaodienadmin.html">3BK <span>ADMIN</span></a>
+<aside class="sidebar"><a class="brand" href="giaodienadmin.html"><img class="admin-brand-logo" src="../Image/logo.jpg" alt="3BK Shop"><span>ADMIN</span></a>
 <p class="nav-label">QUẢN LÝ CỬA HÀNG</p>
 <nav aria-label="Quản trị"><a href="giaodienadmin.html">Người dùng</a><a href="loaisanphamadmin.html">Loại sản phẩm</a><a href="sanphamadmin.html" aria-current="page">Sản phẩm</a><a href="donhangadmin.html">Đơn hàng</a><a href="thongkeadmin.html">Thống kê</a></nav><a class="store-link" href="index.html">Xem cửa hàng ↗</a></aside>
 <div class="workspace">
 <header class="topbar"><span>3BK SHOP / Quản trị</span>
-<div><strong>Quang Minh</strong><a href="dangnhapadmin.html">Đăng xuất</a></div></header>
+<div><strong class="admin-account"><span aria-hidden="true">👤</span> Quang Minh</strong><a href="dangnhapadmin.html">Đăng xuất</a></div></header>
 <main>
 <div class="page-heading">
 <div>
@@ -28,6 +28,10 @@
 <option value="bottoms">Quần</option>
 <option value="accessories">Phụ kiện</option>
 <option value="cap">Mũ</option></select></label><button>Tìm kiếm</button><button type="reset" class="secondary">Đặt lại</button></form>
+<div class="admin-paged-list">
+<input class="admin-page-choice" type="radio" name="admin-list-page" id="admin-page-1" aria-label="Trang 1" checked>
+<input class="admin-page-choice" type="radio" name="admin-list-page" id="admin-page-2" aria-label="Trang 2">
+<input class="admin-page-choice" type="radio" name="admin-list-page" id="admin-page-3" aria-label="Trang 3">
 <div class="table-wrap">
 <table>
 <thead>
@@ -41,7 +45,7 @@
 <th scope="col">Trạng thái</th>
 <th scope="col">Thao tác</th></tr></thead>
 <tbody id="productsBody">
-<tr data-category="tops">
+<tr data-list-page="1" data-category="tops">
 <td>SP01</td>
 <td>
 <div class="product-cell"><img src="../Image/VICTORIA TEE.jpg" alt="VICTORIA TEE"><strong>VICTORIA TEE</strong></div></td>
@@ -52,7 +56,7 @@
 <td><span class="badge">Đang bán</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP01">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP01">Sửa</a><button type="button" class="danger" popovertarget="demo-deleted">Xóa</button></div></td></tr>
-<tr data-category="jacket">
+<tr data-list-page="1" data-category="jacket">
 <td>SP02</td>
 <td>
 <div class="product-cell"><img src="../Image/TEXTURED ZIP HOODED SWEATER.jpg" alt="TEXTURED ZIP HOODED SWEATER"><strong>TEXTURED ZIP HOODED SWEATER</strong></div></td>
@@ -63,7 +67,7 @@
 <td><span class="badge">Đang bán</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP02">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP02">Sửa</a><button type="button" class="danger" popovertarget="demo-deleted">Xóa</button></div></td></tr>
-<tr data-category="tops">
+<tr data-list-page="1" data-category="tops">
 <td>SP03</td>
 <td>
 <div class="product-cell"><img src="../Image/BIG_MEATY_TEE_PIGMENT_DYED.jpg" alt="BIG &amp; MEATY TEE PIGMENT DYED"><strong>BIG &amp; MEATY TEE PIGMENT DYED</strong></div></td>
@@ -74,7 +78,7 @@
 <td><span class="badge">Đang bán</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP03">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP03">Sửa</a><button type="button" class="danger" popovertarget="demo-deleted">Xóa</button></div></td></tr>
-<tr data-category="jacket">
+<tr data-list-page="1" data-category="jacket">
 <td>SP04</td>
 <td>
 <div class="product-cell"><img src="../Image/TRUCKER JACKET DENIM.jpg" alt="TRUCKER JACKET DENIM"><strong>TRUCKER JACKET DENIM</strong></div></td>
@@ -85,7 +89,7 @@
 <td><span class="badge">Đang bán</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP04">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP04">Sửa</a><button type="button" class="danger" popovertarget="demo-deleted">Xóa</button></div></td></tr>
-<tr data-category="tops">
+<tr data-list-page="2" data-category="tops">
 <td>SP05</td>
 <td>
 <div class="product-cell"><img src="../Image/worldteecamo.png" alt="STUSSY WORLD TOUR TEE CAMO"><strong>STUSSY WORLD TOUR TEE CAMO</strong></div></td>
@@ -96,7 +100,7 @@
 <td><span class="badge">Đang bán</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP05">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP05">Sửa</a><button type="button" class="danger" popovertarget="demo-deleted">Xóa</button></div></td></tr>
-<tr data-category="tops">
+<tr data-list-page="2" data-category="tops">
 <td>SP06</td>
 <td>
 <div class="product-cell"><img src="../Image/7blacktee.png" alt="STUSSY S MARK 7 BLACK TEE"><strong>STUSSY S MARK 7 BLACK TEE</strong></div></td>
@@ -107,7 +111,7 @@
 <td><span class="badge">Đang bán</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP06">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP06">Sửa</a><button type="button" class="danger" popovertarget="demo-deleted">Xóa</button></div></td></tr>
-<tr data-category="tops">
+<tr data-list-page="2" data-category="tops">
 <td>SP07</td>
 <td>
 <div class="product-cell"><img src="../Image/SunsetTeeFOG.png" alt="STUSSY SUNSET TEE FOG"><strong>STUSSY SUNSET TEE FOG</strong></div></td>
@@ -118,7 +122,7 @@
 <td><span class="badge">Đang bán</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP07">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP07">Sửa</a><button type="button" class="danger" popovertarget="demo-deleted">Xóa</button></div></td></tr>
-<tr data-category="jacket">
+<tr data-list-page="2" data-category="jacket">
 <td>SP08</td>
 <td>
 <div class="product-cell"><img src="../Image/StussyAmsterdamSweatshirt.png" alt="STUSSY AMSTERDAM SWEATSHIRT"><strong>STUSSY AMSTERDAM SWEATSHIRT</strong></div></td>
@@ -129,7 +133,7 @@
 <td><span class="badge">Đang bán</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP08">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP08">Sửa</a><button type="button" class="danger" popovertarget="demo-deleted">Xóa</button></div></td></tr>
-<tr data-category="cap">
+<tr data-list-page="3" data-category="cap">
 <td>SP09</td>
 <td>
 <div class="product-cell"><img src="../Image/Stussy Stock Cuff Beanie Black.png" alt="STUSSY STOCK CUFF BEANIE"><strong>STUSSY STOCK CUFF BEANIE</strong></div></td>
@@ -140,7 +144,7 @@
 <td><span class="badge">Đang bán</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP09">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP09">Sửa</a><button type="button" class="danger" popovertarget="demo-deleted">Xóa</button></div></td></tr>
-<tr data-category="bottoms">
+<tr data-list-page="3" data-category="bottoms">
 <td>SP10</td>
 <td>
 <div class="product-cell"><img src="../Image/Stussy Shorts Black.png" alt="STUSSY SHORTS BLACK"><strong>STUSSY SHORTS BLACK</strong></div></td>
@@ -151,7 +155,7 @@
 <td><span class="badge">Đang bán</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP10">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP10">Sửa</a><button type="button" class="danger" popovertarget="demo-deleted">Xóa</button></div></td></tr>
-<tr data-category="accessories">
+<tr data-list-page="3" data-category="accessories">
 <td>SP11</td>
 <td>
 <div class="product-cell"><img src="../Image/pounchbag.png" alt="STUSSY POUCH BAG"><strong>STUSSY POUCH BAG</strong></div></td>
@@ -162,7 +166,7 @@
 <td><span class="badge">Đang bán</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP11">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP11">Sửa</a><button type="button" class="danger" popovertarget="demo-deleted">Xóa</button></div></td></tr>
-<tr data-category="accessories">
+<tr data-list-page="3" data-category="accessories">
 <td>SP12</td>
 <td>
 <div class="product-cell"><img src="../Image/keychain8ball.png" alt="STUSSY 8 BALL KEYCHAIN"><strong>STUSSY 8 BALL KEYCHAIN</strong></div></td>
@@ -173,6 +177,10 @@
 <td><span class="badge">Đang bán</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="chitietsanphamadmin.html#SP12">Xem thông tin</a><a class="button secondary" href="suasanphamadmin.html#SP12">Sửa</a><button type="button" class="danger" popovertarget="demo-deleted">Xóa</button></div></td></tr>
-</tbody></table></div></section></main></div></div>
+</tbody></table></div>
+<div class="admin-page-footer admin-page-1"><p class="admin-page-summary">Hiển thị 1–4 trong 12 sản phẩm</p><nav class="admin-pagination" aria-label="Phân trang sản phẩm"><span class="admin-page-button disabled" aria-disabled="true">← Trước</span><label class="admin-page-button current" for="admin-page-1" aria-current="page">1</label><label class="admin-page-button" for="admin-page-2">2</label><label class="admin-page-button" for="admin-page-3">3</label><label class="admin-page-button" for="admin-page-2">Sau →</label></nav></div>
+<div class="admin-page-footer admin-page-2"><p class="admin-page-summary">Hiển thị 5–8 trong 12 sản phẩm</p><nav class="admin-pagination" aria-label="Phân trang sản phẩm"><label class="admin-page-button" for="admin-page-1">← Trước</label><label class="admin-page-button" for="admin-page-1">1</label><label class="admin-page-button current" for="admin-page-2" aria-current="page">2</label><label class="admin-page-button" for="admin-page-3">3</label><label class="admin-page-button" for="admin-page-3">Sau →</label></nav></div>
+<div class="admin-page-footer admin-page-3"><p class="admin-page-summary">Hiển thị 9–12 trong 12 sản phẩm</p><nav class="admin-pagination" aria-label="Phân trang sản phẩm"><label class="admin-page-button" for="admin-page-2">← Trước</label><label class="admin-page-button" for="admin-page-1">1</label><label class="admin-page-button" for="admin-page-2">2</label><label class="admin-page-button current" for="admin-page-3" aria-current="page">3</label><span class="admin-page-button disabled" aria-disabled="true">Sau →</span></nav></div>
+</div></section></main></div></div>
 <script src="../JS/admin.js"></script><div id="demo-deleted" class="demo-notice" popover role="status"><p>Đã xóa.</p><button type="button" popovertarget="demo-deleted" popovertargetaction="hide">Đóng</button></div>
 </body></html>

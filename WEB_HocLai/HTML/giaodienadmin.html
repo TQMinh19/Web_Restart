@@ -3,12 +3,12 @@
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Quản lý người dùng | 3BK Admin</title><link rel="stylesheet" href="../CSS/giaodienadmin.css"></head>
 <body>
 <div class="admin-layout">
-<aside class="sidebar"><a class="brand" href="giaodienadmin.html">3BK <span>ADMIN</span></a>
+<aside class="sidebar"><a class="brand" href="giaodienadmin.html"><img class="admin-brand-logo" src="../Image/logo.jpg" alt="3BK Shop"><span>ADMIN</span></a>
 <p class="nav-label">QUẢN LÝ CỬA HÀNG</p>
 <nav aria-label="Quản trị"><a href="giaodienadmin.html" aria-current="page">Người dùng</a><a href="loaisanphamadmin.html">Loại sản phẩm</a><a href="sanphamadmin.html">Sản phẩm</a><a href="donhangadmin.html">Đơn hàng</a><a href="thongkeadmin.html">Thống kê</a></nav><a class="store-link" href="index.html">Xem cửa hàng ↗</a></aside>
 <div class="workspace">
 <header class="topbar"><span>3BK SHOP / Quản trị</span>
-<div><strong>Quang Minh</strong><a href="dangnhapadmin.html">Đăng xuất</a></div></header>
+<div><strong class="admin-account"><span aria-hidden="true">👤</span> Quang Minh</strong><a href="dangnhapadmin.html">Đăng xuất</a></div></header>
 <main>
 <div class="page-heading">
 <div>
@@ -21,6 +21,10 @@
 <h2>Danh sách người dùng</h2><a class="button" href="themnguoidungadmin.html">+ Thêm người dùng</a></div>
 <form id="userSearchForm" class="toolbar">
 <label for="userSearch">Tìm người dùng<input id="userSearch" type="search" placeholder="Tên, email hoặc số điện thoại"></label><button>Tìm kiếm</button><button type="reset" class="secondary">Đặt lại</button></form>
+<div class="admin-paged-list">
+<input class="admin-page-choice" type="radio" name="admin-list-page" id="admin-page-1" aria-label="Trang 1" checked>
+<input class="admin-page-choice" type="radio" name="admin-list-page" id="admin-page-2" aria-label="Trang 2">
+<input class="admin-page-choice" type="radio" name="admin-list-page" id="admin-page-3" aria-label="Trang 3">
 <div class="table-wrap">
 <table>
 <thead>
@@ -31,89 +35,93 @@
 <th scope="col">Trạng thái</th>
 <th scope="col">Thao tác</th></tr></thead>
 <tbody id="usersBody">
-<tr>
+<tr data-list-page="1">
 <td>US01</td>
 <td><strong>Nguyễn Minh Anh</strong><small>minhanh@example.com</small></td>
 <td>0901234567<small>123 Nguyễn Huệ, Phường Sài Gòn, TP. Hồ Chí Minh</small></td>
 <td><span class="badge">Đang hoạt động</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US01">Sửa</a><button class="secondary" type="button" data-demo-action>Khóa</button></div></td></tr>
-<tr>
+<tr data-list-page="1">
 <td>US02</td>
 <td><strong>Trần Hoàng Nam</strong><small>hoangnam@example.com</small></td>
 <td>0912345678<small>25 Lê Lợi, Phường Sài Gòn, TP. Hồ Chí Minh</small></td>
 <td><span class="badge">Đang hoạt động</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US02">Sửa</a><button class="secondary" type="button" data-demo-action>Khóa</button></div></td></tr>
-<tr>
+<tr data-list-page="1">
 <td>US03</td>
 <td><strong>Lê Khánh Linh</strong><small>khanhlinh@example.com</small></td>
 <td>0923456789<small>88 Nguyễn Trãi, Phường Thanh Xuân, Hà Nội</small></td>
 <td><span class="badge">Đang hoạt động</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US03">Sửa</a><button class="secondary" type="button" data-demo-action>Khóa</button></div></td></tr>
-<tr>
+<tr data-list-page="1">
 <td>US04</td>
 <td><strong>Phạm Gia Huy</strong><small>giahuy@example.com</small></td>
 <td>0934567890<small>16 Trần Phú, Hải Châu, Đà Nẵng</small></td>
 <td><span class="badge">Đang hoạt động</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US04">Sửa</a><button class="secondary" type="button" data-demo-action>Khóa</button></div></td></tr>
-<tr>
+<tr data-list-page="2">
 <td>US05</td>
 <td><strong>Võ Ngọc Anh</strong><small>ngocanh@example.com</small></td>
 <td>0945678901<small>42 Phan Xích Long, Phú Nhuận, TP. Hồ Chí Minh</small></td>
 <td><span class="badge">Đang hoạt động</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US05">Sửa</a><button class="secondary" type="button" data-demo-action>Khóa</button></div></td></tr>
-<tr>
+<tr data-list-page="2">
 <td>US06</td>
 <td><strong>Đỗ Minh Quân</strong><small>minhquan@example.com</small></td>
 <td>0956789012<small>10 Cầu Giấy, Hà Nội</small></td>
 <td><span class="badge">Đang hoạt động</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US06">Sửa</a><button class="secondary" type="button" data-demo-action>Khóa</button></div></td></tr>
-<tr>
+<tr data-list-page="2">
 <td>US07</td>
 <td><strong>Nguyễn Thảo Vy</strong><small>thaovy@example.com</small></td>
 <td>0967890123<small>73 Võ Văn Tần, Phường Xuân Hòa, TP. Hồ Chí Minh</small></td>
 <td><span class="badge off">Đã khóa</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US07">Sửa</a><button class="secondary" type="button" data-demo-action>Mở khóa</button></div></td></tr>
-<tr>
+<tr data-list-page="2">
 <td>US08</td>
 <td><strong>Bùi Thanh Tâm</strong><small>thanhtam@example.com</small></td>
 <td>0978901234<small>19 Điện Biên Phủ, Bình Thạnh, TP. Hồ Chí Minh</small></td>
 <td><span class="badge">Đang hoạt động</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US08">Sửa</a><button class="secondary" type="button" data-demo-action>Khóa</button></div></td></tr>
-<tr>
+<tr data-list-page="3">
 <td>US09</td>
 <td><strong>Phan Quỳnh Mai</strong><small>quynhmai@example.com</small></td>
 <td>0989012345<small>61 Trần Hưng Đạo, Hoàn Kiếm, Hà Nội</small></td>
 <td><span class="badge">Đang hoạt động</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US09">Sửa</a><button class="secondary" type="button" data-demo-action>Khóa</button></div></td></tr>
-<tr>
+<tr data-list-page="3">
 <td>US10</td>
 <td><strong>Hồ Đức Anh</strong><small>ducanh@example.com</small></td>
 <td>0990123456<small>27 Nguyễn Văn Linh, Hải Châu, Đà Nẵng</small></td>
 <td><span class="badge">Đang hoạt động</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US10">Sửa</a><button class="secondary" type="button" data-demo-action>Khóa</button></div></td></tr>
-<tr>
+<tr data-list-page="3">
 <td>US11</td>
 <td><strong>Đặng Thu Hà</strong><small>thuha@example.com</small></td>
 <td>0902345678<small>54 Lý Thường Kiệt, Nha Trang, Khánh Hòa</small></td>
 <td><span class="badge">Đang hoạt động</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US11">Sửa</a><button class="secondary" type="button" data-demo-action>Khóa</button></div></td></tr>
-<tr>
+<tr data-list-page="3">
 <td>US12</td>
 <td><strong>Mai Quốc Bảo</strong><small>quocbao@example.com</small></td>
 <td>0913456789<small>102 Lê Duẩn, Thành phố Huế</small></td>
 <td><span class="badge">Đang hoạt động</span></td>
 <td>
 <div class="actions"><a class="button secondary" href="suanguoidungadmin.html#US12">Sửa</a><button class="secondary" type="button" data-demo-action>Khóa</button></div></td></tr>
-</tbody></table></div></section></main></div></div>
+</tbody></table></div>
+<div class="admin-page-footer admin-page-1"><p class="admin-page-summary">Hiển thị 1–4 trong 12 khách hàng</p><nav class="admin-pagination" aria-label="Phân trang khách hàng"><span class="admin-page-button disabled" aria-disabled="true">← Trước</span><label class="admin-page-button current" for="admin-page-1" aria-current="page">1</label><label class="admin-page-button" for="admin-page-2">2</label><label class="admin-page-button" for="admin-page-3">3</label><label class="admin-page-button" for="admin-page-2">Sau →</label></nav></div>
+<div class="admin-page-footer admin-page-2"><p class="admin-page-summary">Hiển thị 5–8 trong 12 khách hàng</p><nav class="admin-pagination" aria-label="Phân trang khách hàng"><label class="admin-page-button" for="admin-page-1">← Trước</label><label class="admin-page-button" for="admin-page-1">1</label><label class="admin-page-button current" for="admin-page-2" aria-current="page">2</label><label class="admin-page-button" for="admin-page-3">3</label><label class="admin-page-button" for="admin-page-3">Sau →</label></nav></div>
+<div class="admin-page-footer admin-page-3"><p class="admin-page-summary">Hiển thị 9–12 trong 12 khách hàng</p><nav class="admin-pagination" aria-label="Phân trang khách hàng"><label class="admin-page-button" for="admin-page-2">← Trước</label><label class="admin-page-button" for="admin-page-1">1</label><label class="admin-page-button" for="admin-page-2">2</label><label class="admin-page-button current" for="admin-page-3" aria-current="page">3</label><span class="admin-page-button disabled" aria-disabled="true">Sau →</span></nav></div>
+</div></section></main></div></div>
 <script src="../JS/admin.js"></script></body></html>

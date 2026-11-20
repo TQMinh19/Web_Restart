@@ -82,6 +82,9 @@ small {
   display:flex;
   flex-direction:column}
 .brand {
+  display:flex;
+  align-items:center;
+  gap:12px;
   font-size:29px;
   font-weight:800;
   letter-spacing:1px;
@@ -90,7 +93,15 @@ small {
 .brand span {
   font-size:12px;
   letter-spacing:2px;
-  margin-left:7px}
+  margin-left:0}
+.admin-brand-logo {
+  display:block;
+  width:64px;
+  height:64px;
+  flex-shrink:0;
+  object-fit:contain;
+  border-radius:6px;
+  background:#fff}
 .nav-label {
   font-size:10px;
   color:#b4b4bd;
@@ -432,4 +443,102 @@ h1 {
 .admin-size-options label:has(input:checked) {
   border-color: #18181b;
   background: #f4f4f5;
+}
+
+.admin-account {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-page-choice {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.admin-paged-list tr[data-list-page],
+.admin-page-footer {
+  display: none;
+}
+
+#admin-page-1:checked ~ .table-wrap tr[data-list-page="1"],
+#admin-page-2:checked ~ .table-wrap tr[data-list-page="2"],
+#admin-page-3:checked ~ .table-wrap tr[data-list-page="3"] {
+  display: table-row;
+}
+
+#admin-page-1:checked ~ .admin-page-1,
+#admin-page-2:checked ~ .admin-page-2,
+#admin-page-3:checked ~ .admin-page-3 {
+  display: flex;
+}
+
+.admin-page-footer {
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 22px;
+}
+
+.admin-page-summary {
+  margin: 0;
+  font-size: 12px;
+  color: #61616b;
+}
+
+.admin-pagination {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.admin-page-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  min-height: 36px;
+  padding: 6px 10px;
+  border: 1px solid #d4d4d8;
+  border-radius: 6px;
+  background: #fff;
+  color: #3f3f46;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-page-button.current {
+  border-color: #18181b;
+  background: #18181b;
+  color: #fff;
+}
+
+.admin-page-button:hover {
+  border-color: #18181b;
+}
+
+.admin-page-button.disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+#admin-page-1:focus-visible ~ .admin-page-1 label[for="admin-page-1"],
+#admin-page-2:focus-visible ~ .admin-page-2 label[for="admin-page-2"],
+#admin-page-3:focus-visible ~ .admin-page-3 label[for="admin-page-3"] {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .admin-page-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="vi">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Chi tiết đơn hàng | 3BK Admin</title><link rel="stylesheet" href="../CSS/giaodienadmin.css"></head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Chi tiết đơn hàng | 3BK Admin</title><link rel="stylesheet" href="../CSS/giaodienadmin.css"><link rel="stylesheet" href="../CSS/chitietdonhang.css"></head>
 <body>
 <div class="admin-layout">
-<aside class="sidebar"><a class="brand" href="giaodienadmin.html">3BK <span>ADMIN</span></a>
+<aside class="sidebar"><a class="brand" href="giaodienadmin.html"><img class="admin-brand-logo" src="../Image/logo.jpg" alt="3BK Shop"><span>ADMIN</span></a>
 <p class="nav-label">QUẢN LÝ CỬA HÀNG</p>
 <nav aria-label="Quản trị"><a href="giaodienadmin.html">Người dùng</a><a href="loaisanphamadmin.html">Loại sản phẩm</a><a href="sanphamadmin.html">Sản phẩm</a><a href="donhangadmin.html" aria-current="page">Đơn hàng</a><a href="thongkeadmin.html">Thống kê</a></nav><a class="store-link" href="index.html">Xem cửa hàng ↗</a></aside>
 <div class="workspace">
 <header class="topbar"><span>3BK SHOP / Quản trị</span>
-<div><strong>Quang Minh</strong><a href="dangnhapadmin.html">Đăng xuất</a></div></header>
+<div><strong class="admin-account"><span aria-hidden="true">👤</span> Quang Minh</strong><a href="dangnhapadmin.html">Đăng xuất</a></div></header>
 <main>
 <div class="page-heading">
 <div>
@@ -17,385 +17,155 @@
 <p class="notice">Giao diện đồ án web tĩnh · Dữ liệu mẫu dùng để trình bày.</p>
 <div id="feedback" role="status" hidden></div>
 <div class="section-heading"><a class="button secondary" href="donhangadmin.html">← Danh sách đơn hàng</a><a class="button secondary" href="thongkeadmin.html">Thống kê khách hàng</a></div>
-<div class="static-records">
-<section class="card static-record" id="ORD-2026-001">
-<div class="section-heading">
-<h2>ORD-2026-001</h2><span class="badge">Đã giao thành công</span></div>
-<div class="detail-grid">
-<div>
-<h3>Thông tin người nhận</h3>
-<p><strong>Nguyễn Minh Anh</strong></p>
-<p>minhanh@example.com</p>
-<p>0901234567</p>
-<p>123 Nguyễn Huệ, Phường Sài Gòn, TP. Hồ Chí Minh</p></div>
-<div>
-<h3>Thông tin đơn hàng</h3>
-<p>Ngày đặt: 28/09/2026</p>
-<p>Thanh toán: Tiền mặt khi nhận hàng</p>
-<label>Trạng thái<select aria-label="Trạng thái đơn ORD-2026-001">
-<option value="pending" disabled>Chưa xác nhận</option>
-<option value="confirmed" disabled>Đã xác nhận</option>
-<option value="delivered" selected>Đã giao thành công</option>
-<option value="completed">Hoàn tất</option>
-<option value="cancelled" disabled>Hủy đơn</option></select></label></div></div>
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>Sản phẩm</th>
-<th>Phân loại</th>
-<th>Đơn giá</th>
-<th>Số lượng</th>
-<th>Thành tiền</th></tr></thead>
-<tbody>
-<tr>
-<td>
-<div class="product-cell"><img src="../Image/VICTORIA TEE.jpg" alt="VICTORIA TEE"><strong>VICTORIA TEE</strong></div></td>
-<td>Size: M<small>Màu: BLACK</small></td>
-<td>1.260.000đ</td>
-<td>1</td>
-<td>1.260.000đ</td></tr></tbody></table></div>
-<p class="total">Tổng tiền: 1.260.000đ</p></section>
-<section class="card static-record" id="ORD-2026-002">
-<div class="section-heading">
-<h2>ORD-2026-002</h2><span class="badge">Hoàn tất</span></div>
-<div class="detail-grid">
-<div>
-<h3>Thông tin người nhận</h3>
-<p><strong>Trần Hoàng Nam</strong></p>
-<p>hoangnam@example.com</p>
-<p>0912345678</p>
-<p>25 Lê Lợi, Phường Sài Gòn, TP. Hồ Chí Minh</p></div>
-<div>
-<h3>Thông tin đơn hàng</h3>
-<p>Ngày đặt: 29/09/2026</p>
-<p>Thanh toán: Tiền mặt khi nhận hàng</p>
-<label>Trạng thái<select aria-label="Trạng thái đơn ORD-2026-002">
-<option value="pending" disabled>Chưa xác nhận</option>
-<option value="confirmed" disabled>Đã xác nhận</option>
-<option value="delivered" disabled>Đã giao thành công</option>
-<option value="completed" selected>Hoàn tất</option>
-<option value="cancelled" disabled>Hủy đơn</option></select></label></div></div>
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>Sản phẩm</th>
-<th>Phân loại</th>
-<th>Đơn giá</th>
-<th>Số lượng</th>
-<th>Thành tiền</th></tr></thead>
-<tbody>
-<tr>
-<td>
-<div class="product-cell"><img src="../Image/TEXTURED ZIP HOODED SWEATER.jpg" alt="TEXTURED ZIP HOODED SWEATER"><strong>TEXTURED ZIP HOODED SWEATER</strong></div></td>
-<td>Size: L<small>Màu: BLACK</small></td>
-<td>3.750.000đ</td>
-<td>1</td>
-<td>3.750.000đ</td></tr></tbody></table></div>
-<p class="total">Tổng tiền: 3.750.000đ</p></section>
-<section class="card static-record" id="ORD-2026-003">
-<div class="section-heading">
-<h2>ORD-2026-003</h2><span class="badge">Đã giao thành công</span></div>
-<div class="detail-grid">
-<div>
-<h3>Thông tin người nhận</h3>
-<p><strong>Lê Khánh Linh</strong></p>
-<p>khanhlinh@example.com</p>
-<p>0923456789</p>
-<p>88 Nguyễn Trãi, Phường Thanh Xuân, Hà Nội</p></div>
-<div>
-<h3>Thông tin đơn hàng</h3>
-<p>Ngày đặt: 30/09/2026</p>
-<p>Thanh toán: Chuyển khoản ngân hàng</p>
-<label>Trạng thái<select aria-label="Trạng thái đơn ORD-2026-003">
-<option value="pending" disabled>Chưa xác nhận</option>
-<option value="confirmed" disabled>Đã xác nhận</option>
-<option value="delivered" selected>Đã giao thành công</option>
-<option value="completed">Hoàn tất</option>
-<option value="cancelled" disabled>Hủy đơn</option></select></label></div></div>
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>Sản phẩm</th>
-<th>Phân loại</th>
-<th>Đơn giá</th>
-<th>Số lượng</th>
-<th>Thành tiền</th></tr></thead>
-<tbody>
-<tr>
-<td>
-<div class="product-cell"><img src="../Image/worldteecamo.png" alt="STUSSY WORLD TOUR TEE CAMO"><strong>STUSSY WORLD TOUR TEE CAMO</strong></div></td>
-<td>Size: M<small>Màu: CAMO</small></td>
-<td>2.970.000đ</td>
-<td>1</td>
-<td>2.970.000đ</td></tr></tbody></table></div>
-<p class="total">Tổng tiền: 2.970.000đ</p></section>
-<section class="card static-record" id="ORD-2026-004">
-<div class="section-heading">
-<h2>ORD-2026-004</h2><span class="badge">Đã xác nhận</span></div>
-<div class="detail-grid">
-<div>
-<h3>Thông tin người nhận</h3>
-<p><strong>Phạm Gia Huy</strong></p>
-<p>giahuy@example.com</p>
-<p>0934567890</p>
-<p>16 Trần Phú, Hải Châu, Đà Nẵng</p></div>
-<div>
-<h3>Thông tin đơn hàng</h3>
-<p>Ngày đặt: 01/10/2026</p>
-<p>Thanh toán: Tiền mặt khi nhận hàng</p>
-<label>Trạng thái<select aria-label="Trạng thái đơn ORD-2026-004">
-<option value="pending" disabled>Chưa xác nhận</option>
-<option value="confirmed" selected>Đã xác nhận</option>
-<option value="delivered">Đã giao thành công</option>
-<option value="completed" disabled>Hoàn tất</option>
-<option value="cancelled">Hủy đơn</option></select></label></div></div>
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>Sản phẩm</th>
-<th>Phân loại</th>
-<th>Đơn giá</th>
-<th>Số lượng</th>
-<th>Thành tiền</th></tr></thead>
-<tbody>
-<tr>
-<td>
-<div class="product-cell"><img src="../Image/TRUCKER JACKET DENIM.jpg" alt="TRUCKER JACKET DENIM"><strong>TRUCKER JACKET DENIM</strong></div></td>
-<td>Size: L<small>Màu: BLUE</small></td>
-<td>3.540.000đ</td>
-<td>1</td>
-<td>3.540.000đ</td></tr></tbody></table></div>
-<p class="total">Tổng tiền: 3.540.000đ</p></section>
-<section class="card static-record" id="ORD-2026-005">
-<div class="section-heading">
-<h2>ORD-2026-005</h2><span class="badge">Chưa xác nhận</span></div>
-<div class="detail-grid">
-<div>
-<h3>Thông tin người nhận</h3>
-<p><strong>Võ Ngọc Anh</strong></p>
-<p>ngocanh@example.com</p>
-<p>0945678901</p>
-<p>42 Phan Xích Long, Phú Nhuận, TP. Hồ Chí Minh</p></div>
-<div>
-<h3>Thông tin đơn hàng</h3>
-<p>Ngày đặt: 02/10/2026</p>
-<p>Thanh toán: Thanh toán trực tuyến</p>
-<label>Trạng thái<select aria-label="Trạng thái đơn ORD-2026-005">
-<option value="pending" selected>Chưa xác nhận</option>
-<option value="confirmed">Đã xác nhận</option>
-<option value="delivered" disabled>Đã giao thành công</option>
-<option value="completed" disabled>Hoàn tất</option>
-<option value="cancelled">Hủy đơn</option></select></label></div></div>
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>Sản phẩm</th>
-<th>Phân loại</th>
-<th>Đơn giá</th>
-<th>Số lượng</th>
-<th>Thành tiền</th></tr></thead>
-<tbody>
-<tr>
-<td>
-<div class="product-cell"><img src="../Image/pounchbag.png" alt="STUSSY POUCH BAG"><strong>STUSSY POUCH BAG</strong></div></td>
-<td>Size: ONE SIZE<small>Màu: BLACK</small></td>
-<td>1.590.000đ</td>
-<td>1</td>
-<td>1.590.000đ</td></tr></tbody></table></div>
-<p class="total">Tổng tiền: 1.590.000đ</p></section>
-<section class="card static-record" id="ORD-2026-006">
-<div class="section-heading">
-<h2>ORD-2026-006</h2><span class="badge">Đã giao thành công</span></div>
-<div class="detail-grid">
-<div>
-<h3>Thông tin người nhận</h3>
-<p><strong>Bùi Thanh Tâm</strong></p>
-<p>thanhtam@example.com</p>
-<p>0978901234</p>
-<p>19 Điện Biên Phủ, Bình Thạnh, TP. Hồ Chí Minh</p></div>
-<div>
-<h3>Thông tin đơn hàng</h3>
-<p>Ngày đặt: 03/10/2026</p>
-<p>Thanh toán: Tiền mặt khi nhận hàng</p>
-<label>Trạng thái<select aria-label="Trạng thái đơn ORD-2026-006">
-<option value="pending" disabled>Chưa xác nhận</option>
-<option value="confirmed" disabled>Đã xác nhận</option>
-<option value="delivered" selected>Đã giao thành công</option>
-<option value="completed">Hoàn tất</option>
-<option value="cancelled" disabled>Hủy đơn</option></select></label></div></div>
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>Sản phẩm</th>
-<th>Phân loại</th>
-<th>Đơn giá</th>
-<th>Số lượng</th>
-<th>Thành tiền</th></tr></thead>
-<tbody>
-<tr>
-<td>
-<div class="product-cell"><img src="../Image/7blacktee.png" alt="STUSSY S MARK 7 BLACK TEE"><strong>STUSSY S MARK 7 BLACK TEE</strong></div></td>
-<td>Size: M<small>Màu: BLACK</small></td>
-<td>3.270.000đ</td>
-<td>1</td>
-<td>3.270.000đ</td></tr></tbody></table></div>
-<p class="total">Tổng tiền: 3.270.000đ</p></section>
-<section class="card static-record" id="ORD-2026-007">
-<div class="section-heading">
-<h2>ORD-2026-007</h2><span class="badge">Hoàn tất</span></div>
-<div class="detail-grid">
-<div>
-<h3>Thông tin người nhận</h3>
-<p><strong>Phan Quỳnh Mai</strong></p>
-<p>quynhmai@example.com</p>
-<p>0989012345</p>
-<p>61 Trần Hưng Đạo, Hoàn Kiếm, Hà Nội</p></div>
-<div>
-<h3>Thông tin đơn hàng</h3>
-<p>Ngày đặt: 04/10/2026</p>
-<p>Thanh toán: Chuyển khoản ngân hàng</p>
-<label>Trạng thái<select aria-label="Trạng thái đơn ORD-2026-007">
-<option value="pending" disabled>Chưa xác nhận</option>
-<option value="confirmed" disabled>Đã xác nhận</option>
-<option value="delivered" disabled>Đã giao thành công</option>
-<option value="completed" selected>Hoàn tất</option>
-<option value="cancelled" disabled>Hủy đơn</option></select></label></div></div>
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>Sản phẩm</th>
-<th>Phân loại</th>
-<th>Đơn giá</th>
-<th>Số lượng</th>
-<th>Thành tiền</th></tr></thead>
-<tbody>
-<tr>
-<td>
-<div class="product-cell"><img src="../Image/SunsetTeeFOG.png" alt="STUSSY SUNSET TEE FOG"><strong>STUSSY SUNSET TEE FOG</strong></div></td>
-<td>Size: S<small>Màu: FOG</small></td>
-<td>3.870.000đ</td>
-<td>1</td>
-<td>3.870.000đ</td></tr></tbody></table></div>
-<p class="total">Tổng tiền: 3.870.000đ</p></section>
-<section class="card static-record" id="ORD-2026-008">
-<div class="section-heading">
-<h2>ORD-2026-008</h2><span class="badge">Đã xác nhận</span></div>
-<div class="detail-grid">
-<div>
-<h3>Thông tin người nhận</h3>
-<p><strong>Hồ Đức Anh</strong></p>
-<p>ducanh@example.com</p>
-<p>0990123456</p>
-<p>27 Nguyễn Văn Linh, Hải Châu, Đà Nẵng</p></div>
-<div>
-<h3>Thông tin đơn hàng</h3>
-<p>Ngày đặt: 05/10/2026</p>
-<p>Thanh toán: Tiền mặt khi nhận hàng</p>
-<label>Trạng thái<select aria-label="Trạng thái đơn ORD-2026-008">
-<option value="pending" disabled>Chưa xác nhận</option>
-<option value="confirmed" selected>Đã xác nhận</option>
-<option value="delivered">Đã giao thành công</option>
-<option value="completed" disabled>Hoàn tất</option>
-<option value="cancelled">Hủy đơn</option></select></label></div></div>
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>Sản phẩm</th>
-<th>Phân loại</th>
-<th>Đơn giá</th>
-<th>Số lượng</th>
-<th>Thành tiền</th></tr></thead>
-<tbody>
-<tr>
-<td>
-<div class="product-cell"><img src="../Image/Stussy Shorts Black.png" alt="STUSSY SHORTS BLACK"><strong>STUSSY SHORTS BLACK</strong></div></td>
-<td>Size: L<small>Màu: BLACK</small></td>
-<td>1.890.000đ</td>
-<td>1</td>
-<td>1.890.000đ</td></tr></tbody></table></div>
-<p class="total">Tổng tiền: 1.890.000đ</p></section>
-<section class="card static-record" id="ORD-2026-009">
-<div class="section-heading">
-<h2>ORD-2026-009</h2><span class="badge">Chưa xác nhận</span></div>
-<div class="detail-grid">
-<div>
-<h3>Thông tin người nhận</h3>
-<p><strong>Đặng Thu Hà</strong></p>
-<p>thuha@example.com</p>
-<p>0902345678</p>
-<p>54 Lý Thường Kiệt, Nha Trang, Khánh Hòa</p></div>
-<div>
-<h3>Thông tin đơn hàng</h3>
-<p>Ngày đặt: 06/10/2026</p>
-<p>Thanh toán: Thanh toán trực tuyến</p>
-<label>Trạng thái<select aria-label="Trạng thái đơn ORD-2026-009">
-<option value="pending" selected>Chưa xác nhận</option>
-<option value="confirmed">Đã xác nhận</option>
-<option value="delivered" disabled>Đã giao thành công</option>
-<option value="completed" disabled>Hoàn tất</option>
-<option value="cancelled">Hủy đơn</option></select></label></div></div>
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>Sản phẩm</th>
-<th>Phân loại</th>
-<th>Đơn giá</th>
-<th>Số lượng</th>
-<th>Thành tiền</th></tr></thead>
-<tbody>
-<tr>
-<td>
-<div class="product-cell"><img src="../Image/Stussy Stock Cuff Beanie Black.png" alt="STUSSY STOCK CUFF BEANIE"><strong>STUSSY STOCK CUFF BEANIE</strong></div></td>
-<td>Size: ONE SIZE<small>Màu: BLACK</small></td>
-<td>990.000đ</td>
-<td>1</td>
-<td>990.000đ</td></tr></tbody></table></div>
-<p class="total">Tổng tiền: 990.000đ</p></section>
-<section class="card static-record" id="ORD-2026-010">
-<div class="section-heading">
-<h2>ORD-2026-010</h2><span class="badge">Đã giao thành công</span></div>
-<div class="detail-grid">
-<div>
-<h3>Thông tin người nhận</h3>
-<p><strong>Mai Quốc Bảo</strong></p>
-<p>quocbao@example.com</p>
-<p>0913456789</p>
-<p>102 Lê Duẩn, Thành phố Huế</p></div>
-<div>
-<h3>Thông tin đơn hàng</h3>
-<p>Ngày đặt: 07/10/2026</p>
-<p>Thanh toán: Tiền mặt khi nhận hàng</p>
-<label>Trạng thái<select aria-label="Trạng thái đơn ORD-2026-010">
-<option value="pending" disabled>Chưa xác nhận</option>
-<option value="confirmed" disabled>Đã xác nhận</option>
-<option value="delivered" selected>Đã giao thành công</option>
-<option value="completed">Hoàn tất</option>
-<option value="cancelled" disabled>Hủy đơn</option></select></label></div></div>
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>Sản phẩm</th>
-<th>Phân loại</th>
-<th>Đơn giá</th>
-<th>Số lượng</th>
-<th>Thành tiền</th></tr></thead>
-<tbody>
-<tr>
-<td>
-<div class="product-cell"><img src="../Image/StussyAmsterdamSweatshirt.png" alt="STUSSY AMSTERDAM SWEATSHIRT"><strong>STUSSY AMSTERDAM SWEATSHIRT</strong></div></td>
-<td>Size: XL<small>Màu: GREY</small></td>
-<td>4.170.000đ</td>
-<td>1</td>
-<td>4.170.000đ</td></tr></tbody></table></div>
-<p class="total">Tổng tiền: 4.170.000đ</p></section></div></main></div></div>
-<script src="../JS/admin.js"></script></body></html>
+<div class="static-order-records">
+  <article class="order-card static-record" id="ORD-2026-001" aria-labelledby="title-ORD-2026-001">
+    <header class="order-card-header"><div><p class="order-eyebrow">ĐƠN HÀNG</p><h2 id="title-ORD-2026-001">ORD-2026-001</h2></div><span class="order-state delivered">Đã giao</span></header>
+    <div class="order-info-grid">
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">👤</span> Người nhận</h3><dl class="order-facts"><div><dt>Họ tên</dt><dd>Nguyễn Minh Anh</dd></div><div><dt>Email</dt><dd>minhanh@example.com</dd></div><div><dt>Số điện thoại</dt><dd>0901234567</dd></div><div><dt>Địa chỉ giao hàng</dt><dd>123 Nguyễn Huệ, Phường Sài Gòn, TP. Hồ Chí Minh</dd></div></dl></section>
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▤</span> Thông tin đặt hàng</h3><dl class="order-facts"><div><dt>Ngày đặt</dt><dd><time datetime="2026-09-28T09:00:00+07:00">09:00 · 28/09/2026</time></dd></div><div><dt>Phương thức thanh toán</dt><dd>Thanh toán khi nhận hàng (COD)</dd></div><div><dt>Trạng thái thanh toán</dt><dd>Đã thanh toán khi nhận hàng</dd></div><div><dt>Cập nhật lần cuối</dt><dd><time datetime="2026-09-30T14:20:00+07:00">14:20 · 30/09/2026</time></dd></div></dl></section>
+    </div>
+    <section class="order-panel"><h3>Tiến trình đơn hàng</h3><ol class="order-timeline"><li><strong>Đặt hàng</strong><time datetime="2026-09-28T09:00:00+07:00">09:00 · 28/09/2026</time></li><li><strong>Đã xác nhận</strong><time datetime="2026-09-28T09:30:00+07:00">09:30 · 28/09/2026</time></li><li><strong>Bàn giao vận chuyển</strong><time datetime="2026-09-29T08:15:00+07:00">08:15 · 29/09/2026</time></li><li><strong>Giao hàng thành công</strong><time datetime="2026-09-30T14:20:00+07:00">14:20 · 30/09/2026</time></li></ol></section>
+    <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▣</span> Sản phẩm trong đơn</h3><div class="order-table-wrap"><table class="order-table"><thead><tr><th scope="col">Sản phẩm</th><th scope="col">Phân loại</th><th scope="col">Đơn giá</th><th scope="col">Số lượng</th><th scope="col">Thành tiền</th></tr></thead><tbody>
+            <tr><td><div class="order-product"><img src="../Image/VICTORIA TEE.jpg" alt="VICTORIA TEE"><strong>VICTORIA TEE</strong></div></td><td>BLACK / M</td><td>1.260.000đ</td><td>1</td><td>1.260.000đ</td></tr>
+        </tbody></table></div></section>
+    <div class="order-summary"><dl><div><dt>Tiền hàng</dt><dd>1.260.000đ</dd></div><div><dt>Phí vận chuyển</dt><dd>0đ</dd></div><div class="order-grand-total"><dt>Tổng tiền đơn hàng</dt><dd>1.260.000đ</dd></div></dl></div>
+  </article>
+  <article class="order-card static-record" id="ORD-2026-002" aria-labelledby="title-ORD-2026-002">
+    <header class="order-card-header"><div><p class="order-eyebrow">ĐƠN HÀNG</p><h2 id="title-ORD-2026-002">ORD-2026-002</h2></div><span class="order-state delivered">Hoàn tất</span></header>
+    <div class="order-info-grid">
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">👤</span> Người nhận</h3><dl class="order-facts"><div><dt>Họ tên</dt><dd>Trần Hoàng Nam</dd></div><div><dt>Email</dt><dd>hoangnam@example.com</dd></div><div><dt>Số điện thoại</dt><dd>0912345678</dd></div><div><dt>Địa chỉ giao hàng</dt><dd>25 Lê Lợi, Phường Sài Gòn, TP. Hồ Chí Minh</dd></div></dl></section>
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▤</span> Thông tin đặt hàng</h3><dl class="order-facts"><div><dt>Ngày đặt</dt><dd>29/09/2026</dd></div><div><dt>Phương thức thanh toán</dt><dd>Tiền mặt khi nhận hàng</dd></div></dl></section>
+    </div>
+    <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▣</span> Sản phẩm trong đơn</h3><div class="order-table-wrap"><table class="order-table"><thead><tr><th scope="col">Sản phẩm</th><th scope="col">Phân loại</th><th scope="col">Đơn giá</th><th scope="col">Số lượng</th><th scope="col">Thành tiền</th></tr></thead><tbody>
+            <tr><td><div class="order-product"><img src="../Image/TEXTURED ZIP HOODED SWEATER.jpg" alt="TEXTURED ZIP HOODED SWEATER"><strong>TEXTURED ZIP HOODED SWEATER</strong></div></td><td>Size: L · Màu: BLACK</td><td>3.750.000đ</td><td>1</td><td>3.750.000đ</td></tr>
+        </tbody></table></div></section>
+    <div class="order-summary"><dl><div><dt>Tiền hàng</dt><dd>3.750.000đ</dd></div><div><dt>Phí vận chuyển</dt><dd>0đ</dd></div><div class="order-grand-total"><dt>Tổng tiền đơn hàng</dt><dd>3.750.000đ</dd></div></dl></div>
+  </article>
+  <article class="order-card static-record" id="ORD-2026-003" aria-labelledby="title-ORD-2026-003">
+    <header class="order-card-header"><div><p class="order-eyebrow">ĐƠN HÀNG</p><h2 id="title-ORD-2026-003">ORD-2026-003</h2></div><span class="order-state delivered">Đã giao thành công</span></header>
+    <div class="order-info-grid">
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">👤</span> Người nhận</h3><dl class="order-facts"><div><dt>Họ tên</dt><dd>Lê Khánh Linh</dd></div><div><dt>Email</dt><dd>khanhlinh@example.com</dd></div><div><dt>Số điện thoại</dt><dd>0923456789</dd></div><div><dt>Địa chỉ giao hàng</dt><dd>88 Nguyễn Trãi, Phường Thanh Xuân, Hà Nội</dd></div></dl></section>
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▤</span> Thông tin đặt hàng</h3><dl class="order-facts"><div><dt>Ngày đặt</dt><dd>30/09/2026</dd></div><div><dt>Phương thức thanh toán</dt><dd>Chuyển khoản ngân hàng</dd></div></dl></section>
+    </div>
+    <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▣</span> Sản phẩm trong đơn</h3><div class="order-table-wrap"><table class="order-table"><thead><tr><th scope="col">Sản phẩm</th><th scope="col">Phân loại</th><th scope="col">Đơn giá</th><th scope="col">Số lượng</th><th scope="col">Thành tiền</th></tr></thead><tbody>
+            <tr><td><div class="order-product"><img src="../Image/worldteecamo.png" alt="STUSSY WORLD TOUR TEE CAMO"><strong>STUSSY WORLD TOUR TEE CAMO</strong></div></td><td>Size: M · Màu: CAMO</td><td>2.970.000đ</td><td>1</td><td>2.970.000đ</td></tr>
+        </tbody></table></div></section>
+    <div class="order-summary"><dl><div><dt>Tiền hàng</dt><dd>2.970.000đ</dd></div><div><dt>Phí vận chuyển</dt><dd>0đ</dd></div><div class="order-grand-total"><dt>Tổng tiền đơn hàng</dt><dd>2.970.000đ</dd></div></dl></div>
+  </article>
+  <article class="order-card static-record" id="ORD-2026-004" aria-labelledby="title-ORD-2026-004">
+    <header class="order-card-header"><div><p class="order-eyebrow">ĐƠN HÀNG</p><h2 id="title-ORD-2026-004">ORD-2026-004</h2></div><span class="order-state pending">Đã xác nhận</span></header>
+    <div class="order-info-grid">
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">👤</span> Người nhận</h3><dl class="order-facts"><div><dt>Họ tên</dt><dd>Phạm Gia Huy</dd></div><div><dt>Email</dt><dd>giahuy@example.com</dd></div><div><dt>Số điện thoại</dt><dd>0934567890</dd></div><div><dt>Địa chỉ giao hàng</dt><dd>16 Trần Phú, Hải Châu, Đà Nẵng</dd></div></dl></section>
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▤</span> Thông tin đặt hàng</h3><dl class="order-facts"><div><dt>Ngày đặt</dt><dd>01/10/2026</dd></div><div><dt>Phương thức thanh toán</dt><dd>Tiền mặt khi nhận hàng</dd></div></dl></section>
+    </div>
+    <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▣</span> Sản phẩm trong đơn</h3><div class="order-table-wrap"><table class="order-table"><thead><tr><th scope="col">Sản phẩm</th><th scope="col">Phân loại</th><th scope="col">Đơn giá</th><th scope="col">Số lượng</th><th scope="col">Thành tiền</th></tr></thead><tbody>
+            <tr><td><div class="order-product"><img src="../Image/TRUCKER JACKET DENIM.jpg" alt="TRUCKER JACKET DENIM"><strong>TRUCKER JACKET DENIM</strong></div></td><td>Size: L · Màu: BLUE</td><td>3.540.000đ</td><td>1</td><td>3.540.000đ</td></tr>
+        </tbody></table></div></section>
+    <div class="order-summary"><dl><div><dt>Tiền hàng</dt><dd>3.540.000đ</dd></div><div><dt>Phí vận chuyển</dt><dd>0đ</dd></div><div class="order-grand-total"><dt>Tổng tiền đơn hàng</dt><dd>3.540.000đ</dd></div></dl></div>
+  </article>
+  <article class="order-card static-record" id="ORD-2026-005" aria-labelledby="title-ORD-2026-005">
+    <header class="order-card-header"><div><p class="order-eyebrow">ĐƠN HÀNG</p><h2 id="title-ORD-2026-005">ORD-2026-005</h2></div><span class="order-state pending">Chưa xác nhận</span></header>
+    <div class="order-info-grid">
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">👤</span> Người nhận</h3><dl class="order-facts"><div><dt>Họ tên</dt><dd>Võ Ngọc Anh</dd></div><div><dt>Email</dt><dd>ngocanh@example.com</dd></div><div><dt>Số điện thoại</dt><dd>0945678901</dd></div><div><dt>Địa chỉ giao hàng</dt><dd>42 Phan Xích Long, Phú Nhuận, TP. Hồ Chí Minh</dd></div></dl></section>
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▤</span> Thông tin đặt hàng</h3><dl class="order-facts"><div><dt>Ngày đặt</dt><dd>02/10/2026</dd></div><div><dt>Phương thức thanh toán</dt><dd>Thanh toán trực tuyến</dd></div></dl></section>
+    </div>
+    <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▣</span> Sản phẩm trong đơn</h3><div class="order-table-wrap"><table class="order-table"><thead><tr><th scope="col">Sản phẩm</th><th scope="col">Phân loại</th><th scope="col">Đơn giá</th><th scope="col">Số lượng</th><th scope="col">Thành tiền</th></tr></thead><tbody>
+            <tr><td><div class="order-product"><img src="../Image/pounchbag.png" alt="STUSSY POUCH BAG"><strong>STUSSY POUCH BAG</strong></div></td><td>Size: ONE SIZE · Màu: BLACK</td><td>1.590.000đ</td><td>1</td><td>1.590.000đ</td></tr>
+        </tbody></table></div></section>
+    <div class="order-summary"><dl><div><dt>Tiền hàng</dt><dd>1.590.000đ</dd></div><div><dt>Phí vận chuyển</dt><dd>0đ</dd></div><div class="order-grand-total"><dt>Tổng tiền đơn hàng</dt><dd>1.590.000đ</dd></div></dl></div>
+  </article>
+  <article class="order-card static-record" id="ORD-2026-006" aria-labelledby="title-ORD-2026-006">
+    <header class="order-card-header"><div><p class="order-eyebrow">ĐƠN HÀNG</p><h2 id="title-ORD-2026-006">ORD-2026-006</h2></div><span class="order-state delivered">Đã giao thành công</span></header>
+    <div class="order-info-grid">
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">👤</span> Người nhận</h3><dl class="order-facts"><div><dt>Họ tên</dt><dd>Bùi Thanh Tâm</dd></div><div><dt>Email</dt><dd>thanhtam@example.com</dd></div><div><dt>Số điện thoại</dt><dd>0978901234</dd></div><div><dt>Địa chỉ giao hàng</dt><dd>19 Điện Biên Phủ, Bình Thạnh, TP. Hồ Chí Minh</dd></div></dl></section>
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▤</span> Thông tin đặt hàng</h3><dl class="order-facts"><div><dt>Ngày đặt</dt><dd>03/10/2026</dd></div><div><dt>Phương thức thanh toán</dt><dd>Tiền mặt khi nhận hàng</dd></div></dl></section>
+    </div>
+    <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▣</span> Sản phẩm trong đơn</h3><div class="order-table-wrap"><table class="order-table"><thead><tr><th scope="col">Sản phẩm</th><th scope="col">Phân loại</th><th scope="col">Đơn giá</th><th scope="col">Số lượng</th><th scope="col">Thành tiền</th></tr></thead><tbody>
+            <tr><td><div class="order-product"><img src="../Image/7blacktee.png" alt="STUSSY S MARK 7 BLACK TEE"><strong>STUSSY S MARK 7 BLACK TEE</strong></div></td><td>Size: M · Màu: BLACK</td><td>3.270.000đ</td><td>1</td><td>3.270.000đ</td></tr>
+        </tbody></table></div></section>
+    <div class="order-summary"><dl><div><dt>Tiền hàng</dt><dd>3.270.000đ</dd></div><div><dt>Phí vận chuyển</dt><dd>0đ</dd></div><div class="order-grand-total"><dt>Tổng tiền đơn hàng</dt><dd>3.270.000đ</dd></div></dl></div>
+  </article>
+  <article class="order-card static-record" id="ORD-2026-007" aria-labelledby="title-ORD-2026-007">
+    <header class="order-card-header"><div><p class="order-eyebrow">ĐƠN HÀNG</p><h2 id="title-ORD-2026-007">ORD-2026-007</h2></div><span class="order-state delivered">Hoàn tất</span></header>
+    <div class="order-info-grid">
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">👤</span> Người nhận</h3><dl class="order-facts"><div><dt>Họ tên</dt><dd>Phan Quỳnh Mai</dd></div><div><dt>Email</dt><dd>quynhmai@example.com</dd></div><div><dt>Số điện thoại</dt><dd>0989012345</dd></div><div><dt>Địa chỉ giao hàng</dt><dd>61 Trần Hưng Đạo, Hoàn Kiếm, Hà Nội</dd></div></dl></section>
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▤</span> Thông tin đặt hàng</h3><dl class="order-facts"><div><dt>Ngày đặt</dt><dd>04/10/2026</dd></div><div><dt>Phương thức thanh toán</dt><dd>Chuyển khoản ngân hàng</dd></div></dl></section>
+    </div>
+    <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▣</span> Sản phẩm trong đơn</h3><div class="order-table-wrap"><table class="order-table"><thead><tr><th scope="col">Sản phẩm</th><th scope="col">Phân loại</th><th scope="col">Đơn giá</th><th scope="col">Số lượng</th><th scope="col">Thành tiền</th></tr></thead><tbody>
+            <tr><td><div class="order-product"><img src="../Image/SunsetTeeFOG.png" alt="STUSSY SUNSET TEE FOG"><strong>STUSSY SUNSET TEE FOG</strong></div></td><td>Size: S · Màu: FOG</td><td>3.870.000đ</td><td>1</td><td>3.870.000đ</td></tr>
+        </tbody></table></div></section>
+    <div class="order-summary"><dl><div><dt>Tiền hàng</dt><dd>3.870.000đ</dd></div><div><dt>Phí vận chuyển</dt><dd>0đ</dd></div><div class="order-grand-total"><dt>Tổng tiền đơn hàng</dt><dd>3.870.000đ</dd></div></dl></div>
+  </article>
+  <article class="order-card static-record" id="ORD-2026-008" aria-labelledby="title-ORD-2026-008">
+    <header class="order-card-header"><div><p class="order-eyebrow">ĐƠN HÀNG</p><h2 id="title-ORD-2026-008">ORD-2026-008</h2></div><span class="order-state pending">Đã xác nhận</span></header>
+    <div class="order-info-grid">
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">👤</span> Người nhận</h3><dl class="order-facts"><div><dt>Họ tên</dt><dd>Hồ Đức Anh</dd></div><div><dt>Email</dt><dd>ducanh@example.com</dd></div><div><dt>Số điện thoại</dt><dd>0990123456</dd></div><div><dt>Địa chỉ giao hàng</dt><dd>27 Nguyễn Văn Linh, Hải Châu, Đà Nẵng</dd></div></dl></section>
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▤</span> Thông tin đặt hàng</h3><dl class="order-facts"><div><dt>Ngày đặt</dt><dd>05/10/2026</dd></div><div><dt>Phương thức thanh toán</dt><dd>Tiền mặt khi nhận hàng</dd></div></dl></section>
+    </div>
+    <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▣</span> Sản phẩm trong đơn</h3><div class="order-table-wrap"><table class="order-table"><thead><tr><th scope="col">Sản phẩm</th><th scope="col">Phân loại</th><th scope="col">Đơn giá</th><th scope="col">Số lượng</th><th scope="col">Thành tiền</th></tr></thead><tbody>
+            <tr><td><div class="order-product"><img src="../Image/Stussy Shorts Black.png" alt="STUSSY SHORTS BLACK"><strong>STUSSY SHORTS BLACK</strong></div></td><td>Size: L · Màu: BLACK</td><td>1.890.000đ</td><td>1</td><td>1.890.000đ</td></tr>
+        </tbody></table></div></section>
+    <div class="order-summary"><dl><div><dt>Tiền hàng</dt><dd>1.890.000đ</dd></div><div><dt>Phí vận chuyển</dt><dd>0đ</dd></div><div class="order-grand-total"><dt>Tổng tiền đơn hàng</dt><dd>1.890.000đ</dd></div></dl></div>
+  </article>
+  <article class="order-card static-record" id="ORD-2026-009" aria-labelledby="title-ORD-2026-009">
+    <header class="order-card-header"><div><p class="order-eyebrow">ĐƠN HÀNG</p><h2 id="title-ORD-2026-009">ORD-2026-009</h2></div><span class="order-state pending">Chưa xác nhận</span></header>
+    <div class="order-info-grid">
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">👤</span> Người nhận</h3><dl class="order-facts"><div><dt>Họ tên</dt><dd>Đặng Thu Hà</dd></div><div><dt>Email</dt><dd>thuha@example.com</dd></div><div><dt>Số điện thoại</dt><dd>0902345678</dd></div><div><dt>Địa chỉ giao hàng</dt><dd>54 Lý Thường Kiệt, Nha Trang, Khánh Hòa</dd></div></dl></section>
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▤</span> Thông tin đặt hàng</h3><dl class="order-facts"><div><dt>Ngày đặt</dt><dd>06/10/2026</dd></div><div><dt>Phương thức thanh toán</dt><dd>Thanh toán trực tuyến</dd></div></dl></section>
+    </div>
+    <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▣</span> Sản phẩm trong đơn</h3><div class="order-table-wrap"><table class="order-table"><thead><tr><th scope="col">Sản phẩm</th><th scope="col">Phân loại</th><th scope="col">Đơn giá</th><th scope="col">Số lượng</th><th scope="col">Thành tiền</th></tr></thead><tbody>
+            <tr><td><div class="order-product"><img src="../Image/Stussy Stock Cuff Beanie Black.png" alt="STUSSY STOCK CUFF BEANIE"><strong>STUSSY STOCK CUFF BEANIE</strong></div></td><td>Size: ONE SIZE · Màu: BLACK</td><td>990.000đ</td><td>1</td><td>990.000đ</td></tr>
+        </tbody></table></div></section>
+    <div class="order-summary"><dl><div><dt>Tiền hàng</dt><dd>990.000đ</dd></div><div><dt>Phí vận chuyển</dt><dd>0đ</dd></div><div class="order-grand-total"><dt>Tổng tiền đơn hàng</dt><dd>990.000đ</dd></div></dl></div>
+  </article>
+  <article class="order-card static-record" id="ORD-2026-010" aria-labelledby="title-ORD-2026-010">
+    <header class="order-card-header"><div><p class="order-eyebrow">ĐƠN HÀNG</p><h2 id="title-ORD-2026-010">ORD-2026-010</h2></div><span class="order-state delivered">Đã giao thành công</span></header>
+    <div class="order-info-grid">
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">👤</span> Người nhận</h3><dl class="order-facts"><div><dt>Họ tên</dt><dd>Mai Quốc Bảo</dd></div><div><dt>Email</dt><dd>quocbao@example.com</dd></div><div><dt>Số điện thoại</dt><dd>0913456789</dd></div><div><dt>Địa chỉ giao hàng</dt><dd>102 Lê Duẩn, Thành phố Huế</dd></div></dl></section>
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▤</span> Thông tin đặt hàng</h3><dl class="order-facts"><div><dt>Ngày đặt</dt><dd>07/10/2026</dd></div><div><dt>Phương thức thanh toán</dt><dd>Tiền mặt khi nhận hàng</dd></div></dl></section>
+    </div>
+    <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▣</span> Sản phẩm trong đơn</h3><div class="order-table-wrap"><table class="order-table"><thead><tr><th scope="col">Sản phẩm</th><th scope="col">Phân loại</th><th scope="col">Đơn giá</th><th scope="col">Số lượng</th><th scope="col">Thành tiền</th></tr></thead><tbody>
+            <tr><td><div class="order-product"><img src="../Image/StussyAmsterdamSweatshirt.png" alt="STUSSY AMSTERDAM SWEATSHIRT"><strong>STUSSY AMSTERDAM SWEATSHIRT</strong></div></td><td>Size: XL · Màu: GREY</td><td>4.170.000đ</td><td>1</td><td>4.170.000đ</td></tr>
+        </tbody></table></div></section>
+    <div class="order-summary"><dl><div><dt>Tiền hàng</dt><dd>4.170.000đ</dd></div><div><dt>Phí vận chuyển</dt><dd>0đ</dd></div><div class="order-grand-total"><dt>Tổng tiền đơn hàng</dt><dd>4.170.000đ</dd></div></dl></div>
+  </article>
+  <article class="order-card static-record" id="ORD-2026-011" aria-labelledby="title-ORD-2026-011">
+    <header class="order-card-header"><div><p class="order-eyebrow">ĐƠN HÀNG</p><h2 id="title-ORD-2026-011">ORD-2026-011</h2></div><span class="order-state delivered">Đã giao</span></header>
+    <div class="order-info-grid">
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">👤</span> Người nhận</h3><dl class="order-facts"><div><dt>Họ tên</dt><dd>Nguyễn Minh Anh</dd></div><div><dt>Email</dt><dd>minhanh@example.com</dd></div><div><dt>Số điện thoại</dt><dd>0901234567</dd></div><div><dt>Địa chỉ giao hàng</dt><dd>123 Nguyễn Huệ, Phường Sài Gòn, TP. Hồ Chí Minh</dd></div></dl></section>
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▤</span> Thông tin đặt hàng</h3><dl class="order-facts"><div><dt>Ngày đặt</dt><dd><time datetime="2026-10-10T15:45:00+07:00">15:45 · 10/10/2026</time></dd></div><div><dt>Phương thức thanh toán</dt><dd>Chuyển khoản ngân hàng</dd></div><div><dt>Trạng thái thanh toán</dt><dd>Đã thanh toán qua chuyển khoản</dd></div><div><dt>Cập nhật lần cuối</dt><dd><time datetime="2026-10-12T11:35:00+07:00">11:35 · 12/10/2026</time></dd></div></dl></section>
+    </div>
+    <section class="order-panel"><h3>Tiến trình đơn hàng</h3><ol class="order-timeline"><li><strong>Đặt hàng</strong><time datetime="2026-10-10T15:45:00+07:00">15:45 · 10/10/2026</time></li><li><strong>Đã xác nhận thanh toán</strong><time datetime="2026-10-10T16:00:00+07:00">16:00 · 10/10/2026</time></li><li><strong>Bàn giao vận chuyển</strong><time datetime="2026-10-11T09:10:00+07:00">09:10 · 11/10/2026</time></li><li><strong>Giao hàng thành công</strong><time datetime="2026-10-12T11:35:00+07:00">11:35 · 12/10/2026</time></li></ol></section>
+    <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▣</span> Sản phẩm trong đơn</h3><div class="order-table-wrap"><table class="order-table"><thead><tr><th scope="col">Sản phẩm</th><th scope="col">Phân loại</th><th scope="col">Đơn giá</th><th scope="col">Số lượng</th><th scope="col">Thành tiền</th></tr></thead><tbody>
+            <tr><td><div class="order-product"><img src="../Image/TEXTURED ZIP HOODED SWEATER.jpg" alt="TEXTURED ZIP HOODED SWEATER"><strong>TEXTURED ZIP HOODED SWEATER</strong></div></td><td>BLACK / L</td><td>3.750.000đ</td><td>1</td><td>3.750.000đ</td></tr>
+        </tbody></table></div></section>
+    <div class="order-summary"><dl><div><dt>Tiền hàng</dt><dd>3.750.000đ</dd></div><div><dt>Phí vận chuyển</dt><dd>0đ</dd></div><div class="order-grand-total"><dt>Tổng tiền đơn hàng</dt><dd>3.750.000đ</dd></div></dl></div>
+  </article>
+  <article class="order-card static-record" id="ORD-2026-012" aria-labelledby="title-ORD-2026-012">
+    <header class="order-card-header"><div><p class="order-eyebrow">ĐƠN HÀNG</p><h2 id="title-ORD-2026-012">ORD-2026-012</h2></div><span class="order-state shipping">Đang giao</span></header>
+    <div class="order-info-grid">
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">👤</span> Người nhận</h3><dl class="order-facts"><div><dt>Họ tên</dt><dd>Nguyễn Minh Anh</dd></div><div><dt>Email</dt><dd>minhanh@example.com</dd></div><div><dt>Số điện thoại</dt><dd>0901234567</dd></div><div><dt>Địa chỉ giao hàng</dt><dd>123 Nguyễn Huệ, Phường Sài Gòn, TP. Hồ Chí Minh</dd></div></dl></section>
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▤</span> Thông tin đặt hàng</h3><dl class="order-facts"><div><dt>Ngày đặt</dt><dd><time datetime="2026-10-20T10:20:00+07:00">10:20 · 20/10/2026</time></dd></div><div><dt>Phương thức thanh toán</dt><dd>Thanh toán khi nhận hàng (COD)</dd></div><div><dt>Trạng thái thanh toán</dt><dd>Chưa thanh toán – thu tiền khi giao hàng</dd></div><div><dt>Cập nhật lần cuối</dt><dd><time datetime="2026-10-21T08:30:00+07:00">08:30 · 21/10/2026</time></dd></div></dl></section>
+    </div>
+    <section class="order-panel"><h3>Tiến trình đơn hàng</h3><ol class="order-timeline"><li><strong>Đặt hàng</strong><time datetime="2026-10-20T10:20:00+07:00">10:20 · 20/10/2026</time></li><li><strong>Đã xác nhận</strong><time datetime="2026-10-20T10:50:00+07:00">10:50 · 20/10/2026</time></li><li><strong>Đang giao hàng</strong><time datetime="2026-10-21T08:30:00+07:00">08:30 · 21/10/2026</time></li></ol></section>
+    <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▣</span> Sản phẩm trong đơn</h3><div class="order-table-wrap"><table class="order-table"><thead><tr><th scope="col">Sản phẩm</th><th scope="col">Phân loại</th><th scope="col">Đơn giá</th><th scope="col">Số lượng</th><th scope="col">Thành tiền</th></tr></thead><tbody>
+            <tr><td><div class="order-product"><img src="../Image/worldteecamo.png" alt="STUSSY WORLD TOUR TEE CAMO"><strong>STUSSY WORLD TOUR TEE CAMO</strong></div></td><td>CAMO / M</td><td>2.970.000đ</td><td>1</td><td>2.970.000đ</td></tr>
+            <tr><td><div class="order-product"><img src="../Image/TEXTURED ZIP HOODED SWEATER.jpg" alt="TEXTURED ZIP HOODED SWEATER"><strong>TEXTURED ZIP HOODED SWEATER</strong></div></td><td>BLACK / L</td><td>3.750.000đ</td><td>1</td><td>3.750.000đ</td></tr>
+        </tbody></table></div></section>
+    <div class="order-summary"><dl><div><dt>Tiền hàng</dt><dd>6.720.000đ</dd></div><div><dt>Phí vận chuyển</dt><dd>0đ</dd></div><div class="order-grand-total"><dt>Tổng tiền đơn hàng</dt><dd>6.720.000đ</dd></div></dl></div>
+  </article>
+  <article class="order-card static-record" id="ORD-2026-013" aria-labelledby="title-ORD-2026-013">
+    <header class="order-card-header"><div><p class="order-eyebrow">ĐƠN HÀNG</p><h2 id="title-ORD-2026-013">ORD-2026-013</h2></div><span class="order-state cancelled">Đã hủy</span></header>
+    <div class="order-info-grid">
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">👤</span> Người nhận</h3><dl class="order-facts"><div><dt>Họ tên</dt><dd>Nguyễn Minh Anh</dd></div><div><dt>Email</dt><dd>minhanh@example.com</dd></div><div><dt>Số điện thoại</dt><dd>0901234567</dd></div><div><dt>Địa chỉ giao hàng</dt><dd>123 Nguyễn Huệ, Phường Sài Gòn, TP. Hồ Chí Minh</dd></div></dl></section>
+      <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▤</span> Thông tin đặt hàng</h3><dl class="order-facts"><div><dt>Ngày đặt</dt><dd><time datetime="2026-10-25T18:10:00+07:00">18:10 · 25/10/2026</time></dd></div><div><dt>Phương thức thanh toán</dt><dd>Thanh toán khi nhận hàng (COD)</dd></div><div><dt>Trạng thái thanh toán</dt><dd>Không phát sinh thanh toán</dd></div><div><dt>Cập nhật lần cuối</dt><dd><time datetime="2026-10-25T18:40:00+07:00">18:40 · 25/10/2026</time></dd></div><div><dt>Lý do hủy</dt><dd>Khách hàng đổi nhu cầu mua sắm.</dd></div></dl></section>
+    </div>
+    <section class="order-panel"><h3>Tiến trình đơn hàng</h3><ol class="order-timeline"><li><strong>Đặt hàng</strong><time datetime="2026-10-25T18:10:00+07:00">18:10 · 25/10/2026</time></li><li><strong>Khách hàng yêu cầu hủy đơn</strong><time datetime="2026-10-25T18:35:00+07:00">18:35 · 25/10/2026</time></li><li><strong>Đã hủy đơn</strong><time datetime="2026-10-25T18:40:00+07:00">18:40 · 25/10/2026</time></li></ol></section>
+    <section class="order-panel"><h3><span class="ui-icon" aria-hidden="true">▣</span> Sản phẩm trong đơn</h3><div class="order-table-wrap"><table class="order-table"><thead><tr><th scope="col">Sản phẩm</th><th scope="col">Phân loại</th><th scope="col">Đơn giá</th><th scope="col">Số lượng</th><th scope="col">Thành tiền</th></tr></thead><tbody>
+            <tr><td><div class="order-product"><img src="../Image/Stussy Stock Cuff Beanie Black.png" alt="STUSSY STOCK CUFF BEANIE"><strong>STUSSY STOCK CUFF BEANIE</strong></div></td><td>BLACK / ONE SIZE</td><td>990.000đ</td><td>1</td><td>990.000đ</td></tr>
+        </tbody></table></div></section>
+    <div class="order-summary"><dl><div><dt>Tiền hàng</dt><dd>990.000đ</dd></div><div><dt>Phí vận chuyển</dt><dd>0đ</dd></div><div class="order-grand-total"><dt>Tổng tiền đơn hàng</dt><dd>990.000đ</dd></div></dl><p class="order-cancel-note">Đơn hàng đã hủy · Không phát sinh thanh toán.</p></div>
+  </article>
+</div>
+</main></div></div>
+</body></html>
